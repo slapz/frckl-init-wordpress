@@ -1,0 +1,34 @@
+/*
+Theme Name: Default Theme
+Theme URI: http://domain.de
+Description: Default kickstarter-theme for Wordpress
+Version: 1.0
+Author: Steffen Becker
+Author URI: http://webgefrickel.de
+Tags: html5
+License: GNU General Public License v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
+  Built by Steffen Becker
+  
+*/
+
+/* 
+  Have a look in the folder css. The files there are used
+  to styles the site. They are inlcuded and compressed by
+  the index.php-Script in the css-folder in the following order:
+
+  - reset.css
+  - style.css
+  - print.css
+  - colorbox.css (for the Lightbox inlcuded in this package)
+
+  Edit only the css-files in the folder css, not this one,
+  because it is not included in the html. Feel free to add
+  css-files but remember to add a line in the index.php file
+  in the folder css to include them.
+   
+ */
+
+
+

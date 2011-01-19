@@ -1,0 +1,63 @@
+/* CSS-Styles for domain.de 
+
+Colors:
+-------
+Color:         333
+Other Color:   aaa
+
+*/
+@media all {
+
+/*=============== Default Styling ===============*/
+body                          { font: normal 14px/1.4 Arial, Verdana, sans-serif; background: #fff; color: #333; }
+p, table, figure, h1, h2, h3, 
+h4, h5, h6, fieldset, pre, 
+blockquote, iframe, object, 
+audio, video, canvas          { margin-bottom: 20px; } /* basic bottom margin for content-elements ~= line-height */
+h1, h2, h3, h4, h5, h6        { font: bold 160%/1.4 Georgia, "Times New Roman", serif; }
+h2                            { font-size: 140%; }
+h3                            { font-size: 120%; }
+h4                            { font-size: 100%; }
+h5                            { font-size: 90%; }
+h6                            { font-size: 80%; }
+li > ul                       { margin-left: 14px; }
+a                             { color: #f00; }
+a:hover                       {  }
+:focus                        {  }
+
+/* Wordpress default-styles */
+.wp-caption                   {  }
+.wp-caption-text              {  }
+.gallery-caption              {  }
+.alignleft                    {  }
+.aligncenter                  {  }
+.alignright                   {  }
+.sticky                       {  }
+.bypostauthor                 {  }
+
+#container                    { width: 960px; margin: 0 auto; position: relative; } 
+
+
+/*=============== Header ===============*/
+#header                       {  }
+
+
+/*=============== Navigation ===============*/
+#nav                          {  }
+#nav a                        {  }
+
+
+/*=============== Main Area ===============*/
+#main                         {  }
+#content                      {  }
+
+
+/*=============== Footer ===============*/
+#footer                       {  }
+
+
+/*=============== Content Elements ===============*/
+#content ul                   { margin: 0 0 20px 20px; }
+
+
+} /* end @media all */
