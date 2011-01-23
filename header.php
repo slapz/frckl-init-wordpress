@@ -33,8 +33,6 @@
       </hgroup>
     </header>
     
-    <nav id="pages">
-      <ul>
-        <?php wp_list_pages('title_li='); ?>
-      </ul>
+    <nav id="nav">
+      <?php wp_nav_menu(array('menu' => 'custom_menu', 'container' => 'none', 'menu_class' => 'clearfix')); ?>
     </nav>

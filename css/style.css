@@ -9,55 +9,122 @@ Other Color:   aaa
 @media all {
 
 /*=============== Default Styling ===============*/
-body                          { font: normal 14px/1.4 Arial, Verdana, sans-serif; background: #fff; color: #333; }
+body                          { font: normal 14px/1.4 Arial, Verdana, sans-serif; background: #fff url(../img/bg.jpg); color: #333; }
 p, table, figure, h1, h2, h3, 
 h4, h5, h6, fieldset, pre, 
 blockquote, iframe, object, 
-audio, video, canvas          { margin-bottom: 20px; } /* basic bottom margin for content-elements ~= line-height */
-h1, h2, h3, h4, h5, h6        { font: bold 160%/1.4 Georgia, "Times New Roman", serif; }
+audio, video, canvas          { margin-bottom: 14px; } /* basic bottom margin for content-elements ~= line-height */
+li > ul                       { margin-left: 20px; }
+h1, h2, h3, h4, h5, h6        { font: bold 160%/1.4 Georgia, Times, serif; clear: both; }
 h2                            { font-size: 140%; }
 h3                            { font-size: 120%; }
 h4                            { font-size: 100%; }
 h5                            { font-size: 90%; }
 h6                            { font-size: 80%; }
-li > ul                       { margin-left: 14px; }
-a                             { color: #f00; }
+a                             { color: #28AF69; }
 a:hover                       {  }
 :focus                        {  }
-
-/* Wordpress default-styles */
-.wp-caption                   {  }
-.wp-caption-text              {  }
-.gallery-caption              {  }
-.alignleft                    {  }
-.aligncenter                  {  }
-.alignright                   {  }
-.sticky                       {  }
-.bypostauthor                 {  }
 
 #container                    { width: 960px; margin: 0 auto; position: relative; } 
 
 
 /*=============== Header ===============*/
-#header                       {  }
+#header                       { padding: 20px; margin-bottom: 20px;
+                                background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#ffffff));
+                                background: -moz-linear-gradient(top, #fff, #e9e9e9);
+                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333;
+                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; 
+                                -webkit-border-top-left-radius: 0; -webkit-border-top-right-radius: 0;
+                                -moz-border-topleft-radius: 0; -moz-border-topright-radius: 0; }
+#header h1 a                  { text-shadow: 1px 1px 1px #999; color: #333; text-decoration: none; }
+#header h2                    { font: normal 120%/1.4 Arial, sans-serif; margin-bottom: 0; }
 
 
 /*=============== Navigation ===============*/
-#nav                          {  }
-#nav a                        {  }
+#nav                          { margin-bottom: 20px; }
+#nav ul                       { display: block; clear: left; padding: 0 15px; margin: 0 0 10px 0; background: #ccc; 
+                                background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e9e9e9));
+                                background: -moz-linear-gradient(top, #fff, #e9e9e9);
+                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333;
+                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+#nav li                       { margin: 0; float: left; display: block; list-style: none; }
+#nav a                        { padding: 10px; display: block; color: #666; text-decoration: none; text-shadow: 1px 1px 1px #fff; }
+#nav a:hover                  { color: #000; }
+#nav li ul                    { margin: 0 0 0 -15px; display: none; 
+                                -webkit-border-top-left-radius: 0; -webkit-border-top-right-radius: 0;
+                                -moz-border-topleft-radius: 0; -moz-border-topright-radius: 0;
+                                border-top-left-radius: 0; border-top-right-radius: 0; }
+#nav li:hover ul              { display: block; position: absolute; }
+#nav li li                    { clear: left; }
 
 
-/*=============== Main Area ===============*/
+/*=============== Main Area & Content Elements ===============*/
 #main                         {  }
-#content                      {  }
+#content                      { width: 640px; float: left; }
+#content ul                   { margin: 0 0 20px 20px; }
+#content img                  { height: auto; max-width: 100%; margin-bottom: 20px; }
+#content article              { background: #fff; }
 
+.post, .page                  { margin-bottom: 20px;
+                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; 
+                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333; }
+.articleHeader h1             { margin-bottom: 0px; }
+.articleHeader                { padding: 12px 20px; border-bottom: 1px solid #999; }
+.articleHeader h1 a           { text-decoration: none; }
+.articleContent               { padding: 20px 20px 0; }
+.articleHeader p,
+.articleFooter p              { margin-bottom: 0; font-size: 80%; }
+.articleFooter                { padding: 12px 20px; background: #eee; border-top: 1px solid #999; clear: both; }
+.page .articleContent         { padding-bottom: 20px; }
+.page .articleFooter          { display: none; }
+.postsNavigation p            { text-align: center; }
+
+#content .sticky              { background: #D4FFE9; }
+
+#comments .comment            { padding: 14px; background: #eee; margin-bottom: 20px;
+                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333;
+                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+#comments .odd                { background: #fafafa; }
+#comments .bypostauthor       { border: 1px solid #28AF69; 
+                                -webkit-box-shadow: 0 0 2px #28AF69; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #28AF69; }
+.commentHeader img            { float: left; margin: 0 14px 14px 0;}
+.commentContent               { overflow: hidden; }
+.commentHeader h3             { font-size: 100%; }
+.pingback h3, .trackback h3   { margin-bottom: 0; }
+.form-allowed-tags            { display: none; }
+#respond label                { display: block; }
+#respond fieldset             { border: 1px solid #999; padding: 20px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;}
+#respond textarea             { width: 90%; }
+#respond fieldset p           { margin-bottom: 0; }
+
+#content .alignleft           { display: inline; float: left; margin-right: 20px; }
+#content .alignright          { display: inline; float: right; margin-left: 20px; }
+#content .aligncenter         { clear: both; display: block; margin: 0 auto; }
+#content .wp-caption          { background: #eee; margin-bottom: 20px; padding: 4px; text-align: center; }
+#content .wp-caption img      { margin: 5px 5px 0; }
+#content .gallery-caption,
+#content .wp-caption-text     { color: #666; font-size: 80%; margin: 5px; }
+#content .wp-smiley           { margin: 0; }
+
+#content .gallery             { margin: 0 auto 18px; }
+#content .gallery-item        { float: left; margin-top: 0; text-align: center; width: 33%; }
+#content .gallery img         { border: 2px solid #ccc; }
+#content .gallery dl          { margin: 0; }
+#content .gallery img         { border: 10px solid #eee; }
+#content .gallery br+br       { display:none; }
+
+
+/*=============== Sidebar ===============*/
+#sidebar                      { float: left; width: 260px; margin-left: 40px; }
+#sidebar li                   { list-style: none; }
+#sidebar li li                { list-style: disc; }
+label[for=s]                  { display: none; }
+#sidebar .widget,
+.searchResults                { margin-bottom: 20px; }
 
 /*=============== Footer ===============*/
-#footer                       {  }
-
-
-/*=============== Content Elements ===============*/
-#content ul                   { margin: 0 0 20px 20px; }
+#footer                       { clear: both; padding: 20px 0; }
+#footer p                     { text-align: center; font-size: 80%; }
 
 
 } /* end @media all */

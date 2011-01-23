@@ -7,10 +7,14 @@ Template Name: Links
 
     <section id="content">
       <article>
-        <h1>Links</h1>
-        <ul>
-          <?php wp_list_bookmarks(); ?>
-        </ul>
+        <header class="articleHeader">
+          <h1>Links</h1>
+        </header>
+        <section class="articleContent">
+          <ul>
+            <?php wp_list_bookmarks(); ?>
+          </ul>
+        </section>
       </article>
     </section>
 

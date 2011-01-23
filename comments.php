@@ -1,86 +1,80 @@
-<?php // Do not delete these lines
-  if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-    die ('Please do not load this page directly. Thanks!');
-  if (!empty($post->post_password)) {
-    if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) { ?>
-      <p class="nocomments">This post is password protected. Enter the password to view comments.</p>
-      <?php return;
-    }
-  }
-  $oddcomment = 'class="odd" '; // alternating comments
-?>
+      <section id="comments">
+        <?php if (post_password_required()) : ?>
+          <p class="nopassword">Dieser Artikel ist passwortgesch&uuml;tzt. Du musst das Passwort eingeben und Kommentare sehen zu k&ouml;nnen.</p>
+          </section><!-- #comments -->
+      <?php return; endif; ?>
 
-<?php if ($comments) : // there are comments ?>
+    <?php if (have_comments()) : ?>
+      <h2><?php comments_number('Keine Kommentare', 'Ein Kommentar', '% Kommentare'); ?> zu &raquo;<?php the_title(); ?>&laquo;</h2>
+      <ol>
+        <?php wp_list_comments('type=comment&callback=custom_comments'); ?>
+      </ol>
 
-    <section>
-      <h3><?php comments_number('No Responses', 'One Response', '% Responses' ); ?> to &ldquo;<?php the_title(); ?>&rdquo;</h3>
+      <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
+      <nav class="commentsNavigation">
+        <?php previous_comments_link('&Auml;ltere Kommentare'); ?>
+        <?php next_comments_link('Neuere Kommentare'); ?>
+      </nav>
+      <?php endif; // check for comment navigation ?>
 
-      <?php foreach ($comments as $comment) : ?>
+      <?php else : // or, if we don't have comments:
 
-      <article <?php echo $oddcomment; ?>id="comment-<?php comment_ID(); ?>">
-        <header>
-          <h4><?php echo get_avatar( $comment, 32 ); ?> <cite><?php comment_author_link(); ?></cite> | <a href="#comment-<?php comment_ID(); ?>" title="Permalink for this comment"><?php comment_date('F jS, Y'); ?> at <?php comment_time(); ?></a> <?php edit_comment_link('Edit',' | ',''); ?></h4>
-          <?php if ($comment->comment_approved == '0') : ?>
-            <p>Your comment is awaiting moderation.</p>
-          <?php endif; ?>
-        </header>
-        <section>
-          <?php comment_text(); ?>
-        </section>
-      </article>
+      if (!comments_open()) : ?>
+        <p class="nocomments">Kommentare sind deaktiviert.</p>
+      <?php endif; ?>
 
-      <?php $oddcomment = (empty($oddcomment)) ? 'class="odd" ' : ''; // alternating comments ?>
-      <?php endforeach; ?>
+    <?php endif; ?>
 
-    </section>
-
-<?php else : // no comments yet ?>
-
-  <?php if ('open' == $post->comment_status) : ?>
-    <!-- [comments are open, but there are no comments] -->
-
-   <?php else : ?>
-    <!-- [comments are closed, and no comments] -->
-    <p>Comments are closed.</p>
-
-  <?php endif; ?>
-<?php endif; ?>
-
-<?php if ('open' == $post->comment_status) : ?>
-
-    <section>
-      <h3>Leave a Response</h3>
+    <?php /* not using <?php comment_form(); ?> because this function is not really customizable */ ?>
+    
+    <section id="respond">
+      <h3>Schreibe einen Kommentar</h3>
 
       <?php if (get_option('comment_registration') && !$user_ID) : ?>
-      <p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> to post a comment.</p>
+      <p>Du musst  <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">angemeldet</a> sein um einen Kommentar schreiben zu d&uuml;rfen.</p>
       <?php else : ?>
+      <p>Deine E-Mail-Adresse wird nicht ver&ouml;ffentlicht. Erforderliche Felder sind mit <span class="required">*</span> markiert.</p>
 
       <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post">
-
         <?php if ($user_ID) : ?>
-        <p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Log out of this account">Log out &raquo;</a></p>
-        <?php else : ?>
-
-        <label for="author">Name <?php if ($req) echo "(required)"; ?></label>
-        <input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="55" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?>>
-        
-        <label for="email">Email (will not be published) <?php if ($req) echo "(required)"; ?></label>
-        <input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="55" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?>>
-        
-        <label for="url">Website</label>
-        <input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="55" tabindex="3">
-
-        <?php endif; ?>
-
-        <!-- p>Allowed <abbr title="HyperText Markup Language">HTML:</abbr> tags: <code><?php echo allowed_tags(); ?></code></p -->
-        <label for="comment">Comment</label>
-        <textarea name="comment" id="comment" cols="55" rows="10" tabindex="4"></textarea>
-        <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment">
-        <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>">
-        <?php do_action('comment_form', $post->ID); ?>
-
+        <p>
+          Eingeloggt als <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> | 
+          <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Ausloggen">Ausloggen</a>
+        </p>
+        <fieldset>
+          <legend>Dein Kommentar</legend>
+          <ol>
+          <?php else : ?>
+        <fieldset>
+          <legend>Dein Kommentar</legend>
+          <ol>
+            <li>
+              <label for="author">Dein Name <span class="required">*</span></label>
+              <input type="text" name="author" id="author" value="<?php echo $comment_author; ?>" size="30" tabindex="1" />
+            </li>
+            <li>
+              <label for="email">Deine Email-Adresse <span class="required">*</span></label>
+              <input type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" size="30" tabindex="2" />
+            </li>
+            <li>
+              <label for="url">Deine Webseite</label>
+              <input type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" size="30" tabindex="3" />
+            </li>
+          <?php endif; ?>
+            <li>
+              <label for="comment">Dein Kommentar <span class="required">*</span></label>
+              <textarea name="comment" id="comment" cols="30" rows="10" tabindex="4"></textarea>
+            </li>
+          </ol>
+          <p>
+            <input name="submit" type="submit" id="submit" tabindex="5" value="Kommentar abschicken" />
+            <input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" />
+            <?php do_action('comment_form', $post->ID); ?>
+          </p>
+        </fieldset>
       </form>
       <?php endif; ?>
 
-    </section>
-<?php endif; ?>
+    </section> <!-- respond -->
+
+</section><!-- comments -->

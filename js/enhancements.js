@@ -2,7 +2,7 @@
 jQuery(document).ready(function($) {
 
   // Add Colorbox to every .lightbox element with click-enlarge
-  $('a.lightbox').colorbox({
+  $('a[rel^="lightbox"]').colorbox({
     loop: false,
     maxWidth: '90%',
     maxHeight: '90%',
@@ -12,9 +12,9 @@ jQuery(document).ready(function($) {
     slideshowStart: 'Diashow starten',
     slideshowStop: 'Diashow anhalten',
     current: "Bild {current} von {total}",
-    previous: "zurück",
+    previous: "zur&uuml;ck",
     next: "weiter",
-    close: 'schließen'
+    close: 'schlie&szlig;en'
   });
     
 }); // end documentready

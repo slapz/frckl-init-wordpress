@@ -10,12 +10,12 @@ Template Name: Archiv
       <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
       
-      <article id="post-<?php the_ID(); ?>"  <?php post_class(); ?>>
-        <header>
+      <article id="post-<?php the_ID(); ?>"  <?php post_class('clearfix'); ?>>
+        <header class="articleHeader">
           <h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permalink zu <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-          <p>Veröffentlicht von <?php the_author(); ?> am <?php the_date(); ?> um <?php the_time() ?> Uhr.</p>
+          <p>Ver&ouml;ffentlicht von <?php the_author(); ?> am <?php the_date(); ?> um <?php the_time() ?> Uhr.</p>
         </header>
-        <section>
+        <section class="articleContent">
           <h2>Archiv nach Monaten</h2>
           <ul>
             <?php wp_get_archives('type=monthly'); ?>
@@ -27,7 +27,7 @@ Template Name: Archiv
           <h2>Archiv nach Tags</h2>
           <?php wp_tag_cloud('format=list&smallest=14px&largest=14px'); ?>
         </section>
-        <footer>
+        <footer class="articleFooter">
           <?php wp_link_pages(array('before' => '<p><strong>Weiter zu Seite:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
         </footer>
       </article>
@@ -36,7 +36,7 @@ Template Name: Archiv
 
       <article class="notFound">
         <h1>Nichts gefunden!</h1>
-        <p>Leider wurde an dieser Stelle nicht der von Dir gewünschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
+        <p>Leider wurde an dieser Stelle nicht der von Dir gew&uuml;nschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
         <?php get_search_form(); ?>
       </article>
 
