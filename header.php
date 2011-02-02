@@ -15,7 +15,8 @@
   <meta name="description" content="<?php bloginfo('description'); ?>" />
   <script src="<?php echo get_template_directory_uri(); ?>/js/head.min.js"></script>
   <script>
-    head.js("<?php echo get_template_directory_uri(); ?>/js/jquery-1.4.4.min.js", 
+    <?php /* Use a CDN after deployment, e.g. https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js */ ?>
+    head.js("<?php echo get_template_directory_uri(); ?>/js/jquery-1.5.min.js", 
             "<?php echo get_template_directory_uri(); ?>/js/jquery.colorbox-min.js", 
             "<?php echo get_template_directory_uri(); ?>/js/enhancements.js", 
             "<?php echo get_template_directory_uri(); ?>/js/script.js");      

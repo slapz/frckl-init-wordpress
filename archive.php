@@ -24,10 +24,9 @@
         <h1>Archiv nach Autoren</h1>
 
         <?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-        <h1>Blog Archives</h1>
-      </header>
-
+        <h1>Blog Archiv</h1>
     <?php } ?>
+      </header>
     <?php while (have_posts()) : the_post(); ?>
 
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

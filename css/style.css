@@ -1,19 +1,11 @@
-/* CSS-Styles for domain.de 
-
-Colors:
--------
-Color:         333
-Other Color:   aaa
-
-*/
 @media all {
 
 /*=============== Default Styling ===============*/
-body                          { font: normal 14px/1.4 Arial, Verdana, sans-serif; background: #fff url(../img/bg.jpg); color: #333; }
+body                          { font: normal 14px/1.4 Arial, Verdana, sans-serif; background: #fff; color: #333; }
 p, table, figure, h1, h2, h3, 
 h4, h5, h6, fieldset, pre, 
 blockquote, iframe, object, 
-audio, video, canvas          { margin-bottom: 14px; } /* basic bottom margin for content-elements ~= line-height */
+audio, video, canvas          { margin-bottom: 20px; } /* basic bottom margin for content-elements ~= line-height */
 li > ul                       { margin-left: 20px; }
 h1, h2, h3, h4, h5, h6        { font: bold 160%/1.4 Georgia, Times, serif; clear: both; }
 h2                            { font-size: 140%; }
@@ -29,34 +21,16 @@ a:hover                       {  }
 
 
 /*=============== Header ===============*/
-#header                       { padding: 20px; margin-bottom: 20px;
-                                background: -webkit-gradient(linear, left top, left bottom, from(#e9e9e9), to(#ffffff));
-                                background: -moz-linear-gradient(top, #fff, #e9e9e9);
-                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333;
-                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; 
-                                -webkit-border-top-left-radius: 0; -webkit-border-top-right-radius: 0;
-                                -moz-border-topleft-radius: 0; -moz-border-topright-radius: 0; }
-#header h1 a                  { text-shadow: 1px 1px 1px #999; color: #333; text-decoration: none; }
+#header                       { margin-bottom: 20px; background: #ccc; }
+#header h1 a                  { text-decoration: none; }
 #header h2                    { font: normal 120%/1.4 Arial, sans-serif; margin-bottom: 0; }
 
 
 /*=============== Navigation ===============*/
-#nav                          { margin-bottom: 20px; }
-#nav ul                       { display: block; clear: left; padding: 0 15px; margin: 0 0 10px 0; background: #ccc; 
-                                background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e9e9e9));
-                                background: -moz-linear-gradient(top, #fff, #e9e9e9);
-                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333;
-                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
-#nav li                       { margin: 0; float: left; display: block; list-style: none; }
-#nav a                        { padding: 10px; display: block; color: #666; text-decoration: none; text-shadow: 1px 1px 1px #fff; }
-#nav a:hover                  { color: #000; }
-#nav li ul                    { margin: 0 0 0 -15px; display: none; 
-                                -webkit-border-top-left-radius: 0; -webkit-border-top-right-radius: 0;
-                                -moz-border-topleft-radius: 0; -moz-border-topright-radius: 0;
-                                border-top-left-radius: 0; border-top-right-radius: 0; }
-#nav li:hover ul              { display: block; position: absolute; }
-#nav li li                    { clear: left; }
-
+#nav                          { margin-bottom: 20px; background: #ccc; }
+#nav ul                       { margin-bottom: 0; list-style: none; }
+#nav li                       { margin: 0 14px 0 0; float: left; display: block; }
+#nav li li                    { display: none; /* remember to style subchilds! */ }
 
 /*=============== Main Area & Content Elements ===============*/
 #main                         {  }
@@ -65,9 +39,8 @@ a:hover                       {  }
 #content img                  { height: auto; max-width: 100%; margin-bottom: 20px; }
 #content article              { background: #fff; }
 
-.post, .page                  { margin-bottom: 20px;
-                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; 
-                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333; }
+#content .post, 
+#content .page                { margin-bottom: 20px; border: 1px solid #ccc; }
 .articleHeader h1             { margin-bottom: 0px; }
 .articleHeader                { padding: 12px 20px; border-bottom: 1px solid #999; }
 .articleHeader h1 a           { text-decoration: none; }
@@ -79,21 +52,18 @@ a:hover                       {  }
 .page .articleFooter          { display: none; }
 .postsNavigation p            { text-align: center; }
 
-#content .sticky              { background: #D4FFE9; }
+#content .sticky              { background: #D4FFE9; /* your sticky post styles */ }
 
-#comments .comment            { padding: 14px; background: #eee; margin-bottom: 20px;
-                                -webkit-box-shadow: 0 0 2px #333; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #333;
-                                -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+#comments .comment            { padding: 14px; background: #eee; margin-bottom: 20px; }
 #comments .odd                { background: #fafafa; }
-#comments .bypostauthor       { border: 1px solid #28AF69; 
-                                -webkit-box-shadow: 0 0 2px #28AF69; -moz-box-shadow: 0 0 2px #333; box-shadow: 0 0 2px #28AF69; }
+#comments .bypostauthor       { border: 1px solid #28AF69; }
 .commentHeader img            { float: left; margin: 0 14px 14px 0;}
 .commentContent               { overflow: hidden; }
 .commentHeader h3             { font-size: 100%; }
 .pingback h3, .trackback h3   { margin-bottom: 0; }
 .form-allowed-tags            { display: none; }
 #respond label                { display: block; }
-#respond fieldset             { border: 1px solid #999; padding: 20px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;}
+#respond fieldset             { border: 1px solid #999; padding: 20px;}
 #respond textarea             { width: 90%; }
 #respond fieldset p           { margin-bottom: 0; }
 
@@ -121,6 +91,7 @@ a:hover                       {  }
 label[for=s]                  { display: none; }
 #sidebar .widget,
 .searchResults                { margin-bottom: 20px; }
+
 
 /*=============== Footer ===============*/
 #footer                       { clear: both; padding: 20px 0; }
