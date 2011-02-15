@@ -5,7 +5,7 @@ Template Name: Archiv
 ?>
 <?php get_header(); ?>
 
-    <section id="content">
+    <section id="content" class="g8 first">
 
       <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>

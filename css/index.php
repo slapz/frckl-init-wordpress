@@ -55,6 +55,7 @@ function compress($buffer) {
 /* the css-files to include and compress */ 
 /* ============= EDIT HERE ============= */ 
 include('reset.css');
+include('nicegrid.css');
 include('style.css');
 include('print.css');
 include('colorbox.css');

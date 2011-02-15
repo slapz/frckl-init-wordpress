@@ -1,4 +1,4 @@
-    <footer id="footer">
+    <footer id="footer" class="g12">
       <p>
         &copy; <a href="<?php echo home_url(); ?>/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a> | 
         <a href="<?php bloginfo('rss2_url'); ?>" title="Abonniere den Blog-Feed">Artikel (RSS)</a> | 

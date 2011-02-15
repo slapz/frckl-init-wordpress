@@ -19,6 +19,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
   the index.php-Script in the css-folder in the following order:
 
   - reset.css
+  - nicegrid.css
   - style.css
   - print.css
   - colorbox.css (for the Lightbox inlcuded in this package)
@@ -27,6 +28,11 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
   because it is not included in the html. Feel free to add
   css-files but remember to add a line in the index.php file
   in the folder css to include them.
+  
+  This theme uses nicegrid - a responsive CSS-grid for easy web 
+  development - for more information visit:
+  http://dev.webgefrickel.de/nicegrid or
+  https://github.com/nebelschwade/nicegrid
    
  */
 

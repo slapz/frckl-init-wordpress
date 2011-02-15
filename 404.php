@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <section id="content">
+    <section id="content" class="g8 first">
       <article class="post">
         <header class="articleHeader">
           <h1>Viernullvier - der Klassiker</h1>

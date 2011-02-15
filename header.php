@@ -10,8 +10,8 @@
   ?></title>
   
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/" />
-  <link rel="shortcut icon" href="<?php echo home_url(); ?>/favicon.ico" />
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="<?php bloginfo('description'); ?>" />
   <script src="<?php echo get_template_directory_uri(); ?>/js/head.min.js"></script>
   <script>
@@ -25,15 +25,15 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-  <div id="container">
+  <div id="container" class="g12">
     
-    <header id="header">
+    <header id="header" class="g12">
       <hgroup>
         <h1><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
         <h2><?php bloginfo('description'); ?></h2>
       </hgroup>
     </header>
     
-    <nav id="nav">
+    <nav id="nav" class="g12">
       <?php wp_nav_menu(array('menu' => 'custom_menu', 'container' => 'none', 'menu_class' => 'clearfix')); ?>
     </nav>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <section id="content">
+    <section id="content" class="g8">
 
     <?php if (have_posts()) : ?>
       <header class="archiveHeader">

@@ -1,0 +1,117 @@
+/* 
+nicegrid (c) 2011 Steffen Becker -- http://webgefrickel.de || http://nebelschwa.de
+License: http://creativecommons.org/licenses/by/3.0/
+
+Inspired by various css-grid-systems such as 960.gs, 1kbgrid.com, cssgrid.net and 978.gs
+
+Per default we use the 990px-grid fitting nicely in an ipad and 1024px-screens (and 
+stupid browsers that don't care about media-queries) and define the floating and 
+clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
+@media all { 
+
+.g1, .g2, .g3, .g4, .g5, .g6,
+.g7, .g8, .g9, .g10, .g11     { float: left; display: inline; margin-left: 30px; }
+.g1                           { width: 55px; }
+.g2                           { width: 140px; }
+.g3                           { width: 225px; }
+.g4                           { width: 310px; }
+.g5                           { width: 395px; }
+.g6                           { width: 480px; }
+.g7                           { width: 565px; }
+.g8                           { width: 650px; }
+.g9                           { width: 735px; }
+.g10                          { width: 820px; }
+.g11                          { width: 905px; }
+.g12                          { width: 990px; margin: 0 auto; }
+
+/* The clearfix! (http://j.mp/bestclearfix) -- the g12-class always clearfixes */
+.clearfix:before,
+.clearfix:after,
+.g12:before, .g12:after       { content: "\0020"; display: block; height: 0; visibility: hidden; }
+.clearfix:after,
+.g12:after                    { clear: both; }
+.clearfix,
+.g12                          { zoom: 1; }
+
+/* The first element inside a grid-element has no left margin and clears. simple, huh? */
+.first                        { margin-left: 0; clear: left; }
+
+} /* end @media all */
+
+
+/* For devices < 754px (smartphones and stuff) the grid changes dramatically and
+every grid-element will be displayed on top of each other */
+@media screen and (max-width: 754px) {
+
+.g1, .g2, .g3, .g4, 
+.g5, .g6, .g7, .g8, 
+.g9, .g10, .g11, .g12         { width: auto; float: none; display: block; margin-left: 0; }
+body                          { padding: 0 20px; }
+
+} /* end @media print and <700px */
+
+
+/* This is for small screens about 800ish, weird old tablets or 
+portrait-ipads, 40px grid, 25px gutter = 755px */
+@media screen and (min-width: 755px) and (max-width: 989px) {
+
+.g1, .g2, .g3, .g4, .g5, .g6,
+.g7, .g8, .g9, .g10, .g11     { margin-left: 25px; }
+.g1                           { width: 40px; }
+.g2                           { width: 105px; }
+.g3                           { width: 170px; }
+.g4                           { width: 235px; }
+.g5                           { width: 300px; }
+.g6                           { width: 365px; }
+.g7                           { width: 430px; }
+.g8                           { width: 495px; }
+.g9                           { width: 560px; }
+.g10                          { width: 625px; }
+.g11                          { width: 690px; }
+.g12                          { width: 755px; }
+.first                        { margin-left: 0; }
+
+} /* end @media 755px <> 989px */
+
+
+/* This is for screens larger than 1200px width, such as almost all modern 
+laptops, the 1280-liga of gentlemen. 70px grid, 30px gutter, 1170 in total */
+@media screen and (min-width: 1200px) {
+
+.g1                           { width: 70px; }
+.g2                           { width: 170px; }
+.g3                           { width: 270px; }
+.g4                           { width: 370px; }
+.g5                           { width: 470px; }
+.g6                           { width: 570px; }
+.g7                           { width: 670px; }
+.g8                           { width: 770px; }
+.g9                           { width: 870px; }
+.g10                          { width: 970px; }
+.g11                          { width: 1070px; }
+.g12                          { width: 1170px; }
+
+} /* end @media >1200 */
+
+
+/* And even larger screens, the 1440, 1680 and above dudes. I hope
+they don't surf fullscreen (omg), but hey - who knows? 75px/40px, 1340 in total */
+@media screen and (min-width: 1380px) {
+
+.g1, .g2, .g3, .g4, .g5, .g6,
+.g7, .g8, .g9, .g10, .g11     { margin-left: 40px; }
+.g1                           { width: 75px; }
+.g2                           { width: 190px; }
+.g3                           { width: 305px; }
+.g4                           { width: 420px; }
+.g5                           { width: 535px; }
+.g6                           { width: 650px; }
+.g7                           { width: 765px; }
+.g8                           { width: 880px; }
+.g9                           { width: 995px; }
+.g10                          { width: 1110px; }
+.g11                          { width: 1225px; }
+.g12                          { width: 1340px; }
+.first                        { margin-left: 0; }
+
+} /* end @media >1380 */
