@@ -22,7 +22,7 @@ clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
 .g9                           { width: 735px; }
 .g10                          { width: 820px; }
 .g11                          { width: 905px; }
-.g12                          { width: 990px; margin: 0 auto; }
+.g12                          { width: 990px; margin: 0 auto; clear: left; }
 
 /* The clearfix! (http://j.mp/bestclearfix) -- the g12-class always clearfixes */
 .clearfix:before,
