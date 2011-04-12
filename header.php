@@ -15,10 +15,9 @@
   <meta name="description" content="<?php bloginfo('description'); ?>" />
   <script src="<?php echo get_template_directory_uri(); ?>/js/head.min.js"></script>
   <script>
-    <?php /* Use a CDN after deployment, e.g. https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js */ ?>
-    head.js("<?php echo get_template_directory_uri(); ?>/js/jquery-1.5.1.min.js", 
-            "<?php echo get_template_directory_uri(); ?>/js/jquery.colorbox-min.js", 
-            "<?php echo get_template_directory_uri(); ?>/js/enhancements.js", 
+    <?php /* Use a CDN after deployment, e.g. https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js */ ?>
+    head.js("<?php echo get_template_directory_uri(); ?>/js/jquery-1.5.2.min.js", 
+            "<?php echo get_template_directory_uri(); ?>/js/plugins.js", 
             "<?php echo get_template_directory_uri(); ?>/js/script.js");      
   </script>
   <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
