@@ -26,7 +26,7 @@
     <?php endif; ?>
 
     <?php /* not using <?php comment_form(); ?> because this function is not really customizable */ ?>
-    
+
     <section id="respond">
       <h3>Schreibe einen Kommentar</h3>
 
@@ -38,7 +38,7 @@
       <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post">
         <?php if ($user_ID) : ?>
         <p>
-          Eingeloggt als <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> | 
+          Eingeloggt als <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> |
           <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="Ausloggen">Ausloggen</a>
         </p>
         <fieldset>

@@ -1,35 +1,35 @@
-/* 
+/*
 Custom CSS-Reset (c) 2011 Steffen Becker -- http://webgefrickel.de || http://nebelschwa.de
 License: http://creativecommons.org/licenses/by/3.0/
 
 Inspired by all the great dudes from:
-http://meyerweb.com/eric/tools/css/reset/ 
-http://html5doctor.com/html-5-reset-stylesheet/ 
-http://html5boilerplate.com/ 
+http://meyerweb.com/eric/tools/css/reset/
+http://html5doctor.com/html-5-reset-stylesheet/
+http://html5boilerplate.com/
 */
 
-@media all {  
+@media all {
 
 /*=============== CSS Reset ===============*/
-html, body, div, img, object, 
-embed, iframe, blockquote, 
-pre, table, tr, th, td, tbody, 
+html, body, div, img, object,
+embed, iframe, blockquote,
+pre, table, tr, th, td, tbody,
 tfoot, thead, form, fieldset,
-h1, h2, h3, h4, h5, h6, p, 
+h1, h2, h3, h4, h5, h6, p,
 dl, dt, dd, ol, ul, li,
-article, aside, figcaption, 
+article, aside, figcaption,
 figure, footer, nav, section,
 audio, video, canvas,
-header, hgroup                { margin: 0; padding: 0; border: 0; color: inherit; 
+header, hgroup                { margin: 0; padding: 0; border: 0; color: inherit;
                                 font-size: 100%; font: inherit; vertical-align: baseline; }
-article, aside, figcaption, 
+article, aside, figcaption,
 figure, footer, nav, section,
 header, hgroup                { display: block; }
 
 input, textarea, select, a    { color: inherit; font: inherit; }
 input, select                 { vertical-align: middle; }
 textarea                      { overflow: auto; }
-label, input[type="button"], 
+label, input[type="button"],
 input[type="submit"], button  { cursor: pointer; }
 input[type="submit"]::-moz-focus-inner { border: 0; }
 button                        { width: auto; overflow: visible; }
@@ -39,7 +39,7 @@ table                         { border-collapse: collapse; border-spacing: 0; }
 td                            { vertical-align: top; }
 
 blockquote, q                 { quotes: none; }
-blockquote:before, 
+blockquote:before,
 blockquote:after,
 q:before, q:after             { content: ''; content: none; }
 

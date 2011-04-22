@@ -16,10 +16,10 @@
               <?php the_excerpt(); ?>
             </li>
             <?php endwhile; ?>
-          </ol>        
+          </ol>
         </section>
         <footer class="articleFooter">
-          
+
         </footer>
       </article>
 

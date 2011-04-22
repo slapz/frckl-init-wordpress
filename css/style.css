@@ -2,9 +2,9 @@
 
 /*=============== Default Styling ===============*/
 body                          { font: normal 14px/1.4 sans-serif; background: #fff; color: #333; }
-p, table, figure, h1, h2, h3, 
-h4, h5, h6, fieldset, pre, 
-blockquote, iframe, object, 
+p, table, figure, h1, h2, h3,
+h4, h5, h6, fieldset, pre,
+blockquote, iframe, object,
 audio, video, canvas, ul, ol  { margin-bottom: 20px; } /* basic bottom margin for content-elements ~= line-height */
 h1                            { font-size: 160%; }
 h2                            { font-size: 140%; }
@@ -21,7 +21,7 @@ a:hover                       {  }
 ::-moz-selection              {  }
 
 /* this is highly recommended -- autoscaling imgs and stuff ftw! */
-img, object, embed, iframe    { max-width: 100%; }
+img, object, embed, iframe    { max-width: 100%; height: auto; }
 
 #container                    {  }
 
@@ -47,7 +47,7 @@ img, object, embed, iframe    { max-width: 100%; }
 #content img                  { height: auto; margin-bottom: 20px; }
 #content article              { background: #fff; }
 
-#content .post, 
+#content .post,
 #content .page                { margin-bottom: 20px; border: 1px solid #ccc; }
 .articleHeader h1             { margin-bottom: 0px; }
 .articleHeader                { padding: 12px 20px; border-bottom: 1px solid #999; }
@@ -95,8 +95,9 @@ img, object, embed, iframe    { max-width: 100%; }
 /*=============== Sidebar ===============*/
 #sidebar                      {  }
 #sidebar li                   { list-style: none; }
+#sidebar li ul                { margin-left: 20px; }
 #sidebar li li                { list-style: disc; }
-label[for=s]                  { display: none; }
+label[for="s"]                { display: none; }
 #sidebar .widget,
 .searchResults                { margin-bottom: 20px; }
 

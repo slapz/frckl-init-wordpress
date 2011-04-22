@@ -8,33 +8,25 @@ Author URI: http://webgefrickel.de
 Tags: custom-menu, sticky-post, light, white
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-
-  Built by Steffen Becker
-  
 */
 
-/* 
+/*
   Have a look in the folder css. The files there are used
-  to styles the site. They are inlcuded and compressed by
-  the index.php-Script in the css-folder in the following order:
+  to styles the site. Use the _minify.php Script or sth. like
+  w3 total cache to compress and minify your css-files
 
   - reset.css
   - nicegrid.css
+  - colorbox.css (for the Lightbox inlcuded in this package)
   - style.css
   - print.css
-  - colorbox.css (for the Lightbox inlcuded in this package)
 
   Edit only the css-files in the folder css, not this one,
   because it is not included in the html. Feel free to add
-  css-files but remember to add a line in the index.php file
-  in the folder css to include them.
-  
-  This theme uses nicegrid - a responsive CSS-grid for easy web 
+  css-files.
+
+  This theme uses nicegrid - a responsive CSS-grid for easy web
   development - for more information visit:
-  http://dev.webgefrickel.de/nicegrid or
   https://github.com/nebelschwade/nicegrid
-   
- */
 
-
-
+*/

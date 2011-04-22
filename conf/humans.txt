@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Webdeveloper: Steffen Becker
+  Site: http://nebelschwa.de || http://webgefrickel.de
+  Twitter: @nebelschwade
+  Location: Leipzig, Germany
+
+/* THANKS */
+  Antje - http://antje.moosique.net
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: head.js, jQuery
+  Software: Textmate & Photoshop

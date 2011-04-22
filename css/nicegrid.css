@@ -1,13 +1,13 @@
-/* 
+/*
 nicegrid (c) 2011 Steffen Becker -- http://webgefrickel.de || http://nebelschwa.de
 License: http://creativecommons.org/licenses/by/3.0/
 
 Inspired by various css-grid-systems such as 960.gs, 1kbgrid.com, cssgrid.net and 978.gs
 
-Per default we use the 990px-grid fitting nicely in an ipad and 1024px-screens (and 
-stupid browsers that don't care about media-queries) and define the floating and 
+Per default we use the 990px-grid fitting nicely in an ipad and 1024px-screens (and
+stupid browsers that don't care about media-queries) and define the floating and
 clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
-@media all { 
+@media all {
 
 .g1, .g2, .g3, .g4, .g5, .g6,
 .g7, .g8, .g9, .g10, .g11     { float: left; display: inline; margin-left: 30px; }
@@ -43,15 +43,15 @@ clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
 every grid-element will be displayed on top of each other */
 @media screen and (max-width: 754px) {
 
-.g1, .g2, .g3, .g4, 
-.g5, .g6, .g7, .g8, 
+.g1, .g2, .g3, .g4,
+.g5, .g6, .g7, .g8,
 .g9, .g10, .g11, .g12         { width: auto; float: none; display: block; margin-left: 0; }
 body                          { padding: 0 20px; }
 
 } /* end @media print and <700px */
 
 
-/* This is for small screens about 800ish, weird old tablets or 
+/* This is for small screens about 800ish, weird old tablets or
 portrait-ipads, 40px grid, 25px gutter = 755px */
 @media screen and (min-width: 755px) and (max-width: 989px) {
 
@@ -74,7 +74,7 @@ portrait-ipads, 40px grid, 25px gutter = 755px */
 } /* end @media 755px <> 989px */
 
 
-/* This is for screens larger than 1200px width, such as almost all modern 
+/* This is for screens larger than 1200px width, such as almost all modern
 laptops, the 1280-liga of gentlemen. 70px grid, 30px gutter, 1170 in total */
 @media screen and (min-width: 1200px) {
 

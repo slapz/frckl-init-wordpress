@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
     <section id="content" class="g8 first">
-      
+
       <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
 
@@ -15,20 +15,20 @@
         </section>
         <footer class="articleFooter">
           <?php wp_link_pages(array('before' => '<p><strong>Weiter zu Seite:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
-          
+
           <p>
             Dieser Artikel wurde von <?php the_author(); ?> am <?php the_date(); ?> um <?php the_time() ?> Uhr in den
-            Kategorien <?php the_category(', ') ?> ver&ouml;ffentlicht. Du kannst den 
+            Kategorien <?php the_category(', ') ?> ver&ouml;ffentlicht. Du kannst den
             <?php post_comments_feed_link('RSS-Feed zu den Kommentaren dieses Artikels hier abonnieren'); ?>.
 
             <?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) {
               // kommentare und pings erlaubt ?>
-              Du kannst <a href="#respond">einen Kommentar hinterlassen</a> oder einen 
+              Du kannst <a href="#respond">einen Kommentar hinterlassen</a> oder einen
               <a href="<?php trackback_url(); ?>" rel="trackback">Trackback von Deiner Seite schicken</a>.
 
             <?php } elseif (!('open' == $post-> comment_status) && ('open' == $post->ping_status)) {
               // nur anpingen erlaubt ?>
-              Kommentare zu diesem Artikel sind deaktiviert, aber Du kannst einen 
+              Kommentare zu diesem Artikel sind deaktiviert, aber Du kannst einen
               <a href="<?php trackback_url(); ?> " rel="trackback">Trackback</a> von Deiner Seite schicken.
 
             <?php } elseif (('open' == $post-> comment_status) && !('open' == $post->ping_status)) {
@@ -39,8 +39,8 @@
               // beides nicht erlaubt ?>
               Sowohl Kommentare als auch Trackbacks sind deaktiviert.
 
-            <?php } 
-            
+            <?php }
+
             the_tags( 'Tags: ', ', ', '');
             edit_post_link('&raquo; Bearbeiten', '<br />', ''); ?>
           </p>
@@ -52,7 +52,7 @@
       <nav class="postsNavigation">
         <p><?php posts_nav_link('&nbsp;|&nbsp;'); ?></p>
       </nav>
-    
+
       <?php endwhile; else: ?>
 
       <article class="notFound">
@@ -62,7 +62,7 @@
       </article>
 
       <?php endif; ?>
-  
+
     </section>
 
 <?php get_sidebar(); ?>

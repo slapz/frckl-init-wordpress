@@ -56,7 +56,7 @@
         <p>Leider wurde an dieser Stelle nicht der von Dir gew&uuml;nschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
         <?php get_search_form(); ?>
       </article>
-      
+
       <?php endif; ?>
 
     </section>

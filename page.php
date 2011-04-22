@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
     <section id="content" class="g8 first">
-    
+
       <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
-      
+
       <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
         <header class="articleHeader">
           <h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permalink zu <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
@@ -18,7 +18,7 @@
           <?php wp_link_pages(array('before' => '<p><strong>Weiter zu Seite:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
         </footer>
       </article>
-  
+
       <?php endwhile; else: ?>
 
       <article class="notFound">
@@ -26,10 +26,10 @@
         <p>Leider wurde an dieser Stelle nicht der von Dir gew&uuml;nschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
         <?php get_search_form(); ?>
       </article>
-  
+
       <?php endif; ?>
 
     </section>
-  
+
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

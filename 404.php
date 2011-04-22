@@ -10,7 +10,7 @@
           <p><?php get_search_form(); ?></p>
         </section>
         <footer class="articleFooter">
-          
+
         </footer>
       </article>
     </section>

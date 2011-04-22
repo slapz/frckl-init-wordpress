@@ -9,7 +9,7 @@ Template Name: Archiv
 
       <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
-      
+
       <article id="post-<?php the_ID(); ?>"  <?php post_class('clearfix'); ?>>
         <header class="articleHeader">
           <h1><a href="<?php the_permalink() ?>" rel="bookmark" title="Permalink zu <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
