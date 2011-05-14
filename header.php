@@ -23,7 +23,7 @@
   <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.custom.js"></script>
   <script>
     yepnope({
-      load: ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.5.2.min.js',
+      load: ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.1.min.js',
              '<?php echo get_template_directory_uri(); ?>/js/plugins.js',
              '<?php echo get_template_directory_uri(); ?>/js/script.js']
     });
@@ -31,7 +31,7 @@
   */ ?>
   <?php /* USE THESE FOR DEVELOPMENT */ ?>
   <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr.custom.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.5.2.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.1.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/live.js"></script>
@@ -46,10 +46,8 @@
   <div id="container" class="g12">
 
     <header id="header" class="g12">
-      <hgroup>
-        <h1><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
-        <h2><?php bloginfo('description'); ?></h2>
-      </hgroup>
+      <h1><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
+      <h2><?php bloginfo('description'); ?></h2>
     </header>
 
     <nav id="nav" class="g12">

@@ -2,7 +2,7 @@
   Live.js - One script closer to Designing in the Browser
   Written for Handcraft.com by Martin Kool (@mrtnkl).
 
-  Version 2.
+  Version 3.
 
   http://livejs.com
   http://livejs.com/license (MIT)  
@@ -11,9 +11,13 @@
   Include live.js#css to monitor css changes only.
   Include live.js#js to monitor js changes only.
   Include live.js#html to monitor html changes only.
-  Mix and match to monitor a preferred combination such as live.js#html,css
+  Mix and match to monitor a preferred combination such as live.js#html,css  
 
   By default, just include live.js to monitor all css, js and html changes.
+  
+  Live.js can also be loaded as a bookmarklet. It is best to only use it for CSS then,
+  as a page reload due to a change in html or css would not re-include the bookmarklet.
+  To monitor CSS and be notified that it has loaded, include it as: live.js#css,notify
 */
 (function () {
 
@@ -29,8 +33,8 @@
   var Live = {
 
     // performs a cycle per interval
-    heartbeat: function () {
-      if (document.body) {
+    heartbeat: function () {      
+      if (document.body) {        
         // make sure all resources are loaded on first activation
         if (!loaded) Live.loadresources();
         Live.checkForChanges();
@@ -56,12 +60,13 @@
       // track local js urls
       for (var i = 0; i < scripts.length; i++) {
         var script = scripts[i], src = script.getAttribute("src");
-        if (src && isLocal(src)) {
+        if (src && isLocal(src))
           uris.push(src);
-          if (src.match(/\blive.js#/)) {
-            for (var type in active)
-              active[type] = src.match("[#,|]" + type) != null
-          }
+        if (src && src.match(/\blive.js#/)) {
+          for (var type in active)
+            active[type] = src.match("[#,|]" + type) != null
+          if (src.match("notify")) 
+            alert("Live.js is loaded.");
         }
       }
       if (!active.js) uris = [];
@@ -216,5 +221,12 @@
   };
 
   // start listening
-  Live.heartbeat();
+  if (document.location.protocol != "file:") {
+    if (!window.liveJsLoaded)
+      Live.heartbeat();
+
+    window.liveJsLoaded = true;
+  }
+  else if (window.console)
+    console.log("Live.js doesn't support the file protocol. It needs http.");    
 })();
