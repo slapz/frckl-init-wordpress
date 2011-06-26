@@ -17,87 +17,70 @@ h6                            { font-size: 80%; }
 a                             {  }
 a:hover                       {  }
 :focus                        {  }
-::selection                   {  }
 ::-moz-selection              {  }
+::selection                   {  }
 
 /* this is highly recommended -- autoscaling imgs and stuff ftw! */
-img, object, embed, iframe    { max-width: 100%; height: auto; }
+img, object, iframe           { max-width: 100%; height: auto; }
 
-#container                    {  }
+label                         { display: block; }
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { -webkit-appearance: none; }
+input[type="search"]          { -webkit-appearance: textfield; -webkit-box-sizing: content-box; width: 200px; }
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+textarea                      { /* style those inputs if you want */}
+input:focus, textarea:focus   { /* add special focus to those inputs */ }
+
+/* general classes here */
+/* The clearfix! (http://j.mp/bestclearfix) -- the g12-class always clearfixes */
+.clearfix:before,
+.clearfix:after               { content: "\0020"; display: block; height: 0; visibility: hidden; }
+.clearfix:after               { clear: both; }
+.clearfix                     { zoom: 1; }
+.hidden                       { display: none; }
+.ir                           { display: block; text-indent: -9999px; background-repeat: no-repeat; }
+
+/* wordpress classes */
+.sticky                       {  }
+.alignleft                    { float: left; display: inline; margin-right: 20px; }
+.alignright                   { float: right; text-align: right; display: inline; margin-left: 20px; }
+.aligncenter                  { clear: both; display: block; margin: 0 auto; }
+.bypostauthor                 {  }
+.wp-caption                   {  }
+.wp-caption-text              {  }
+.gallery-caption              {  }
 
 
 /*=============== Header ===============*/
-#header                       { margin-bottom: 30px; background: #ccc; }
-#header h1 a                  { text-decoration: none; }
-#header h2                    { font: normal 120%/1.4 Arial, sans-serif; margin-bottom: 0; }
+#container                    {  }
+#header                       {  }
+#header h1 a                  {  }
+#header h2                    {  }
 
 
 /*=============== Navigation ===============*/
-#nav                          { margin-bottom: 30px; background: #eee; }
-#nav ul                       { margin-bottom: 0; list-style: none; }
-#nav li                       { margin: 0 14px 0 0; float: left; display: block; }
-#nav li li                    { display: none; /* remember to style subchilds! */ }
+#nav                          {  }
+#nav ul                       {  }
+#nav li                       {  }
+#nav li li                    {  }
 
 
 /*=============== Main Area & Content Elements ===============*/
 #main                         {  }
 #content                      {  }
-#content ul                   { margin: 0 0 20px 20px; }
+#content ul                   { margin: 0 0 20px 20px; list-style: disc; }
 #content li > ul              { margin-bottom: 0; }
-#content img                  { height: auto; margin-bottom: 20px; }
-#content article              { background: #fff; }
-
-#content .post,
-#content .page                { margin-bottom: 20px; border: 1px solid #ccc; }
-.articleHeader h1             { margin-bottom: 0px; }
-.articleHeader                { padding: 12px 20px; border-bottom: 1px solid #999; }
-.articleHeader h1 a           { text-decoration: none; }
-.articleContent               { padding: 20px 20px 0; }
-.articleHeader p,
-.articleFooter p              { margin-bottom: 0; font-size: 80%; }
-.articleFooter                { padding: 12px 20px; background: #eee; border-top: 1px solid #999; clear: both; }
-.page .articleContent         { padding-bottom: 20px; }
-.page .articleFooter          { display: none; }
-.postsNavigation p            { text-align: center; }
-
-#content .sticky              { /* your sticky post styles */ }
-
-#comments .comment            { padding: 14px; background: #eee; margin-bottom: 20px; }
-#comments .odd                { background: #fafafa; }
-#comments .bypostauthor       { border: 1px solid #bada55; }
-.commentHeader img            { float: left; margin: 0 14px 14px 0;}
-.commentContent               { overflow: hidden; }
-.commentHeader h3             { font-size: 100%; }
-.pingback h3, .trackback h3   { margin-bottom: 0; }
-.form-allowed-tags            { display: none; }
-#respond label                { display: block; }
-#respond fieldset             { border: 1px solid #999; padding: 20px;}
-#respond textarea             { width: 90%; }
-#respond fieldset p           { margin-bottom: 0; }
-
-#content .alignleft           { display: inline; float: left; margin-right: 20px; }
-#content .alignright          { display: inline; float: right; margin-left: 20px; }
-#content .aligncenter         { clear: both; display: block; margin: 0 auto; }
-#content .wp-caption          { background: #eee; margin-bottom: 20px; padding: 4px; text-align: center; }
-#content .wp-caption img      { margin: 5px 5px 0; }
-#content .gallery-caption,
-#content .wp-caption-text     { color: #666; font-size: 80%; margin: 5px; }
-#content .wp-smiley           { margin: 0; }
-
-#content .gallery             { margin: 0 auto 20px; }
-#content .gallery-item        { float: left; margin-top: 0; text-align: center; width: 33%; }
-#content .gallery img         { border: 2px solid #ccc; }
-#content .gallery dl          { margin: 0; }
-#content .gallery img         { border: 10px solid #eee; }
-#content .gallery br+br       { display: none; }
 
 
 /*=============== Sidebar ===============*/
 #sidebar                      {  }
 #sidebar li                   { list-style: none; }
-#sidebar li ul                { margin-left: 20px; }
-#sidebar li li                { list-style: disc; }
-label[for="s"]                { display: none; }
+#sidebar li ul                { margin-left: 20px; list-style: disc; }
 #sidebar .widget,
 .searchResults                { margin-bottom: 20px; }
 

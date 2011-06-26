@@ -2,31 +2,10 @@
 Theme Name: Default Theme
 Theme URI: http://domain.de
 Description: Default kickstarter-theme for Wordpress
-Version: 1.0
+Version: 1.1
 Author: Steffen Becker
 Author URI: http://webgefrickel.de
 Tags: custom-menu, sticky-post, light, white
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-*/
-
-/*
-  Have a look in the folder css. The files there are used
-  to styles the site. Use the _minify.php Script or sth. like
-  w3 total cache to compress and minify your css-files
-
-  - reset.css
-  - nicegrid.css
-  - colorbox.css (for the Lightbox inlcuded in this package)
-  - style.css
-  - print.css
-
-  Edit only the css-files in the folder css, not this one,
-  because it is not included in the html. Feel free to add
-  css-files.
-
-  This theme uses nicegrid - a responsive CSS-grid for easy web
-  development - for more information visit:
-  https://github.com/nebelschwade/nicegrid
-
 */

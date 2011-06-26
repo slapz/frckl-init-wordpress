@@ -10,7 +10,8 @@ clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
 @media all {
 
 .g1, .g2, .g3, .g4, .g5, .g6,
-.g7, .g8, .g9, .g10, .g11     { float: left; display: inline; margin-left: 30px; }
+.g7, .g8, .g9, .g10, .g11     { float: left; display: inline; margin-left: 30px; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
+                                -webkit-transition: all 0.3s ease-out; -ms-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 .g1                           { width: 55px; }
 .g2                           { width: 140px; }
 .g3                           { width: 225px; }
@@ -22,15 +23,12 @@ clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
 .g9                           { width: 735px; }
 .g10                          { width: 820px; }
 .g11                          { width: 905px; }
-.g12                          { width: 990px; margin: 0 auto; clear: left; }
+.g12                          { width: 990px; margin: 0 auto; clear: left; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
+                                -webkit-transition: all 0.3s ease-out; -ms-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 
 /* The clearfix! (http://j.mp/bestclearfix) -- the g12-class always clearfixes */
-.clearfix:before,
-.clearfix:after,
 .g12:before, .g12:after       { content: "\0020"; display: block; height: 0; visibility: hidden; }
-.clearfix:after,
 .g12:after                    { clear: both; }
-.clearfix,
 .g12                          { zoom: 1; }
 
 /* The first element inside a grid-element has no left margin and clears. simple, huh? */

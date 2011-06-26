@@ -17,6 +17,7 @@
 /* User-Style for Colorbox */
 #cboxOverlay                  { background: #000; }
 #cboxContent                  { margin-top: 32px; }
+#cboxContent img              { max-width: none; }
 #cboxLoadedContent            { background: #000; padding: 10px 10px 6px 10px; margin-top: 5px; }
 #cboxLoadingGraphic           { background: url(../img/loading.gif) center center no-repeat; }
 #cboxLoadingOverlay           { background: #000; margin-top: 5px; }

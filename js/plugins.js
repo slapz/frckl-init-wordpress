@@ -52,9 +52,6 @@ jQuery(document).ready(function($) {
     loop: false,
     maxWidth: '90%',
     maxHeight: '90%',
-    // german language
-    slideshowStart: 'Diashow starten',
-    slideshowStop: 'Diashow anhalten',
     current: "Bild {current} von {total}",
     previous: "zurück",
     next: "weiter",

@@ -8,10 +8,8 @@
   Twitter: @nebelschwade
   Location: Leipzig, Germany
 
-/* THANKS */
-  Antje - http://antje.moosique.net
-
 /* SITE */
   Standards: HTML5, CSS3
-  Components: head.js, jQuery
-  Software: Textmate & Photoshop
+  Components: modernizr, jQuery, colorbox
+  CMS: Wordpress
+  Software: MacVim & Photoshop
