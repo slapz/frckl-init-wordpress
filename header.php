@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/print.css" />
 
   <?php /* USE THIS FOR THE LIVE-VERSION
-  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.0.custom.min.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.0.6.custom.min.js"></script>
   <script>
     yepnope({
       load: ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.1.min.js',
@@ -30,7 +30,7 @@
   </script>
   */ ?>
   <?php /* USE THESE FOR DEVELOPMENT */ ?>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.0.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.0.6.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.1.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
