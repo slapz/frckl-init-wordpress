@@ -6,6 +6,7 @@ Inspired by all the great dudes from:
 http://meyerweb.com/eric/tools/css/reset/
 http://html5doctor.com/html-5-reset-stylesheet/
 http://html5boilerplate.com/
+http://
 */
 
 @media all {
@@ -20,11 +21,11 @@ dl, dt, dd, ol, ul, li,
 article, aside, figcaption,
 figure, footer, nav, section,
 audio, video, canvas,
-header, hgroup                { margin: 0; padding: 0; border: 0; color: inherit;
+header                        { margin: 0; padding: 0; border: 0; color: inherit;
                                 font-size: 100%; font: inherit; vertical-align: baseline; }
 article, aside, figcaption,
 figure, footer, nav, section,
-header, hgroup                { display: block; }
+header                        { display: block; }
 
 input, textarea, select, a    { color: inherit; font: inherit; }
 input, select                 { vertical-align: middle; }
@@ -34,7 +35,7 @@ input[type="submit"], button  { cursor: pointer; }
 input[type="submit"]::-moz-focus-inner { border: 0; }
 button                        { width: auto; overflow: visible; }
 
-ol, ul                        { list-style: none; }
+nav ol, nav ul                { list-style: none; list-style-image: none; }
 table                         { border-collapse: collapse; border-spacing: 0; }
 td                            { vertical-align: top; }
 

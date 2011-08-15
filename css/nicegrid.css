@@ -27,7 +27,7 @@ clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
                                 -webkit-transition: all 0.3s ease-out; -ms-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 
 /* The clearfix! (http://j.mp/bestclearfix) -- the g12-class always clearfixes */
-.g12:before, .g12:after       { content: "\0020"; display: block; height: 0; visibility: hidden; }
+.g12:before, .g12:after       { content: ""; display: table; }
 .g12:after                    { clear: both; }
 .g12                          { zoom: 1; }
 
