@@ -1,7 +1,7 @@
 <?php
 // specify your css-files and their order here
 $cssFiles = array(
-  'reset.css', 'nicegrid.css', 'colorbox.css', 'style.css', 'print.css'
+  'reset.css', 'style.css', 'print.css', 'colorbox.css'
 );
 // the file to write the compressed css to
 $minFileName = 'minified.css';

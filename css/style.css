@@ -36,15 +36,6 @@ input[type="search"],
 textarea                      { /* style those inputs if you want */}
 input:focus, textarea:focus   { /* add special focus to those inputs */ }
 
-/* general classes here */
-/* The clearfix! (http://j.mp/bestclearfix) -- the g12-class always clearfixes */
-.clearfix:before,
-.clearfix:after               { content: "\0020"; display: block; height: 0; visibility: hidden; }
-.clearfix:after               { clear: both; }
-.clearfix                     { zoom: 1; }
-.hidden                       { display: none; }
-.ir                           { display: block; text-indent: -9999px; background-repeat: no-repeat; }
-
 /* wordpress classes */
 .sticky                       {  }
 .alignleft                    { float: left; display: inline; margin-right: 20px; }
@@ -59,35 +50,44 @@ input:focus, textarea:focus   { /* add special focus to those inputs */ }
 /*=============== Header ===============*/
 #container                    {  }
 #header                       {  }
-#header h1 a                  {  }
-#header h2                    {  }
 
 
 /*=============== Navigation ===============*/
 #nav                          {  }
 #nav ul                       {  }
 #nav li                       {  }
-#nav li li                    {  }
 
 
 /*=============== Main Area & Content Elements ===============*/
 #main                         {  }
 #content                      {  }
-#content ul                   { margin: 0 0 20px 20px; list-style: disc; }
+#content ul                   { margin: 0 0 20px 20px; }
 #content li > ul              { margin-bottom: 0; }
 
 
 /*=============== Sidebar ===============*/
 #sidebar                      {  }
-#sidebar li                   { list-style: none; }
 #sidebar li ul                { margin-left: 20px; list-style: disc; }
 #sidebar .widget,
 .searchResults                { margin-bottom: 20px; }
 
 
 /*=============== Footer ===============*/
-#footer                       { clear: both; padding: 20px 0; }
-#footer p                     { text-align: center; font-size: 80%; }
+#footer                       {  }
+
+
+/*=============== Helper Classes and sidewide stuff ===============*/
+.ir                           { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent;
+                                background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br                        { display: none; }
+.hidden                       { display: none !important; visibility: hidden; }
+.visuallyhidden               { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.clearfix:before,
+.clearfix:after               { content: ""; display: table; }
+.clearfix:after               { clear: both; }
+.clearfix                     { zoom: 1; }
 
 
 } /* end @media all */
