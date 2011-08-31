@@ -1,26 +1,20 @@
-// console.log enhancements
-// ==========================================================================
 // usage: log('inside coolFunc', this, arguments);
 // paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 window.log = function(){
   log.history = log.history || [];   // store logs to an array for reference
   log.history.push(arguments);
-  if (this.console) {
+  if(this.console) {
     arguments.callee = arguments.callee.caller;
-    console.log(Array.prototype.slice.call(arguments));
+    var newarr = [].slice.call(arguments);
+    (typeof console.log === 'object' ? log.apply.call(console.log, console, newarr) : console.log.apply(console, newarr));
   }
 };
 // make it safe to use console.log always
-(function(b){function c(){}for(var d="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),a;a=d.pop();)b[a]=b[a]||c})(window.console=window.console||{});
+(function(b){function c(){}for(var d="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,timeStamp,profile,profileEnd,time,timeEnd,trace,warn".split(","),a;a=d.pop();){b[a]=b[a]||c}})((function(){try
+{console.log();return window.console;}catch(err){return window.console={};}})());
 
 
-// page and path enhancements
-// ==========================================================================
-// This will add corresponding classes to the body, depending on where you
-// are on your site. Idea/Parts of this funcionality is taken from the head.js
-// modified for jQuery -- credits & more information: http://headjs.com
-// it is assumed that you have nice paths created with realurl looking like
-// http://domain.de/page/subpage -- classes added are page & page-subpage
+// page and path enhancements -- adding path-classes to the body
 (function($) {
   var parts = location.pathname.split("/");
   $.each(parts, function(i, part) {
@@ -35,7 +29,6 @@ window.log = function(){
     }
   });
 })(jQuery);
-
 
 // jQuery Plugins
 // ==========================================================================

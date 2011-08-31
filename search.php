@@ -1,13 +1,11 @@
 <?php get_header(); ?>
 
-<section id="content" class="g8 first">
+<section id="content">
 
   <?php if (have_posts()) : ?>
 
   <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-    <header class="articleHeader">
-      <h1>Suchergebnisse f&uuml;r &raquo;<?php the_search_query(); ?>&laquo;</h1>
-    </header>
+    <h1>Suchergebnisse f&uuml;r &raquo;<?php the_search_query(); ?>&laquo;</h1>
     <section class="articleContent">
       <ol class="searchResults">
         <?php while (have_posts()) : the_post(); ?>
@@ -18,9 +16,6 @@
         <?php endwhile; ?>
       </ol>
     </section>
-    <footer class="articleFooter">
-
-    </footer>
   </article>
 
   <nav class="postsNavigation">
@@ -31,7 +26,7 @@
 
   <article class="notFound">
     <h1>Nichts gefunden!</h1>
-    <p>Leider wurde an dieser Stelle nicht der von Dir gew&uuml;nschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
+    <p>Leider wurde an dieser Stelle nicht der gew&uuml;nschte Beitrag gefunden.</p>
     <?php get_search_form(); ?>
   </article>
 

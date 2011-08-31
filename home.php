@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="content" class="g8 first home">
+<section id="content">
 
   <?php if (have_posts()) : ?>
   <?php while (have_posts()) : the_post(); ?>
@@ -29,7 +29,7 @@
 
   <article class="notFound">
     <h1>Nichts gefunden!</h1>
-    <p>Leider wurde an dieser Stelle nicht der von Dir gew&uuml;nschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
+    <p>Leider wurde an dieser Stelle nicht der gew&uuml;nschte Beitrag gefunden.</p>
     <?php get_search_form(); ?>
   </article>
 

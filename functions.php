@@ -24,6 +24,10 @@
 //}
 //add_action('widgets_init', 'unregister_default_wp_widgets', 1);
 
+// get the the role object
+// $role_object = get_role('editor');
+// add $cap capability to this role object
+// $role_object->add_cap('edit_theme_options');
 
 // custom footer text in the backend
 function custom_admin_footer_text($default_text) {
@@ -31,6 +35,14 @@ function custom_admin_footer_text($default_text) {
 }
 add_filter('admin_footer_text', 'custom_admin_footer_text');
 
+function custom_jquery() {
+  if (!is_admin()) {
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', get_template_directory_uri() . 'js/jquery-1.6.2.min.js');
+    wp_enqueue_script('jquery');
+  }
+}
+add_action('init', 'custom_jquery');
 
 if (!isset($content_width)) $content_width = 640;
 
@@ -72,7 +84,9 @@ add_action('widgets_init', function() {
 
 // initialize the custom navigation menu for wordpress found in header.php
 if (function_exists('register_nav_menu')) {
-  register_nav_menu('custom_menu', 'Hauptmen&uuml;');
+  register_nav_menus(array(
+    'custom_nav' => 'Hauptnavigation'
+  ));
 }
 
 // some default options for the nav_menus -- no container, no fallback
@@ -104,16 +118,14 @@ function custom_comments($comment, $args, $depth) {
   ?>
     <li>
     <article <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-      <header class="commentHeader">
-        <h3>
-          <?php echo get_avatar($comment, 60); ?>
-          <?php comment_author_link(); ?> am <?php comment_date(); ?> um <?php comment_time(); ?> Uhr |
-          <a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>" title="Permalink zu diesem Kommentar">
-            Link
-          </a>
-          <?php edit_comment_link('Bearbeiten', ' | ', ''); ?>
-        </h3>
-      </header>
+      <h3>
+        <?php echo get_avatar($comment, 60); ?>
+        <?php comment_author_link(); ?> am <?php comment_date(); ?> um <?php comment_time(); ?> Uhr |
+        <a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>" title="Permalink zu diesem Kommentar">
+          Link
+        </a>
+        <?php edit_comment_link('Bearbeiten', ' | ', ''); ?>
+      </h3>
       <section class="commentContent">
         <?php if ( $comment->comment_approved == '0' ) : ?>
           <em>Dein Kommentar muss noch freigeschaltet werden.</em>
@@ -128,9 +140,7 @@ function custom_comments($comment, $args, $depth) {
   ?>
     <li>
     <article <?php comment_class('comment'); ?>>
-      <header class="commentHeader">
-        <h3>Pingback: <?php comment_author_link(); ?><?php edit_comment_link('Bearbeiten', ' | ', ''); ?></h3>
-      </header>
+      <h3>Pingback: <?php comment_author_link(); ?><?php edit_comment_link('Bearbeiten', ' | ', ''); ?></h3>
     </article>
 
   <?php

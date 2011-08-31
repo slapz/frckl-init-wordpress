@@ -14,27 +14,14 @@
   */ ?>
   <?php /* USE THESE FOR DEVELOPMENT */ ?>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css" />
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/nicegrid.css" />
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/colorbox.css" />
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css" />
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/print.css" />
-
-  <?php /* USE THIS FOR THE LIVE-VERSION
   <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.0.6.custom.min.js"></script>
-  <script>
-    yepnope({
-      load: ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.2.min.js',
-             '<?php echo get_template_directory_uri(); ?>/js/plugins.js',
-             '<?php echo get_template_directory_uri(); ?>/js/script.js']
-    });
-  </script>
-  */ ?>
-  <?php /* USE THESE FOR DEVELOPMENT */ ?>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.0.6.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.2.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.2.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/live.js"></script>
+  <?php /* see footer for production javascript */ ?>
 
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,13 +30,15 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-  <div id="container" class="g12">
+  <div id="container">
 
-    <header id="header" class="g12">
+    <header id="header">
       <h1><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
       <h2><?php bloginfo('description'); ?></h2>
     </header>
 
-    <nav id="nav" class="g12">
-      <?php wp_nav_menu(array('menu' => 'custom_menu', 'container' => 'none', 'menu_class' => 'clearfix')); ?>
+    <nav id="nav">
+      <ul>
+        <?php wp_nav_menu(array('theme_location' => 'custom_nav', 'depth' => 1)); ?>
+      </ul>
     </nav>

@@ -1,32 +1,30 @@
 <?php get_header(); ?>
 
-<section id="content" class="g8">
+<section id="content">
 
 <?php if (have_posts()) : ?>
-  <header class="archiveHeader">
-    <?php $post = $posts[0]; ?>
-    <?php if (is_category()) { ?>
-    <h1>Archiv f&uuml;r die Kategorie &raquo;<?php single_cat_title(); ?>&laquo;</h1>
+  <?php $post = $posts[0]; ?>
+  <?php if (is_category()) { ?>
+  <h1>Archiv f&uuml;r die Kategorie &raquo;<?php single_cat_title(); ?>&laquo;</h1>
 
-    <?php } elseif(is_tag()) { ?>
-    <h1>Artikel die mit &raquo;<?php single_tag_title(); ?>&laquo; getaggt wurden</h1>
+  <?php } elseif(is_tag()) { ?>
+  <h1>Artikel die mit &raquo;<?php single_tag_title(); ?>&laquo; getaggt wurden</h1>
 
-    <?php } elseif (is_day()) { ?>
-    <h1>Archiv f&uuml;r den <?php get_the_date(); ?></h1>
+  <?php } elseif (is_day()) { ?>
+  <h1>Archiv f&uuml;r den <?php get_the_date(); ?></h1>
 
-    <?php } elseif (is_month()) { ?>
-    <h1>Archiv f&uuml;r <?php get_the_date('F Y'); ?></h1>
+  <?php } elseif (is_month()) { ?>
+  <h1>Archiv f&uuml;r <?php get_the_date('F Y'); ?></h1>
 
-    <?php } elseif (is_year()) { ?>
-    <h1>Archiv f&uuml;r <?php get_the_date('Y'); ?></h1>
+  <?php } elseif (is_year()) { ?>
+  <h1>Archiv f&uuml;r <?php get_the_date('Y'); ?></h1>
 
-    <?php } elseif (is_author()) { ?>
-    <h1>Archiv nach Autoren</h1>
+  <?php } elseif (is_author()) { ?>
+  <h1>Archiv nach Autoren</h1>
 
-    <?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-    <h1>Blog Archiv</h1>
+  <?php } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
+  <h1>Blog Archiv</h1>
 <?php } ?>
-  </header>
 <?php while (have_posts()) : the_post(); ?>
 
   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -53,7 +51,7 @@
 
   <article class="notFound">
     <h1>Nichts gefunden!</h1>
-    <p>Leider wurde an dieser Stelle nicht der von Dir gew&uuml;nschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
+    <p>Leider wurde an dieser Stelle nicht der gew&uuml;nschte Beitrag gefunden.</p>
     <?php get_search_form(); ?>
   </article>
 

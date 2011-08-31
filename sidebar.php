@@ -1,4 +1,4 @@
-<aside id="sidebar" class="g4">
+<aside id="sidebar">
   <ul>
   <?php if (!dynamic_sidebar('sidebar')) : ?>
 

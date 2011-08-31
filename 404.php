@@ -1,17 +1,12 @@
 <?php get_header(); ?>
 
-<section id="content" class="g8 first">
+<section id="content">
   <article class="post">
-    <header class="articleHeader">
-      <h1>Viernullvier - der Klassiker</h1>
-    </header>
+    <h1>Ein Fehler ist aufgetreten.</h1>
     <section class="articleContent">
-      <p>Leider wurde an dieser Stelle nicht der von Dir gew&uuml;nschte Beitrag gefunden. Aber Du kannst gerne den Blog durchsuchen:</p>
+      <p>Leider wurde an dieser Stelle nicht der gew&uuml;nschte Beitrag gefunden.</p>
       <p><?php get_search_form(); ?></p>
     </section>
-    <footer class="articleFooter">
-
-    </footer>
   </article>
 </section>
 
