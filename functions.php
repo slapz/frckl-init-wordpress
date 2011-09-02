@@ -38,7 +38,7 @@ add_filter('admin_footer_text', 'custom_admin_footer_text');
 function custom_jquery() {
   if (!is_admin()) {
     wp_deregister_script('jquery');
-    wp_register_script('jquery', get_template_directory_uri() . 'js/jquery-1.6.2.min.js');
+    wp_register_script('jquery', get_template_directory_uri() . 'js/jquery-1.6.3.min.js');
     wp_enqueue_script('jquery');
   }
 }
