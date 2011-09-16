@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/print.css" />
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/colorbox.css" />
   <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.0.6.custom.min.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.3.min.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.4.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
   <?php /* see footer for production javascript */ ?>

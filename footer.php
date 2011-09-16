@@ -10,7 +10,7 @@
     Modernizr.load({
       test : window.jQuery,
       yep  : ['<?php echo get_template_directory_uri(); ?>/js/plugins.js', '<?php echo get_template_directory_uri(); ?>/js/script.js'],
-      nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.3.min.js', '<?php echo get_template_directory_uri(); ?>/js/plugins.js', '<?php echo get_template_directory_uri(); ?>/js/script.js']
+      nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.6.4.min.js', '<?php echo get_template_directory_uri(); ?>/js/plugins.js', '<?php echo get_template_directory_uri(); ?>/js/script.js']
     });
     window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
     Modernizr.load({
