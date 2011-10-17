@@ -1,42 +1,40 @@
 @media screen {
 
+/* these styles are base styles needed for colorbox -- do not change */
 #colorbox, #cboxOverlay,
 #cboxWrapper                  { position: absolute; top: 0; left: 0; z-index: 9999; overflow: hidden; }
 #cboxOverlay                  { position: fixed; width: 100%; height: 100%; }
 #cboxMiddleLeft,
 #cboxBottomLeft               { clear: left; }
-#cboxContent                  { position: relative; overflow: visible; }
-#cboxLoadedContent            { overflow: hidden !important; }
-#cboxLoadedContent iframe     { display: block; width: 100%; height: 100%; border: 0; }
+#cboxContent                  { position: relative; }
+#cboxLoadedContent            { overflow: auto; }
 #cboxTitle                    { margin: 0; }
 #cboxLoadingOverlay,
 #cboxLoadingGraphic           { position: absolute; top: 0; left: 0; width: 100%; }
 #cboxPrevious, #cboxNext,
 #cboxClose, #cboxSlideshow    { cursor: pointer; }
+.cboxPhoto                    { float: left; margin: auto; border: 0; display: block; }
+.cboxIframe                   { width: 100%; height: 100%; display: block; border: 0; }
 
-/* User-Style for Colorbox */
+/* colorbox user styles */
 #cboxOverlay                  { background: #000; }
-#cboxContent                  { margin-top: 32px; }
-#cboxContent img              { max-width: none; }
-#cboxLoadedContent            { background: #000; padding: 10px 10px 6px 10px; margin-top: 5px; }
-#cboxLoadingGraphic           { background: url(../img/loading.gif) center center no-repeat; }
-#cboxLoadingOverlay           { background: #000; margin-top: 5px; }
-#cboxTitle                    { position: absolute; top: -19px; left: 5px; color: #fff; }
-#cboxCurrent                  { position: absolute; top: -19px; right: 100px; color: #fff; }
-#cboxSlideshow, #cboxPrevious,
-#cboxNext, #cboxClose         { text-indent: -9999px; width: 20px; height: 20px; position: absolute;
-                                top: -20px; background: url(../img/controls.png) 0 0 no-repeat; }
-#cboxPrevious                 { background-position: 0px 0px; right: 44px; }
-#cboxPrevious.hover           { background-position: 0px -25px; }
-#cboxNext                     { background-position: -25px 0px; right: 22px; }
-#cboxNext.hover               { background-position: -25px -25px; }
-#cboxClose                    { background-position: -50px 0px; right: 0; }
-#cboxClose.hover              { background-position: -50px -25px; }
-.cboxSlideshow_on #cboxPrevious,
-.cboxSlideshow_off #cboxPrevious { right: 66px; }
-.cboxSlideshow_on #cboxSlideshow { background-position: -75px -25px; right: 44px; }
-.cboxSlideshow_on #cboxSlideshow.hover { background-position: -100px -25px; }
-.cboxSlideshow_off #cboxSlideshow { background-position: -100px 0px; right: 44px; }
-.cboxSlideshow_off #cboxSlideshow.hover { background-position: -75px -25px; }
+#colorbox                     {  }
+#cboxContent                  { margin-top: 20px; }
+.cboxIframe                   { background: #fff; }
+#cboxError                    { padding: 50px; border: 1px solid #ccc; }
+#cboxLoadedContent            { border: 5px solid #000; background: #fff; }
+#cboxTitle                    { position: absolute; top: -20px; left: 0; color: #ccc; }
+#cboxCurrent                  { position: absolute; top: -20px; right: 0px; color: #ccc; }
+#cboxSlideshow                { position: absolute; top: -20px; right: 90px; color: #fff; }
+#cboxLoadingOverlay           { background: #000; }
+#cboxLoadingGraphic           { background: url(../img/loading.gif) no-repeat center center; }
+#cboxPrevious, #cboxNext,
+#cboxClose                    { background: url(../img/controls.png) no-repeat; }
+#cboxPrevious                 { position: absolute; top: 50%; left: 5px; margin-top: -32px; background-position: top left; width: 28px; height: 65px; text-indent: -9999px; }
+#cboxPrevious:hover           { background-position: bottom left; }
+#cboxNext                     { position: absolute; top: 50%; right: 5px; margin-top: -32px; background-position: top right; width: 28px; height: 65px; text-indent: -9999px; }
+#cboxNext:hover               { background-position: bottom right; }
+#cboxClose                    { position: absolute; top: 5px; right: 5px; display: block; background-position: top center; width: 38px; height: 19px; text-indent: -9999px; }
+#cboxClose:hover              { background-position: bottom center; }
 
-} /* end @media */
+} /* end @media screen */
