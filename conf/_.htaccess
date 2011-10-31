@@ -4,24 +4,23 @@
 
 # Use ChromeFrame if it's installed for a better experience for the poor IE folk
 <IfModule mod_headers.c>
-    Header set X-UA-Compatible "IE=Edge,chrome=1"
-    # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
-    <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|xpi|safariextz|vcf)$" >
-      Header unset X-UA-Compatible
-    </FilesMatch>
+  Header set X-UA-Compatible "IE=Edge,chrome=1"
+  # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
+  <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|xpi|safariextz|vcf)$" >
+    Header unset X-UA-Compatible
+  </FilesMatch>
 </IfModule>
 
 
 # allow access to webfonts from everywhere, change this if needed
-###############################################################
-<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
-  <IfModule mod_headers.c>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$">
     Header set Access-Control-Allow-Origin "*"
-  </IfModule>
-</FilesMatch>
+  </FilesMatch>
+</IfModule>
 
 
-# adding a proper mime type to some new filetypes 
+# adding a proper mime type to some new filetypes
 ###############################################################
 AddType application/javascript         js
 AddType audio/ogg                      oga ogg
@@ -29,10 +28,10 @@ AddType audio/mp4                      m4a
 AddType video/ogg                      ogv
 AddType video/mp4                      mp4 m4v
 AddType video/webm                     webm
-AddType     image/svg+xml              svg svgz 
+AddType     image/svg+xml              svg svgz
 AddEncoding gzip                       svgz
 AddType application/vnd.ms-fontobject  eot
-AddType application/x-font-ttf    ttf ttc
+AddType application/x-font-ttf         ttf ttc
 AddType font/opentype                  otf
 AddType application/x-font-woff        woff
 AddType image/x-icon                   ico
@@ -49,44 +48,46 @@ AddType text/x-vcard                   vcf
 ###############################################################
 <IfModule mod_deflate.c>
 
-# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
-<IfModule mod_setenvif.c>
-  <IfModule mod_headers.c>
-    SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
-    RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+  # Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+  <IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+      SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+      RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+    </IfModule>
   </IfModule>
-</IfModule>
 
-# HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
-<IfModule filter_module>
-  FilterDeclare   COMPRESS
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
-  FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
-  FilterChain     COMPRESS
-  FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
-</IfModule>
+  # HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
+  <IfModule filter_module>
+    FilterDeclare   COMPRESS
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/html
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/css
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/plain
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $text/x-component
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/javascript
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/json
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/xhtml+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/rss+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/atom+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/vnd.ms-fontobject
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/svg+xml
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $image/x-icon
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $application/x-font-ttf
+    FilterProvider  COMPRESS  DEFLATE resp=Content-Type $font/opentype
+    FilterChain     COMPRESS
+    FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+  </IfModule>
 
-<IfModule !mod_filter.c>
-  # Legacy versions of Apache
-  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
-  AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
-  AddOutputFilterByType DEFLATE image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
-</IfModule>
+  <IfModule !mod_filter.c>
+    # Legacy versions of Apache
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+    AddOutputFilterByType DEFLATE application/xhtml+xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE image/x-icon image/svg+xml application/vnd.ms-fontobject application/x-font-ttf font/opentype
+  </IfModule>
+
 </IfModule>
 
 
@@ -102,7 +103,7 @@ AddType text/x-vcard                   vcf
   ExpiresByType application/json          "access plus 0 seconds"
   ExpiresByType application/rss+xml       "access plus 1 hour"
   ExpiresByType application/atom+xml      "access plus 1 hour"
-  ExpiresByType image/x-icon              "access plus 1 week" 
+  ExpiresByType image/x-icon              "access plus 1 week"
   ExpiresByType image/gif                 "access plus 1 month"
   ExpiresByType image/png                 "access plus 1 month"
   ExpiresByType image/jpg                 "access plus 1 month"
@@ -112,7 +113,7 @@ AddType text/x-vcard                   vcf
   ExpiresByType video/mp4                 "access plus 1 month"
   ExpiresByType video/webm                "access plus 1 month"
   ExpiresByType text/x-component          "access plus 1 month"
-  ExpiresByType font/truetype             "access plus 1 month"
+  ExpiresByType application/x-font-ttf    "access plus 1 month"
   ExpiresByType font/opentype             "access plus 1 month"
   ExpiresByType application/x-font-woff   "access plus 1 month"
   ExpiresByType image/svg+xml             "access plus 1 month"
@@ -133,7 +134,7 @@ FileETag None
 
 
 # URL REWRITING HERE
-############################################################### 
+###############################################################
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks
   RewriteEngine On
@@ -145,26 +146,28 @@ FileETag None
   RewriteRule ^ http://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
 
+Options -MultiViews
+
+AddDefaultCharset utf-8
+AddCharset utf-8 .html .css .js .xml .json .rss .atom
+
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
 # dont allow access to .-directories, git, svn etc.
 <IfModule mod_rewrite.c>
   RewriteRule "(^|/)\." - [F]
-</IfModule> 
-
-Options -MultiViews 
-Options -Indexes
-
-AddDefaultCharset utf-8
-AddCharset utf-8 .html .css .js .xml .json .rss
-
+</IfModule>
 
 # now for the Wordpress-Stuff
 ###############################################################
 
 # BEGIN WordPress
-
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
