@@ -6,7 +6,7 @@ p, table, figure, h1, h2, h3,
 h4, h5, h6, fieldset, pre,
 blockquote, iframe, object,
 audio, video, canvas, ul, ol  { margin-bottom: 20px; } /* basic bottom margin for content-elements ~= line-height */
-h1                            { font-size: 160%; }
+h1                            { font-size: 160%; text-rendering: optimizeLegibility; }
 h2                            { font-size: 140%; }
 h3                            { font-size: 120%; }
 h4                            { font-size: 100%; }
