@@ -29,6 +29,8 @@
 // add $cap capability to this role object
 // $role_object->add_cap('edit_theme_options');
 
+if (!isset($content_width)) $content_width = 640;
+
 // custom footer text in the backend
 function custom_admin_footer_text($default_text) {
   return '<span id="footer-thankyou">Bei Fragen oder Problemen einfach eine Email an <a href="mailto:webgefrickel@gmail.com">Steffen Becker</a></span>';
@@ -44,14 +46,29 @@ function custom_jquery() {
 }
 add_action('init', 'custom_jquery');
 
-if (!isset($content_width)) $content_width = 640;
+// initialize the custom navigation menu for wordpress found in header.php
+if (function_exists('register_nav_menu')) {
+  register_nav_menus(array(
+    'custom_nav' => 'Hauptnavigation'
+  ));
+}
+
+// remove not often used stuff from <head>
+add_filter('the_generator', create_function('', 'return "";'));
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+// remove inline styles in head for comments
+add_action( 'widgets_init', function() {
+  global $wp_widget_factory;
+  remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+});
 
 // activate support for automatic feed links, custom css and post thumbnails
 add_theme_support('automatic-feed-links');
 add_theme_support('nav-menus');
 add_theme_support('post-thumbnails');
 add_editor_style('');
-remove_action('wp_head', 'wp_generator');
 add_filter('show_admin_bar', '__return_false');
 
 // no update notification for non-admins
@@ -59,16 +76,6 @@ function no_update_notification() {
   if (!current_user_can('activate_plugins')) remove_action('admin_notices', 'update_nag', 3);
 }
 add_action('admin_notices', 'no_update_notification', 1);
-
-// remove width/height from images - pagespeed does not like that
-// flexible images and IE like it very much
-add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
-add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
-add_filter('the_content', 'remove_thumbnail_dimensions', 10);
-function remove_thumbnail_dimensions($html) {
-  $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
-  return $html;
-}
 
 // register the sidebars
 add_action('widgets_init', function() {
@@ -81,13 +88,6 @@ add_action('widgets_init', function() {
     'after_title' => '</h2>',
   ));
 });
-
-// initialize the custom navigation menu for wordpress found in header.php
-if (function_exists('register_nav_menu')) {
-  register_nav_menus(array(
-    'custom_nav' => 'Hauptnavigation'
-  ));
-}
 
 // some default options for the nav_menus -- no container, no fallback
 function custom_wp_nav_menu_args($args = '') {
@@ -102,12 +102,6 @@ function custom_remove_ul ( $menu ){
   return preg_replace( array('#^<ul[^>]*>#', '#</ul>$#' ), '', $menu);
 }
 add_filter('wp_nav_menu', 'custom_remove_ul');
-
-// remove inline styles in head for comments
-add_action( 'widgets_init', function() {
-  global $wp_widget_factory;
-  remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
-});
 
 /* Custom comments function */
 if (!function_exists('custom_comments')) :
