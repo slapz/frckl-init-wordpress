@@ -1,5 +1,6 @@
 @media screen {
 
+/*=============== Colorbox Styles ===============*/
 /* these styles are base styles needed for colorbox -- do not change */
 #colorbox, #cboxOverlay,
 #cboxWrapper                  { position: absolute; top: 0; left: 0; z-index: 9999; overflow: hidden; }
@@ -17,15 +18,14 @@
 .cboxIframe                   { width: 100%; height: 100%; display: block; border: 0; }
 
 /* colorbox user styles */
-#cboxOverlay                  { background: #000; }
-#colorbox                     {  }
+#cboxOverlay                  { background: #fff; }
 #cboxContent                  { margin-top: 20px; }
 .cboxIframe                   { background: #fff; }
 #cboxError                    { padding: 50px; border: 1px solid #ccc; }
-#cboxLoadedContent            { border: 5px solid #000; background: #fff; }
-#cboxTitle                    { position: absolute; top: -20px; left: 0; color: #ccc; }
-#cboxCurrent                  { position: absolute; top: -20px; right: 0px; color: #ccc; }
-#cboxSlideshow                { position: absolute; top: -20px; right: 90px; color: #fff; }
+#cboxLoadedContent            { border: 0.5em solid #000; background: #fff; }
+#cboxTitle                    { position: absolute; top: -1.5em; left: 0.5em; }
+#cboxCurrent                  { position: absolute; top: -1.4em; right: 0.5em; }
+#cboxSlideshow                { position: absolute; top: -1.4em; right: 90px; }
 #cboxLoadingOverlay           { background: #000; }
 #cboxLoadingGraphic           { background: url(../img/loading.gif) no-repeat center center; }
 #cboxPrevious, #cboxNext,
@@ -36,5 +36,9 @@
 #cboxNext:hover               { background-position: bottom right; }
 #cboxClose                    { position: absolute; top: 5px; right: 5px; display: block; background-position: top center; width: 38px; height: 19px; text-indent: -9999px; }
 #cboxClose:hover              { background-position: bottom center; }
+
+/* blur out the background elements, for a nicer lightbox-effect */
+.cboxBlurred *                { color: rgba(94, 94, 94, 0); text-shadow: 0 0 11px rgba(50, 50, 50, .7); }
+.cboxBlurred img              { opacity: 0.3; }
 
 } /* end @media screen */

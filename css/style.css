@@ -1,45 +1,44 @@
 @media all {
 
-/*=============== Default Styling ===============*/
-body                          { font: normal 15px/1.4 sans-serif; background: #fff; color: #333; }
-p, table, figure, h1, h2, h3,
-h4, h5, h6, fieldset, pre,
-blockquote, iframe, object,
-audio, video, canvas, ul, ol  { margin-bottom: 20px; } /* basic bottom margin for content-elements ~= line-height */
-h1                            { font-size: 160%; text-rendering: optimizeLegibility; }
-h2                            { font-size: 140%; }
-h3                            { font-size: 120%; }
-h4                            { font-size: 100%; }
-h5                            { font-size: 90%; }
-h6                            { font-size: 80%; }
+/*=============== Base Styles ===============*/
+body                          { font: normal 16px/1.4 sans-serif; color: #333; }
+h1                            { text-rendering: optimizeLegibility; }
 
-/* you really should style those */
-a                             {  }
-a:hover                       {  }
+a                             { color: #bada55; }
+a:hover                       { text-decoration: none; }
 :focus                        {  }
 ::-moz-selection              {  }
 ::selection                   {  }
 
-/* this is highly recommended -- autoscaling imgs and stuff ftw! */
-img                           { max-width: 100%; height: auto; }
+img                           { max-width: 100%; height: auto; } /* image auto-scaling can cause problems with colorbox */
 
-label                         { display: block; }
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { -webkit-appearance: none; }
-input[type="search"]          { -webkit-appearance: textfield; -webkit-box-sizing: content-box; }
+button, input, select,
+textarea                      { font-family: sans-serif; } /* same font as body */
 input[type="text"],
 input[type="tel"],
 input[type="email"],
 input[type="search"],
-textarea                      { /* style those inputs if you want */}
-input:focus, textarea:focus   { /* add special focus to those inputs */ }
+textarea                      { /* style those inputs */ }
 
-/* wordpress classes */
+
+
+/*=============== Layout Styles ===============*/
+#container                    { width: 960px; margin: 0 auto; }
+#header                       {  }
+#nav                          {  }
+#main                         {  }
+#content                      {  }
+#footer                       {  }
+
+
+/*=============== Module Styles ===============*/
+.module                       {  }
+
+
+/*=============== Wordpress classes ===============*/
 .sticky                       {  }
-.alignleft                    { float: left; display: inline; margin-right: 20px; }
-.alignright                   { float: right; text-align: right; display: inline; margin-left: 20px; }
+.alignleft                    { float: left; display: inline; margin-right: 1.4em; }
+.alignright                   { float: right; text-align: right; display: inline; margin-left: 1.4em; }
 .aligncenter                  { clear: both; display: block; margin: 0 auto; }
 .bypostauthor                 {  }
 .wp-caption                   {  }
@@ -47,47 +46,19 @@ input:focus, textarea:focus   { /* add special focus to those inputs */ }
 .gallery-caption              {  }
 
 
-/*=============== Header ===============*/
-#container                    { width: 960px; margin: 0 auto; }
-#header                       {  }
-
-
-/*=============== Navigation ===============*/
-#nav                          {  }
-#nav ul                       {  }
-#nav li                       {  }
-
-
-/*=============== Main Area & Content Elements ===============*/
-#main                         {  }
-#content                      {  }
-#content ul                   { margin: 0 0 20px 20px; }
-#content li > ul              { margin-bottom: 0; }
-
-
-/*=============== Sidebar ===============*/
-#sidebar                      {  }
-#sidebar li ul                { margin-left: 20px; list-style: disc; }
-#sidebar .widget,
-.searchResults                { margin-bottom: 20px; }
-
-
-/*=============== Footer ===============*/
-#footer                       {  }
-
-
 /*=============== Helper Classes and sidewide stuff ===============*/
 .ir                           { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent;
-                                background-repeat: no-repeat; text-align: left; direction: ltr; }
+                                background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
 .ir br                        { display: none; }
 .hidden                       { display: none !important; visibility: hidden; }
-.visuallyhidden               { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden               { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden;
+                                padding: 0; position: absolute; width: 1px; }
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible                    { visibility: hidden; }
 .clearfix:before,
 .clearfix:after               { content: ""; display: table; }
 .clearfix:after               { clear: both; }
-.clearfix                     { zoom: 1; }
-
+.clearfix                     { *zoom: 1; }
 
 } /* end @media all */

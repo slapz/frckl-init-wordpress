@@ -6,7 +6,9 @@ Inspired by various css-grid-systems such as 960.gs, 1kbgrid.com, cssgrid.net an
 
 Per default we use the 990px-grid fitting nicely in an ipad and 1024px-screens (and
 stupid browsers that don't care about media-queries) and define the floating and
-clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
+clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter
+*/
+
 @media all {
 
 .g1, .g2, .g3, .g4, .g5, .g6,
@@ -26,7 +28,7 @@ clearfixing stuff for all media-types, incl. print. 55px grid and 30px gutter */
 .g12                          { width: 990px; margin: 0 auto; clear: left; -moz-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out;
                                 -webkit-transition: all 0.3s ease-out; -ms-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 
-/* The clearfix! (http://j.mp/bestclearfix) -- the g12-class always clearfixes */
+/* Clearfixing, see the html5boilerplate for more info -- the g12-class always clearfixes */
 .g12:before, .g12:after       { content: ""; display: table; }
 .g12:after                    { clear: both; }
 .g12                          { zoom: 1; }
