@@ -35,6 +35,10 @@ define('DB_COLLATE', '');
 /** Slideshow Fuckage - Remove JS */
 define('NGG_SKIP_LOAD_SCRIPTS', 'true');
 
+/** Less post revisioins keeps the db clean */
+define('WP_POST_REVISIONS', false);
+define('AUTOSAVE_INTERVAL', 300); // in seconds
+
 /**#@+
  * Sicherheitsschlüssel
  *
