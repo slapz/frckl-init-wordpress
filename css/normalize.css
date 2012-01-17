@@ -1,4 +1,4 @@
-/*! normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
+/*! normalize.css - http://github.com/necolas/normalize.css */
 /* Stripped and modifed by Steffen Becker - http://webgefrickel.de || http://nebelschwa.de */
 
 @media all {
@@ -43,16 +43,17 @@ figure                        { margin: 0; }
 form                          { margin: 0; }
 fieldset                      { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0 1.4em 1.4em 1.4em; }
 fieldset ol                   { padding: 0; }
-legend                        { border: 0; *margin-left: -7px; }
+legend                        { border: 0; padding: 0; white-space: normal; *margin-left: -7px; }
 button, input, select,
 textarea                      { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
 button, input                 { line-height: normal; }
 button, input[type="button"],
 input[type="submit"]          { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
 input[type="checkbox"],
-input[type="radio"]           { box-sizing: border-box; padding: 0; }
+input[type="radio"]           { box-sizing: border-box; padding: 0; *height: 13px; *width: 13px; }
 input[type="search"]          { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
 button::-moz-focus-inner,
 input::-moz-focus-inner       { border: 0; padding: 0; }
 textarea                      { overflow: auto; vertical-align: top; }
