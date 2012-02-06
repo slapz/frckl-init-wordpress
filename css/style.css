@@ -20,6 +20,9 @@ input[type="email"],
 input[type="search"],
 textarea                      { /* style those inputs */ }
 
+input:valid, textarea:valid   {  } /* Colors for form validity */
+input:invalid,
+textarea:invalid              { background-color: #f0dddd; }
 
 
 /*=============== Layout Styles ===============*/
@@ -47,12 +50,10 @@ textarea                      { /* style those inputs */ }
 
 
 /*=============== Helper Classes and sidewide stuff ===============*/
-.ir                           { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent;
-                                background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir                           { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
 .ir br                        { display: none; }
 .hidden                       { display: none !important; visibility: hidden; }
-.visuallyhidden               { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden;
-                                padding: 0; position: absolute; width: 1px; }
+.visuallyhidden               { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 .invisible                    { visibility: hidden; }

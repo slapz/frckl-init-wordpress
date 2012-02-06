@@ -13,7 +13,7 @@ These are not included, but when creating Wordpress-Sites, I often use these plu
 - [All in One SEO Pack](http://wordpress.org/extend/plugins/all-in-one-seo-pack/) -- SEO, nice page titles etc.
 - [Antispam Bee](http://wordpress.org/extend/plugins/antispam-bee/) -- If you have problems with spam. Free Akismet, kinda.
 - [Google XML Sitemaps](http://wordpress.org/extend/plugins/google-sitemap-generator/) -- a nice sitemap generator for SEO
-- [Magic Fields 2](http://wordpress.org/extend/plugins/magic-fields-2/) -- For adding custom taxonomies, post types and fields
+- [Magic Fields 2](http://wordpress.org/extend/plugins/magic-fields-2/) or [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) -- For adding custom taxonomies, post types and fields
 - [NextGEN Gallery](http://wordpress.org/extend/plugins/nextgen-gallery/) -- If you want custom galleries: use this
 - [WP-Beautifier](http://wordpress.org/extend/plugins/wp-beautifier/) -- For better code output
 - [WP-PageNavi](http://wordpress.org/extend/plugins/wp-pagenavi/) -- A better page navigation

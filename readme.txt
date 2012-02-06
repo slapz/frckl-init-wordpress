@@ -1,1 +1,1 @@
-See README.md and style.css
+See README.md

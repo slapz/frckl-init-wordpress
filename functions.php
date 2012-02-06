@@ -33,7 +33,7 @@ if (!isset($content_width)) $content_width = 640;
 
 // custom footer text in the backend
 function custom_admin_footer_text($default_text) {
-  return '<span id="footer-thankyou">Bei Fragen oder Problemen einfach eine Email an <a href="mailto:webgefrickel@gmail.com">Steffen Becker</a></span>';
+  return '<span id="footer-thankyou">Bei Fragen oder Problemen einfach eine Email an <a href="mailto:kontakt@webgefrickel.de">Steffen Becker</a></span>';
 }
 add_filter('admin_footer_text', 'custom_admin_footer_text');
 
@@ -103,6 +103,9 @@ function custom_remove_ul ( $menu ){
 }
 add_filter('wp_nav_menu', 'custom_remove_ul');
 
+// remove gallery default styles
+add_filter('gallery_style', create_function('$a', 'return preg_replace("%<style type=\'text/css\'>(.*?)</style>%s", "", $a);'));
+
 /* Custom comments function */
 if (!function_exists('custom_comments')) :
 function custom_comments($comment, $args, $depth) {
@@ -142,6 +145,5 @@ function custom_comments($comment, $args, $depth) {
   endswitch;
 } // end function custom_comments
 endif; // end if exists
-
 
 ?>
