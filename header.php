@@ -21,7 +21,7 @@
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
   <?php wp_head(); ?>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.5.0.min.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.5.2.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/plugins.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
   <?php /* see footer for production javascript */ ?>
