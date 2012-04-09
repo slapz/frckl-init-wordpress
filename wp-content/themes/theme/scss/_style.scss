@@ -13,9 +13,9 @@ a:hover {
 
 :focus { }
 
-::-moz-selection { } 
+::-moz-selection { }
 
-::selection { } 
+::selection { }
 
 
 /*=============== forms  ===============*/
@@ -43,7 +43,7 @@ textarea:invalid {
 
 /*=============== Layout Styles ===============*/
 .container {
-  width: 960px;
+  width: $page-width;
   margin: 0 auto; }
 
 
@@ -52,22 +52,22 @@ textarea:invalid {
 
 
 /*=============== Wordpress classes ===============*/
-.alignleft { 
-  float: left; display: inline; 
-  margin-right: 1.4em; }
+.alignleft {
+  float: left; display: inline;
+  margin-right: #{$line-height}em; }
 
-.alignright { 
-  float: right; display: inline; 
-  margin-left: 1.4em; 
+.alignright {
+  float: right; display: inline;
+  margin-left: #{$line-height}em;
   text-align: right; }
 
-.aligncenter { 
-  display: block; 
+.aligncenter {
+  display: block;
   margin: 0 auto;
   clear: both; }
 
 .bypostauthor { }
 .sticky { }
-.wp-caption { } 
+.wp-caption { }
 .wp-caption-text { }
 .gallery-caption { }

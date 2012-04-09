@@ -20,6 +20,8 @@ define('LOGGED_IN_SALT',   'p?lpPiN.11y)3_$+052H)@(#JF#+Hn{U.wbOI2j!6;qSIeZUw8~h
 define('NONCE_SALT',       '-H0F+uJkZ6)@/^W{F2+LDA fV9)@(#FJWSE)(RS[)M+IA4KTAkT-lgGdv7lIo!^8');
 
 // custom stuff and debuggung
+define('WP_POST_REVISIONS', false);
+define('AUTOSAVE_INTERVAL', 300); // in seconds
 define('WP_DEBUG', false);
 // define('NGG_SKIP_LOAD_SCRIPTS', 'true');
 

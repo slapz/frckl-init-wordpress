@@ -6,6 +6,10 @@ all the fun and best practices from html5boilerplate. I will use scss from now o
 have a look at the \_default-theme in the folder wp-content/themes. Most pages I do
 are in german, thus the whole german stuff is included and activated.
 
+The database dump is in wp-content - be sure to delete it after importing. Default
+base/home-URL is http://wordpress.dev, search and replace before importing if you
+want sth. else. Be sure to delete this file afterwards. Default-User is admin and
+the password: 'password'.
 
 ## Recommended Plugins (included) 
 
@@ -21,13 +25,10 @@ are in german, thus the whole german stuff is included and activated.
 
 This would not have been possible without:
 
-- [http://meyerweb.com/eric/tools/css/reset/](http://meyerweb.com/eric/tools/css/reset/)
-- [http://html5doctor.com/html-5-reset-stylesheet/](http://html5doctor.com/html-5-reset-stylesheet/)
 - [http://html5boilerplate.com/](http://html5boilerplate.com/)
-- [http://j.mp/bestclearfix](http://j.mp/bestclearfix)
-- [http://praegnanz.de/weblog/htmlcssjs-kickstart](http://praegnanz.de/weblog/htmlcssjs-kickstart)
 - [http://modernizr.com](http://modernizr.com)
 - [http://jquery.com](http://jquery.com)
 - [http://colorpowered.com/colorbox/](http://colorpowered.com/colorbox/)
+- [http://necolas.github.com/normalize.css/](http://necolas.github.com/normalize.css/)
 
 ... and many many others. Thanks a lot.

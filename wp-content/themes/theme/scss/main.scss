@@ -1,24 +1,22 @@
 /*
  * Project Info
- * 
+ *
  */
 
 /* Define globale variables used throughout the whole project here */
 
 $background: #fff;
 $color: #333;
+$link-color: #badbad;
 
 $font: 'Georgia, serif';
 $font-size: 16px;
 $line-height: 1.4;
 
-$link-color: #badbad;
+$page-width: 960px;
 
 @import 'normalize';
 @import 'style';
 @import 'colorbox';
 @import 'helpers';
 @import 'print';
-
-
-
