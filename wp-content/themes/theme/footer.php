@@ -13,7 +13,7 @@
       test : window.jQuery,
       yep  : ['<?php echo get_template_directory_uri(); ?>/js/plugins.js',
               '<?php echo get_template_directory_uri(); ?>/js/script.js'],
-      nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.7.1.min.js',
+      nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.7.2.min.js',
               '<?php echo get_template_directory_uri(); ?>/js/plugins.js',
               '<?php echo get_template_directory_uri(); ?>/js/script.js']
     });
