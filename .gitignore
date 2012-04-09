@@ -1,2 +1,2 @@
 _srcs
-wp-content/themes/theme/.sass-cache
+*.sass-cache
