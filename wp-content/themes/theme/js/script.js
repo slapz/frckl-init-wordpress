@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
   // Add Colorbox to every csc-textpic element with click-enlarge
   if ($('a[rel^="lightbox"]').length) {
     $('a[rel^="lightbox"]').colorbox({
-      opacity: 0.5,
+      opacity: 0.8,
       loop: false,
       maxWidth: '90%',
       maxHeight: '90%',
@@ -22,8 +22,6 @@ jQuery(document).ready(function($) {
       previous: "zurück",
       next: "weiter",
       close: 'schließen',
-      onOpen: function() { $('#container').addClass('cboxBlurred'); },
-      onClosed: function() { $('#container').removeClass('cboxBlurred'); }
     });
   }
 
