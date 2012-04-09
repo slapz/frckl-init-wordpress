@@ -1,0 +1,558 @@
+/*
+ * Project Info
+ * 
+ */
+/* Define globale variables used throughout the whole project here */
+/*
+ * normalize.css - http://github.com/necolas/normalize.css
+ * Stripped and modifed by Steffen Becker - http://webgefrickel.de
+ * last modified 2012-04-09
+ */
+/*=============== normalizing base styles ===============*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif; }
+
+body {
+  margin: 0;
+  background-color: #fff; }
+
+/*=============== text styling ===============*/
+a:focus {
+  outline: thin dotted; }
+
+a:hover,
+a:active {
+  outline: 0; }
+
+h1 {
+  margin: 0.67em 0;
+  font-size: 2em; }
+
+h2 {
+  margin: 0.83em 0;
+  font-size: 1.5em; }
+
+h3 {
+  margin: 1em 0;
+  font-size: 1.17em; }
+
+h4 {
+  margin: 1.33em 0;
+  font-size: 1em; }
+
+h5 {
+  margin: 1.67em 0;
+  font-size: 0.83em; }
+
+h6 {
+  margin: 2.33em 0;
+  font-size: 0.75em; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+blockquote {
+  margin: 1.4em; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+p,
+pre {
+  margin: 1em 0; }
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+  _font-family: 'courier new', monospace; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+q {
+  quotes: none; }
+
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+small {
+  font-size: 75%; }
+
+sub,
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0; }
+
+dd {
+  margin: 0 0 0 1.4em; }
+
+menu,
+ol,
+ul {
+  padding: 0 0 0 1.4em; }
+
+nav ul,
+nav ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  list-style-image: none; }
+
+/*=============== images styles ===============*/
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 0; }
+
+/*=============== form styles ===============*/
+form {
+  margin: 0; }
+
+fieldset {
+  margin: 0 2px;
+  padding: 1em;
+  border: 1px solid #c0c0c0; }
+
+legend {
+  padding: 0;
+  border: 0;
+  white-space: normal;
+  *margin-left: -7px; }
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  *vertical-align: middle; }
+
+button,
+input {
+  line-height: normal; }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible; }
+
+button[disabled],
+input[disabled] {
+  cursor: default; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  *height: 13px;
+  *width: 13px; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+label {
+  display: block;
+  cursor: pointer; }
+
+/*=============== the rest ===============*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td {
+  vertical-align: top; }
+
+th {
+  text-align: left; }
+
+/*=============== base styles ===============*/
+body {
+  font: normal 16px/1.4 sans-serif;
+  color: #333; }
+
+h1 {
+  text-rendering: optimizeLegibility; }
+
+a {
+  color: #bada55; }
+
+a:hover {
+  text-decoration: none; }
+
+:focus {
+  /* style me */ }
+
+::-moz-selection {
+  /* style me */ }
+
+::selection {
+  /* style me */ }
+
+/*=============== forms  ===============*/
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif; }
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+textarea {
+  /* style me */ }
+
+input:valid,
+textarea:valid {
+  /* colors for form validity */ }
+
+input:invalid,
+textarea:invalid {
+  background-color: #f0dddd; }
+
+/*=============== Layout Styles ===============*/
+#container {
+  width: 960px;
+  margin: 0 auto; }
+
+/*=============== Module Styles ===============*/
+.module {
+  /* style me */ }
+
+/*=============== Wordpress classes ===============*/
+.alignleft {
+  float: left;
+  display: inline;
+  margin-right: 1.4em; }
+
+.alignright {
+  float: right;
+  text-align: right;
+  display: inline;
+  margin-left: 1.4em; }
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto; }
+
+/*=============== colorbox styles ===============*/
+/* these styles are base styles needed for colorbox -- do not change */
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 9999; }
+
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
+#cboxMiddleLeft,
+#cboxBottomLeft {
+  clear: left; }
+
+#cboxContent {
+  position: relative; }
+
+#cboxLoadedContent {
+  overflow: auto; }
+
+#cboxTitle {
+  margin: 0; }
+
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+#cboxPrevious,
+#cboxNext,
+#cboxClose,
+#cboxSlideshow {
+  cursor: pointer; }
+
+.cboxPhoto {
+  display: block;
+  float: left;
+  margin: auto;
+  border: 0; }
+
+.cboxIframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0; }
+
+/*=============== your colorbox styles ===============*/
+/* edit those styles to your liking */
+#cboxOverlay {
+  background: #000; }
+
+.cboxIframe {
+  background: #fff; }
+
+#cboxContent {
+  margin-top: 20px; }
+
+#cboxError {
+  padding: 50px;
+  border: 1px solid #ccc; }
+
+#cboxLoadedContent {
+  border: 5px solid #000;
+  background: #fff; }
+
+#cboxTitle {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  color: #ccc; }
+
+#cboxCurrent {
+  position: absolute;
+  top: -20px;
+  right: 0px;
+  color: #ccc; }
+
+#cboxSlideshow {
+  position: absolute;
+  top: -20px;
+  right: 90px;
+  color: #fff; }
+
+#cboxLoadingGraphic {
+  background: url(../img/loading.gif) no-repeat center center; }
+
+#cboxPrevious,
+#cboxNext,
+#cboxCurrent {
+  background: url(../img/controls.png) no-repeat; }
+
+#cboxPrevious {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 28px;
+  height: 65px;
+  margin-top: -32px;
+  background-position: top left;
+  text-indent: -9999px; }
+
+#cboxPrevious:hover {
+  background-position: bottom left; }
+
+#cboxNext {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 28px;
+  height: 65px;
+  margin-top: -32px;
+  background-position: top right;
+  text-indent: -9999px; }
+
+#cboxNext:hover {
+  background-position: bottom right; }
+
+#cboxLoadingOverlay {
+  background: #000; }
+
+#cboxClose {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 38px;
+  height: 19px;
+  background-position: top center;
+  text-indent: -9999px; }
+
+#cboxClose:hover {
+  background-position: bottom center; }
+
+/*=============== helper and general classes  ===============*/
+.ir {
+  border: 0;
+  background-color: transparent;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none; }
+
+.hidden {
+  display: none !important;
+  visibility: hidden; }
+
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden; }
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto; }
+
+.invisible {
+  visibility: hidden; }
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: ""; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+@media print {
+  /*=============== Print Styles ===============*/
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important; }
+
+  a,
+  a:visited {
+    text-decoration: underline; }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group; }
+
+  tr,
+  img {
+    page-break-inside: avoid; }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2,
+  h3 {
+    page-break-after: avoid; } }
+/* end @media print */

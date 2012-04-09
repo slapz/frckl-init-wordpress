@@ -1,0 +1,153 @@
+# German Translation of the WordPress plugin WP-Beautifier by Till Krüss.
+# Copyright (C) 2010
+# This file is distributed under the same license as the WP-Beautifier plugin.
+# Till Krüss <till@pralinenschachtel.de>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Beautifier 1.3.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wp-beautifier\n"
+"POT-Creation-Date: 2010-10-01 06:16+0000\n"
+"PO-Revision-Date: 2010-10-01 14:33+0800\n"
+"Last-Translator: Till Krüss <till@pralinenschachtel.de>\n"
+"Language-Team: Till Krüss <till@pralinenschachtel.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: options.php:76 options.php:220
+msgid "Beautification Settings"
+msgstr "Verschönerungs Einstellungen"
+
+#: options.php:76
+msgid "Beautification"
+msgstr "Verschönerung"
+
+#: options.php:92
+msgid "Edit plugin settings"
+msgstr "Plugin Einstellungen ändern"
+
+#: options.php:113 options.php:149
+msgid "FAQ"
+msgstr "FAQ"
+
+#: options.php:114 options.php:149
+msgid "Support Forum"
+msgstr "Support Forum"
+
+#: options.php:115 options.php:150
+msgid "Donate"
+msgstr "Spenden"
+
+#: options.php:141
+msgid "<strong>Code indentation</strong> &#8211; The code indentation option unifies all line endings into unix-style <code>&#92;n</code> and removes all whitespace from the end and the beginning of each line and from the document in its entirety. It also removes empty lines, line breaks between tag attributes, line breaks in text inside of tags and horizontal whitespace between tags. Afterwards all lines are indented correctly with tabs <code>&#92;t</code> for easier reading."
+msgstr "<strong>Quelltext Einrückung</strong> &#8211; Diese Option wandelt alle Zeilenumbrüche in einheitlichen Unix-Stil <code>&#92;n</code> und entfernt jeglichen Whitespace von dem Anfang und Ende jeder Zeile und von dem Dokument als Ganzes. Sie entfernt ebenfalls leeren Zeilen, Zeilenumbrücke zwischen Tag Attributen, Zeilenumbrücke in Text innerhalb von Tags und horizontalen Whitespace zwischen Tags. Zuletzt werden alle Zeilen, für bessere Lesbarkeit, korrekt mit Tabs <code>&#92;t</code> eingerückt."
+
+#: options.php:142
+msgid "<strong>Single quotes conversion</strong> &#8211; This option converts single quoted tag attributes values like <code>&lt;link rel=&#39;&#8230;&#39;&gt;</code> into double quoted attributes values <code>&lt;link rel=&#34;&#8230;&#34;&gt;</code>, if the attribute is not listed under <em>Ignored attributes</em>."
+msgstr "<strong>Konvertierung einfacher Anführungszeichen</strong> &#8211; Diese Option konvertiert Tag Attribut Werte mit einfache Anführungszeichen wie <code>&lt;link rel=&#39;&#8230;&#39;&gt;</code> in Attribute Werte mit doppelten Anführungszeichen <code>&lt;link rel=&#34;&#8230;&#34;&gt;</code>, sofern das Attribut nicht unter <em>Ignorierte Attribute</em> aufgelistet ist."
+
+#: options.php:143
+msgid "<strong>Ignored tags</strong> &#8211; The contents of these tags remain completly untouched. To remove or modify them, use the <em>custom regular expressions</em>."
+msgstr "<strong>Ignorierte Tags</strong> &#8211; Die Inhalte dieser Tags bleiben komplett unberührt. Um diese zu entferen oder zu verändern, verwende die <em>individuellen Regulären Ausdrücke</em>."
+
+#: options.php:144
+msgid "<strong>Ignored attributes</strong> &#8211; These tag attributes will be ignored by the single quotes conversion."
+msgstr "<strong>Ignorierte Attribute</strong> &#8211; Diese Tag Attribute werden von der Konvertierung einfacher Anführungszeichen ignoriert."
+
+#: options.php:145
+msgid "<strong>Custom regular expressions</strong> &#8211; Each line is treated as a <a href=\"http://en.wikipedia.org/wiki/Regular_expression\" title=\"Wikipedia article about regular expressions\" target=\"_blank\">regular expression pattern</a>. All matching strings are removed from the ouput, by passing each pattern through PHP's <code><a href=\"http://php.net/preg_replace\" target=\"_blank\">preg_replace</a></code> function. Empty lines and lines beginning with a <code>#</code> are ignored. Additional information about regular expressions can be found in the <a href=\"http://php.net/manual/en/reference.pcre.pattern.syntax.php\" target=\"_blank\">PHP documentation</a> and at <a href=\"http://regular-expressions.info/\" target=\"_blank\">regular-expressions.info</a>. <strong>Be very careful! Invalid patterns can abort the execution of the WordPress frontend and your site becomes <em>temporarily</em> unusable (white/blank page)!</strong>"
+msgstr "<strong>Individuelle Reguläre Ausdrücke</strong> &#8211; Jede Zeile wird als <a href=\"http://de.wikipedia.org/wiki/Regulärer_Ausdruck\" title=\"Wikipedia Artikel über Reguläre Ausdrücke\" target=\"_blank\">Regulärer Ausdruck</a> behandelt. Alle Treffer werden aus der Ausgabe entfernt, indem jeder Ausdruck durch PHP's <code><a href=\"http://php.net/de/preg_replace\" target=\"_blank\">preg_replace</a></code> Funktion gereicht wird. Leere Zeilen und Zeilen die mit <code>#</code> beginnen werden ignoriert. Weitere Informationen über Reguläre Ausdrücke befinden sich in der <a href=\"http://php.net/manual/de/reference.pcre.pattern.syntax.php\" target=\"_blank\">PHP Dokumentation</a> und auf <a href=\"http://regular-expressions.info/\" target=\"_blank\">regular-expressions.info</a> (engl.). <strong>Sei sehr vorsichtig! Ungültige Ausdrücke können das WordPress Frontend zum Absturz bringen und deine Internetseite wird <em>temporär</em> unbenutzbar (weiße/leere Seite)!</strong>"
+
+#: options.php:146
+msgid "Helpful links"
+msgstr "Hilfreiche Links"
+
+#: options.php:148
+msgid "Plugin Homepage"
+msgstr "Plugin Homepage"
+
+#: options.php:148
+msgid "Plugin on WP.org"
+msgstr "Plugin auf WP.org"
+
+#: options.php:149
+msgid "Report a bug"
+msgstr "Fehler melden"
+
+#: options.php:149
+msgid "Request a feature"
+msgstr "Erweiterung vorschlagen"
+
+#: options.php:185
+msgid "Default settings restored."
+msgstr "Standardeinstellungen wiederhergestellt."
+
+#: options.php:225 options.php:228
+msgid "XHTML output cleaning"
+msgstr "XHTML Ausgabe-Bereinigung"
+
+#: options.php:231
+msgid "Indent XHTML output and remove unnecessary whitespace, like empty lines and trailing whitespace."
+msgstr "XHTML Ausgabe einrücken und überflüssigen Whitespace, wie leere Zeilen entfernen."
+
+#: options.php:236
+msgid "Remove all comments <code>&lt;!-- &#8230; --&gt;</code> from output."
+msgstr "Entferne alle Kommentare <code>&lt;!-- &#8230; --&gt;</code> aus der Ausgabe."
+
+#: options.php:241
+msgid "Convert single quoted <code>&#039;</code> tag attributes values into double quoted <code>&quot;</code> values."
+msgstr "Konvertiere Tag Attribute Werte mit einfache Anführungszeichen <code>&#039;</code> in doppelte Anführungszeichen <code>&quot;</code>."
+
+#: options.php:246
+msgid "Apply the <em>custom regular expressions</em> to XHTML output."
+msgstr "Wende die <em>individuellen Regulären Ausdrücke</em> auf die XHTML Ausgabe an."
+
+#: options.php:252 options.php:255
+msgid "XML output cleaning"
+msgstr "XML Ausgabe-Bereinigung"
+
+#: options.php:258
+msgid "Indent and clean RSS and Atom-Feed output."
+msgstr "RSS und Atom-Feed Ausgabe einrücken und bereinigen."
+
+#: options.php:263
+msgid "Apply the <em>custom regular expressions</em> to Feed output."
+msgstr "Wende die <em>individuellen Regulären Ausdrücke</em> auf die Feed Ausgabe an."
+
+#: options.php:269 options.php:272
+msgid "Ignored tags"
+msgstr "Ignorierte Tags"
+
+#: options.php:274
+msgid "Comma separated list of all tags, which contents will be preserved by the output cleaning. It's highly recommended to preserve the <code>pre</code>, <code>script</code> and <code>textarea</code> tag."
+msgstr "Komma getrennte Liste aller Tags, deren Inhalte von der Ausgabe-Bereinigung unverändert bleiben. Es ist sehr empfehlenswert den <code>pre</code>, <code>script</code> und <code>textarea</code> Tag unverändert zu lassen."
+
+#: options.php:279 options.php:282
+msgid "Ignored attributes"
+msgstr "Ignorierte Attribute"
+
+#: options.php:284
+msgid "Comma separated list of all tag attributes, which will be ignored by the single quotes conversion."
+msgstr "Komma getrennte Liste aller Tag Attribute, welche von der Konvertierung einfacher Anführungszeichen ignoriert werden."
+
+#: options.php:289 options.php:292
+msgid "Custom regular expressions"
+msgstr "Individuelle Reguläre Ausdrücke"
+
+#: options.php:293
+msgid "Each line is treated as a <a href=\"http://en.wikipedia.org/wiki/Regular_expression\" title=\"Wikipedia article about regular expressions\" target=\"_blank\">regular expression pattern</a> and applied to the output by passing it through PHP's <code><a href=\"http://php.net/preg_replace\" target=\"_blank\">preg_replace</a></code> function. Matching string will be remove from the output. Lines beginning with a <code>#</code> are ignored. <strong>Be very careful! Invalid patterns can abort the execution of the WordPress frontend and your site becomes <em>temporarily</em> unusable!</strong>"
+msgstr "Jede Zeile wird als <a href=\"http://de.wikipedia.org/wiki/Regulärer_Ausdruck\" title=\"Wikipedia Artikel über Reguläre Ausdrücke\" target=\"_blank\">Regulärer Ausdruck</a> behandelt und auf die Ausgabe angewandt, indem er durch PHP's <code><a href=\"http://php.net/de/preg_replace\" target=\"_blank\">preg_replace</a></code> Funktion gereicht wird. Treffer werden aus der Ausgabe entfernt. Zeilen die mit <code>#</code> beginnen werden ignoriert. <strong>Sei sehr vorsichtig! Ungültige Ausdrücke können das WordPress Frontend zum Absturz bringen und deine Internetseite wird <em>temporär</em> unbenutzbar!</strong>"
+
+#: options.php:301
+msgid "Reset Options"
+msgstr "Einstellungen zurücksetzten"
+
+#: options.php:301
+msgid "Really restore factory settings?"
+msgstr "Standardeinstellungen wirklich wiederherstellen?"
+
+#: options.php:305
+msgid "If you like this plugin and wish to thank the author by buying him a nice big ice cream, check out the donation page on <a href=\"http://wordpress.pralinenschachtel.de/donations/\">his website</a>."
+msgstr "Wenn du dieses Plugin magst und dem Autor danken möchtest, indem du ihm ein großes Eis kaufst, kannst du dies auf <a href=\"http://wordpress.pralinenschachtel.de/donations/\">seiner Internetseite</a> tun."

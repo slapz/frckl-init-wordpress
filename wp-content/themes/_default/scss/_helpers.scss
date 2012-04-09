@@ -1,0 +1,38 @@
+/*=============== helper and general classes  ===============*/
+
+.ir { 
+  border: 0; 
+  background-color: transparent;
+  color: transparent; font: 0/0 a; 
+  text-shadow: none; }
+
+.hidden { 
+  display: none !important; 
+  visibility: hidden; }
+
+.visuallyhidden { 
+  position: absolute; width: 1px; height: 1px; 
+  margin: -1px; padding: 0; border: 0;
+  clip: rect(0 0 0 0); 
+  overflow: hidden; }
+
+.visuallyhidden.focusable:active, 
+.visuallyhidden.focusable:focus { 
+  position: static; width: auto; height: auto;
+  margin: 0;
+  overflow: visible; 
+  clip: auto; }
+
+.invisible { 
+  visibility: hidden; }
+
+.clearfix:before, 
+.clearfix:after { 
+  display: table; 
+  content: ""; }
+
+.clearfix:after { 
+  clear: both; }
+
+.clearfix { 
+  *zoom: 1; }

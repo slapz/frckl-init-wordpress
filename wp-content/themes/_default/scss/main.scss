@@ -1,0 +1,19 @@
+/*
+ * Project Info
+ * 
+ */
+
+/* Define globale variables used throughout the whole project here */
+
+$color: #333;
+$background: #fff;
+$base-font: 'Arial';
+
+@import 'normalize';
+@import 'style';
+@import 'colorbox';
+@import 'helpers';
+@import 'print';
+
+
+
