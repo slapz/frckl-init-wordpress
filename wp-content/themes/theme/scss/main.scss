@@ -5,9 +5,14 @@
 
 /* Define globale variables used throughout the whole project here */
 
-$color: #333;
 $background: #fff;
-$base-font: 'Arial';
+$color: #333;
+
+$font: 'Georgia, serif';
+$font-size: 16px;
+$line-height: 1.4;
+
+$link-color: #badbad;
 
 @import 'normalize';
 @import 'style';

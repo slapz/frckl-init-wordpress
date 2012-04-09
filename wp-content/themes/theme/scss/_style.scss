@@ -1,12 +1,13 @@
 /*=============== base styles ===============*/
 body {
-  font: normal 16px/1.4 sans-serif; color: #333; }
+  background: $background;
+  font: normal #{$font-size}/#{$line-height} #{$font}; color: $color; }
 
 h1 {
   text-rendering: optimizeLegibility; }
 
 a {
-  color: #bada55; }
+  color: $link-color; }
 
 a:hover {
   text-decoration: none; }

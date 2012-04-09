@@ -50,7 +50,7 @@ textarea {
 
 body {
   margin: 0;
-  background-color: #fff; }
+  background-color: white; }
 
 /*=============== text styling ===============*/
 a:focus {
@@ -257,26 +257,18 @@ th {
 
 /*=============== base styles ===============*/
 body {
-  font: normal 16px/1.4 sans-serif;
-  color: #333; }
+  background: white;
+  font: normal 16px/1.4 Georgia, serif;
+  color: #333333; }
 
 h1 {
   text-rendering: optimizeLegibility; }
 
 a {
-  color: #bada55; }
+  color: #badbad; }
 
 a:hover {
   text-decoration: none; }
-
-:focus {
-  /* style me */ }
-
-::-moz-selection {
-  /* style me */ }
-
-::selection {
-  /* style me */ }
 
 /*=============== forms  ===============*/
 button,
@@ -306,9 +298,6 @@ textarea:invalid {
   margin: 0 auto; }
 
 /*=============== Module Styles ===============*/
-.module {
-  /* style me */ }
-
 /*=============== Wordpress classes ===============*/
 .alignleft {
   float: left;
@@ -317,17 +306,16 @@ textarea:invalid {
 
 .alignright {
   float: right;
-  text-align: right;
   display: inline;
-  margin-left: 1.4em; }
+  margin-left: 1.4em;
+  text-align: right; }
 
 .aligncenter {
-  clear: both;
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+  clear: both; }
 
-/*=============== colorbox styles ===============*/
-/* these styles are base styles needed for colorbox -- do not change */
+/*=============== global colorbox styles ===============*/
 #colorbox,
 #cboxOverlay,
 #cboxWrapper {
@@ -382,7 +370,6 @@ textarea:invalid {
   border: 0; }
 
 /*=============== your colorbox styles ===============*/
-/* edit those styles to your liking */
 #cboxOverlay {
   background: #000; }
 
