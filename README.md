@@ -11,10 +11,10 @@ base/home-URL is http://wordpress.dev, search and replace before importing if yo
 want sth. else. Be sure to delete this file afterwards. Default-User is admin and
 the password: 'password'.
 
-# SCSS and Compass
+## SCSS and Compass
 
-Fork this repository [http://](TODO) and change the first line in 
-wp-content/themes/theme/config.rb to where you forked it to. Start compass watch
+Fork this repository [https://github.com/nebelschwade/webgefrickel](https://github.com/nebelschwade/webgefrickel) 
+and change the first line in wp-content/themes/theme/config.rb to where you forked it to. Start compass watch
 on the theme-folder and you're ready to go.
 
 ## Recommended Plugins (included) 
