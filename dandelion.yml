@@ -1,0 +1,10 @@
+# Required
+scheme: ftp
+host: yourhost.de
+username: username
+password: password
+port: 
+path: 
+exclude:
+  - .gitignore
+  - dandelion.yml
