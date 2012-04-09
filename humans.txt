@@ -1,14 +1,13 @@
-/* the humans responsible & colophon */
-/* humanstxt.org */
+You found the humans.txt - you are awesome!
 
 /* TEAM */
-  Webdeveloper: Steffen Becker
-  Site: http://webgefrickel.de || http://nebelschwa.de
-  Twitter: @nebelschwade
-  Location: Leipzig, Germany
+Webdeveloper: Steffen Becker
+Site: http://webgefrickel.de
+Twitter: @nebelschwade
+Location: Leipzig, Germany
 
 /* SITE */
-  Standards: HTML5, CSS3
-  CMS: Wordpress 3.2.1
-  Components: modernizr, jQuery, colorbox
-  Software: MacVim & Photoshop
+Standards: HTML5, CSS3
+CMS: Wordpress 3.x
+Components: modernizr, jQuery, colorbox
+Software: MacVim & Photoshop

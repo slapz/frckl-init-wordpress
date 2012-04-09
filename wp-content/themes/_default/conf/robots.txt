@@ -1,9 +1,0 @@
-User-agent: *
-
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /trackback/
-Disallow: /xmlrpc.php
-
-Sitemap: http://wordpress.dev/sitemap.xml.gz
