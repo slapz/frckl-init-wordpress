@@ -1,6 +1,5 @@
 /*=============== base styles ===============*/
 body {
-  background: $background;
   font: normal #{$font-size}/#{$line-height} #{$font}; color: $color; }
 
 h1 {
@@ -43,7 +42,7 @@ textarea:invalid {
 
 
 /*=============== Layout Styles ===============*/
-#container {
+.container {
   width: 960px;
   margin: 0 auto; }
 

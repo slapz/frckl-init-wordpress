@@ -2,13 +2,31 @@
 // GENERAL THEME CONFIG AND BACKEND STUFF
 // ================================================================================
 // SOMETIMES USED
-// remove links from the admin navigation in the backend
-//function custom_admin_menu() {
-  //remove_menu_page('link-manager.php');
-//}
-//add_action('admin_menu', 'custom_admin_menu');
 
-// unregister all default WP Widgets
+// function delete_menu_items() {
+//   if (current_user_can('editor')) {
+//     remove_menu_page('edit.php'); // Posts
+//     remove_menu_page('upload.php'); // Media
+//     remove_menu_page('link-manager.php'); // Links
+//     remove_menu_page('edit-comments.php'); // Comments
+//     remove_menu_page('edit.php?post_type=page'); // Pages
+//     remove_menu_page('plugins.php'); // Plugins
+//     remove_menu_page('themes.php'); // Appearance
+//     remove_menu_page('users.php'); // Users
+//     remove_menu_page('tools.php'); // Tools
+//     remove_menu_page('options-general.php'); // Settings
+//   }
+// }
+// add_action('admin_init', 'delete_menu_items');
+//
+// function delete_submenu_items() {
+//   if ( current_user_can( 'editor' )) {
+//     remove_submenu_page( 'themes.php', 'widgets.php' );
+//     remove_submenu_page( 'themes.php', 'theme-editor.php');
+//   }
+// }
+// add_action( 'admin_init', 'delete_submenu_items' );
+
 //function unregister_default_wp_widgets() {
   //unregister_widget('WP_Widget_Pages');
   //unregister_widget('WP_Widget_Calendar');
@@ -37,7 +55,7 @@ function custom_admin_footer_text($default_text) {
 }
 add_filter('admin_footer_text', 'custom_admin_footer_text');
 
-// remember to include jquery in your footer or load via modernizr
+// remove default jquery - remember to include jquery in your footer or load via modernizr
 function custom_jquery() {
   if (!is_admin()) { wp_deregister_script('jquery'); }
 }
@@ -55,7 +73,6 @@ add_filter('the_generator', create_function('', 'return "";'));
 remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
-// remove inline styles in head for comments
 add_action( 'widgets_init', function() {
   global $wp_widget_factory;
   remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
@@ -120,7 +137,7 @@ function custom_comments($comment, $args, $depth) {
         </a>
         <?php edit_comment_link('Bearbeiten', ' | ', ''); ?>
       </h3>
-      <section class="commentContent">
+      <section class="comment-content">
         <?php if ( $comment->comment_approved == '0' ) : ?>
           <em>Dein Kommentar muss noch freigeschaltet werden.</em>
         <?php endif; ?>

@@ -257,7 +257,6 @@ th {
 
 /*=============== base styles ===============*/
 body {
-  background: white;
   font: normal 16px/1.4 Georgia, serif;
   color: #333333; }
 
@@ -293,7 +292,7 @@ textarea:invalid {
   background-color: #f0dddd; }
 
 /*=============== Layout Styles ===============*/
-#container {
+.container {
   width: 960px;
   margin: 0 auto; }
 

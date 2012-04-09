@@ -26,13 +26,7 @@
   </nav>
 
   <?php else : ?>
-
-  <article class="notFound">
-    <h1>Nichts gefunden!</h1>
-    <p>Leider wurde an dieser Stelle nicht der gew&uuml;nschte Beitrag gefunden.</p>
-    <?php get_search_form(); ?>
-  </article>
-
+  <?php get_template_part('notfound'); ?>
   <?php endif; ?>
 
 </section>
