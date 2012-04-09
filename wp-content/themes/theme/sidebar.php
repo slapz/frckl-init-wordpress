@@ -2,11 +2,6 @@
   <ul>
   <?php if (!dynamic_sidebar('sidebar')) : ?>
 
-    <li class="widget widget_search">
-      <h2 class="widget-title">Suche</h2>
-      <?php get_search_form(); ?>
-    </li>
-
     <li class="widget">
       <h2 class="widget-title">Meta</h2>
       <ul>
