@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
       current: "Bild {current} von {total}",
       previous: "zurück",
       next: "weiter",
-      close: 'schließen',
+      close: 'schließen'
     });
   }
 
