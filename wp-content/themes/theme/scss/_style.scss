@@ -1,50 +1,49 @@
 /*=============== base styles ===============*/
 body {
-  font: normal #{$font-size}/#{$line-height} #{$font}; color: $color; }
+  font: normal #{$font-size}/#{$line-height} #{$font}; color: $color;
+}
 
 h1 {
-  text-rendering: optimizeLegibility; }
+  text-rendering: optimizeLegibility;
+}
 
 a {
-  color: $link-color; }
-
-a:hover {
-  text-decoration: none; }
+  color: $link-color;
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 :focus { }
-
 ::-moz-selection { }
-
 ::selection { }
 
 
 /*=============== forms  ===============*/
-button,
-input,
-select,
-textarea  {
-  font-family: sans-serif; }
-
 input[type="text"],
 input[type="tel"],
 input[type="email"],
 input[type="search"],
 textarea {
-  /* style me */ }
+  /* style me */
+}
 
 input:valid,
 textarea:valid   {
-  /* colors for form validity */ }
+  /* colors for form validity */
+}
 
 input:invalid,
 textarea:invalid {
-  background-color: #f0dddd; }
+  background-color: #f0dddd;
+}
 
 
 /*=============== Layout Styles ===============*/
 .container {
   width: $page-width;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 
 /*=============== Module Styles ===============*/
@@ -54,17 +53,20 @@ textarea:invalid {
 /*=============== Wordpress classes ===============*/
 .alignleft {
   float: left; display: inline;
-  margin-right: #{$line-height}em; }
+  margin-right: #{$line-height}em;
+}
 
 .alignright {
   float: right; display: inline;
   margin-left: #{$line-height}em;
-  text-align: right; }
+  text-align: right;
+}
 
 .aligncenter {
   display: block;
   margin: 0 auto;
-  clear: both; }
+  clear: both;
+}
 
 .bypostauthor { }
 .sticky { }
