@@ -1,7 +1,6 @@
 /*
  *
  *
- *
  */
 /*
  * normalize.css - http://github.com/necolas/normalize.css
@@ -692,7 +691,7 @@ textarea:invalid {
 
 @media print {
   /*=============== Print Styles ===============*/
-  /* line 4, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 4, ../scss/_print.scss */
   * {
     background: transparent !important;
     color: black !important;
@@ -702,31 +701,31 @@ textarea:invalid {
     -ms-filter: none !important;
   }
 
-  /* line 14, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 14, ../scss/_print.scss */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-  /* line 19, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 19, ../scss/_print.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-  /* line 24, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 24, ../scss/_print.scss */
   thead {
     display: table-header-group;
   }
 
-  /* line 29, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 29, ../scss/_print.scss */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-  /* line 33, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 33, ../scss/_print.scss */
   img {
     max-width: 100% !important;
     height: auto !important;
@@ -736,7 +735,7 @@ textarea:invalid {
     margin: 0.5cm;
 }
 
-  /* line 43, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 43, ../scss/_print.scss */
   p,
   h2,
   h3 {
@@ -744,7 +743,7 @@ textarea:invalid {
     widows: 3;
   }
 
-  /* line 49, ../../../../../../../Repositories/webgefrickel/scss/_print.scss */
+  /* line 49, ../scss/_print.scss */
   h2,
   h3 {
     page-break-after: avoid;
