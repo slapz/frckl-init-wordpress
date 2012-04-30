@@ -181,10 +181,6 @@ function wp_install_defaults($user_id) {
 								'link_name' => 'WordPress Planet',
 								'link_rss' => '',
 								'link_notes' =>'');
-	$default_links[] = array(	'link_url' => 'http://forum.wpde.org/',
-								'link_name' => 'WordPress Deutschland Forum',
-								'link_rss' => '',
-								'link_notes' =>'');
 
 	foreach ( $default_links as $link ) {
 		$wpdb->insert( $wpdb->links, $link);

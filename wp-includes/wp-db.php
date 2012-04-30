@@ -752,7 +752,7 @@ class wpdb {
 <li>Hat der Benutzer <code>%2$s</code> die entsprechenden Rechte, um die <code>%1$s</code> Datenbank auch zu nutzen?</li>\\n
 <li>Bei einigen Systemen ist der Benutzername das Präfix der Datenbank, so dass es so oder ähnlich aussieht <code>username_%1$s</code>. Könnte das das Problem sein?</li>\\n
 </ul>\\n
- <p>Wenn du nicht weißt, wie du die Datenbank einrichtest, <strong>kontaktiere deinen Provider</strong>. Wenn du gar nicht weiterkommst, findest Du im <a href=\\"http://wordpress.org/support/\\">englischsprachigen</a> und <a href=\\"http://forum.wpde.org/\\">deutschsprachigen Support-Forum</a> Hilfe.</p>'/*/WP_I18N_DB_SELECT_DB*/, $db, $this->dbuser ), 'db_select_fail' );
+ <p>Wenn du nicht weißt, wie du die Datenbank einrichtest, <strong>kontaktiere deinen Provider</strong>. Wenn du gar nicht weiterkommst, findest Du im <a href=\\"http://wordpress.org/support/\\">englischsprachigen</a> und <a href=\\"http://forum.wpde.org/\\">deutschsprachigen Support-Forum</a> Hilfe.</p>'/*/WP_I18N_DB_SELECT_DB*/, htmlspecialchars( $db, ENT_QUOTES ), htmlspecialchars( $this->dbuser, ENT_QUOTES ) ), 'db_select_fail' );
 			return;
 		}
 	}
@@ -1046,7 +1046,7 @@ class wpdb {
 	<li>Bist du sicher, dass der Datenbankserver läuft?</li>
 </ul>
 <p>Wenn du nicht sicher bist woran es liegt, kontaktiere am besten deinen Hoster. Wenn du weitergehende Hilfe brauchst, kannst du dich jederzeit an das <a href=\'http://forum.wpde.org/\'>Support-Forum</a> (<a href=\'http://wordpress.org/support/\'>en</a>) wenden.</p>
-'/*/WP_I18N_DB_CONN_ERROR*/, $this->dbhost ), 'db_connect_fail' );
+'/*/WP_I18N_DB_CONN_ERROR*/, htmlspecialchars( $this->dbhost, ENT_QUOTES ) ), 'db_connect_fail' );
 
 			return;
 		}

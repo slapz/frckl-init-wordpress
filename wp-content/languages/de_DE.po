@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress 3.3 package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2012-01-04 11:11:53+0000\n"
+"PO-Revision-Date: 2012-04-20 16:30:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5455,7 +5455,7 @@ msgstr "Datei aktualisieren"
 
 #: wp-admin/plugin-editor.php:252 wp-admin/theme-editor.php:252
 msgid "You need to make this file writable before you can save your changes. See <a href=\"http://codex.wordpress.org/Changing_File_Permissions\">the Codex</a> for more information."
-msgstr "Um diese Datei zu ändern, muss sie vom Server <a href=\"http://codex.wordpress.org/Changing_File_Permissions\" title=\"Read more about making files writable\">beschreibar</a> sein."
+msgstr "Um diese Datei zu ändern, muss sie vom Server <a href=\"http://codex.wordpress.org/Changing_File_Permissions\" title=\"Read more about making files writable\">beschreibbar</a> sein."
 
 #: wp-admin/plugin-install.php:16
 msgid "You do not have sufficient permissions to install plugins on this site."
