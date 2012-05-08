@@ -5,15 +5,11 @@ css_dir = "css"
 sass_dir = "scss"
 images_dir = "img"
 javascripts_dir = "js"
+fonts_dir = "fonts"
 
 relative_assets = true
 
-# Options avaiable :expanded :nested :compact :compressed
-# if there is no .env-local file in the root-dir overwrite compile settings
-if File.exist?("../../../.env-local")
-  output_style = :expanded 
-  line_comments = true
-else 
-  output_style = :compressed
-  line_comments = false
-end
+# Change to compressed from expanded and line_comments = false 
+# for production-ready deployment and recompile with compass watch
+output_style = :expanded 
+line_comments = true

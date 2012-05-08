@@ -1,6 +1,6 @@
 /*=============== base styles ===============*/
 body {
-  font: normal #{$font-size}/#{$line-height} #{$font}; color: $color;
+  font: $base-font; color: $color;
 }
 
 h1 {
@@ -29,7 +29,7 @@ textarea {
 }
 
 input:valid,
-textarea:valid   {
+textarea:valid {
   /* colors for form validity */
 }
 

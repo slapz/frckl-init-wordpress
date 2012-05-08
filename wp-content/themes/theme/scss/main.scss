@@ -1,5 +1,5 @@
 /*!
- *
+ * YEAH!
  *
  */
 
@@ -11,9 +11,18 @@ $font: Georgia, serif;
 $font-size: 16px;
 $line-height: 1.4;
 
+$base-font: normal #{$font-size}/#{$line-height} $font;
+
 $page-width: 960px;
 
+/*
+$icons-spacing: 40px;
+$icons-sprite-dimensions: true;
+@import 'icons/*.png';
+*/
+
 @import 'normalize';
+@import 'compass/css3';
 @import 'style';
 @import 'colorbox';
 @import 'helpers';
