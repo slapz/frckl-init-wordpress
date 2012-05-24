@@ -128,7 +128,7 @@ function custom_comments($comment, $args, $depth) {
     case '' :
   ?>
     <li>
-    <article <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+    <article <?php comment_class(); ?> class="comment comment-<?php comment_ID(); ?>">
       <h3>
         <?php echo get_avatar($comment, 60); ?>
         <?php comment_author_link(); ?> am <?php comment_date(); ?> um <?php comment_time(); ?> Uhr |

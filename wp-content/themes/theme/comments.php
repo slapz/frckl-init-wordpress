@@ -1,4 +1,4 @@
-<section id="comments">
+<section class="comments">
 <?php if (post_password_required()) : ?>
   <p class="nopassword">
     Dieser Artikel ist passwortgesch&uuml;tzt. Du musst das Passwort

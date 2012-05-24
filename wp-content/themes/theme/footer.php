@@ -1,4 +1,4 @@
-    <footer id="footer">
+    <footer class="footer">
       <p>
         &copy; <a href="<?php echo home_url(); ?>/" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a> |
         <a href="<?php bloginfo('rss2_url'); ?>" title="Abonniere den Blog-Feed">Artikel (RSS)</a> |
@@ -11,11 +11,9 @@
   <script>
     Modernizr.load({
       test : window.jQuery,
-      yep  : ['<?php echo get_template_directory_uri(); ?>/js/plugins.js',
-              '<?php echo get_template_directory_uri(); ?>/js/script.js'],
+      yep  : ['<?php echo get_template_directory_uri(); ?>/js/script.min.js'],
       nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.7.2.min.js',
-              '<?php echo get_template_directory_uri(); ?>/js/plugins.js',
-              '<?php echo get_template_directory_uri(); ?>/js/script.js']
+              '<?php echo get_template_directory_uri(); ?>/js/script.min.js']
     });
     <?php /* if you use google analytics use this snippet - you really dont need a plugin for sth like that
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

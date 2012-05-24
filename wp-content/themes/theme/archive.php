@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="content">
+<section class="content">
 
 <?php if (have_posts()) : ?>
   <?php $post = $posts[0]; ?>

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section id="content">
+<section class="content">
 <?php get_template_part('notfound'); ?>
 </section>
 
