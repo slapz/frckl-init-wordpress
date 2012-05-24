@@ -1,7 +1,11 @@
 /*
- *
- *
+ * Wordpress -- your project comments here
  */
+              /*
+$icons-spacing: 40px;
+$icons-sprite-dimensions: true;
+@import 'icons/*.png';
+*/
 /*
  * normalize.css - http://github.com/necolas/normalize.css
  * Stripped and modifed by Steffen Becker - http://webgefrickel.de
@@ -219,9 +223,10 @@ ul {
   padding: 0 0 0 1.4em;
 }
 
-/* line 184, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 185, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 nav ul,
-nav ol {
+nav ol,
+fieldset ol {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -229,36 +234,36 @@ nav ol {
 }
 
 /*=============== images styles ===============*/
-/* line 191, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 192, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
 
-/* line 196, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 197, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* line 200, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 201, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 figure {
   margin: 0;
 }
 
 /*=============== form styles ===============*/
-/* line 206, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 207, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 form {
   margin: 0;
 }
 
-/* line 210, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 211, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 fieldset {
   margin: 0 2px;
-  padding: 1em;
+  padding: 1.4em;
   border: 1px solid #c0c0c0;
 }
 
-/* line 214, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 215, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 legend {
   padding: 0;
   border: 0;
@@ -266,7 +271,7 @@ legend {
   *margin-left: -7px;
 }
 
-/* line 223, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 224, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 button,
 input,
 select,
@@ -277,13 +282,13 @@ textarea {
   *vertical-align: middle;
 }
 
-/* line 230, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 231, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 button,
 input {
   line-height: normal;
 }
 
-/* line 237, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 238, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 button,
 input[type="button"],
 input[type="reset"],
@@ -293,13 +298,13 @@ input[type="submit"] {
   *overflow: visible;
 }
 
-/* line 244, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 245, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 button[disabled],
 input[disabled] {
   cursor: default;
 }
 
-/* line 249, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 250, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -308,7 +313,7 @@ input[type="radio"] {
   *width: 13px;
 }
 
-/* line 256, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 257, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
@@ -316,44 +321,44 @@ input[type="search"] {
   box-sizing: content-box;
 }
 
-/* line 264, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 265, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
-/* line 269, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 270, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
 
-/* line 274, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 275, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 textarea {
   overflow: auto;
   vertical-align: top;
 }
 
-/* line 279, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 280, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 label {
   display: block;
   cursor: pointer;
 }
 
 /*=============== the rest ===============*/
-/* line 286, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 287, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 291, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 292, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 td {
   vertical-align: top;
 }
 
-/* line 295, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
+/* line 296, ../../../../../../../Repositories/webgefrickel/scss/_normalize.scss */
 th {
   text-align: left;
 }
@@ -566,7 +571,7 @@ textarea:invalid {
 /* line 97, ../../../../../../../Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxPrevious,
 #cboxNext,
-#cboxCurrent {
+#cboxClose {
   background: url(../img/controls.png) no-repeat;
 }
 

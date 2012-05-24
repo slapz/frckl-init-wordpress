@@ -29,6 +29,47 @@ var acf = {
 	
 	
 	/*
+	*  Document Ready
+	*
+	*  @description: adds ajax data		
+	*  @created: 1/03/2011
+	*/
+	
+	$(document).ready(function(){
+	
+		// add classes
+		$('#poststuff .postbox[id*="acf_"]').addClass('acf_postbox');
+		$('#adv-settings label[for*="acf_"]').addClass('acf_hide_label');
+		
+		// hide acf stuff
+		$('#poststuff .acf_postbox').hide();
+		$('#adv-settings .acf_hide_label').hide();
+		
+		// loop through acf metaboxes
+		$('#poststuff .postbox.acf_postbox').each(function(){
+			
+			// vars
+			var options = $(this).find('.inside > .options');
+			var show = options.attr('data-show');
+			var layout = options.attr('data-layout');
+			var id = $(this).attr('id').replace('acf_', '');
+			
+			// layout
+			$(this).addClass(layout);
+			
+			// show / hide
+			if(show == 'true')
+			{
+				$(this).show();
+				$('#adv-settings .acf_hide_label[for="acf_' + id + '-hide"]').show();
+			}
+			
+		});
+	
+	});
+	
+	
+	/*
 	*  Submit form
 	*
 	*  @description: does validation, deletes all hidden metaboxes (otherwise, post data will be overriden by hidden inputs)
@@ -117,7 +158,6 @@ var acf = {
 				{
 					validation = false;
 				}
-				//console.log(validation);
 				
 			}
 			
@@ -571,10 +611,11 @@ var acf = {
     	return newDate.getTime();
     }
     
+    
 	// update order numbers
-	function update_r_order_numbers(div)
+	function repeater_update_order( repeater )
 	{
-		div.children('table').children('tbody').children('tr.row').each(function(i){
+		repeater.find('> table > tbody > tr.row').each(function(i){
 			$(this).children('td.order').html(i+1);
 		});
 	
@@ -582,7 +623,7 @@ var acf = {
 	
 	
 	// make sortable
-	function make_r_sortable(div){
+	function repeater_add_sortable( repeater ){
 		
 		var fixHelper = function(e, ui) {
 			ui.children().each(function() {
@@ -591,58 +632,103 @@ var acf = {
 			return ui;
 		};
 		
-		div.children('table').children('tbody').unbind('sortable').sortable({
+		repeater.find('> table > tbody').unbind('sortable').sortable({
 			update: function(event, ui){
-				update_r_order_numbers(div);
+				repeater_update_order( repeater );
 			},
-			items : '> tr',
+			items : '> tr.row',
 			handle: '> td.order',
 			helper: fixHelper,
-			axis: "y" // limit the dragging to up/down only
+			forceHelperSize: true,
+			forcePlaceholderSize: true,
+			scroll: true,
+			start: function (event, ui) {
+				
+				// add markup to the placeholder
+				var td_count = ui.item.children('td').length;
+        		ui.placeholder.html('<td colspan="' + td_count + '"></td>');
+   			}
 		});
 	};
 	
+	
+	// setup repeater fields
 	$(document).live('acf/setup_fields', function(e, postbox){
 		
 		$(postbox).find('.repeater').each(function(){
-		
-			var div = $(this);
-			var row_limit = parseInt(div.attr('data-row_limit'));
-			var row_count = div.children('table').children('tbody').children('tr.row').length;
 			
-			// has limit been reached?
-			if(row_count >= row_limit) div.find('#r_add_row').attr('disabled','true');
+			var repeater = $(this);
+			var row_limit = parseInt( repeater.attr('data-row_limit') );	
+			
+			
+			// move row-clone to be the first element (to avoid double border css bug)
+			var row_clone = repeater.find('> table > tbody > tr.row-clone');
+			if( row_clone.index() != 0 )
+			{
+				row_clone.closest('tbody').prepend( row_clone );
+			}
+			
+			
+			
+			// update classes based on row count
+			repeater_check_rows( repeater );
+			
 			
 			// sortable
 			if(row_limit > 1){
-				make_r_sortable(div);
+				repeater_add_sortable( repeater );
 			}
 			
 		});
 			
 	});
 	
-	// add field
-	$('.repeater #r_add_row').live('click', function(){
+	
+	// repeater_check_rows
+	function repeater_check_rows( repeater )
+	{
+		// vars
+		var row_limit = parseInt( repeater.attr('data-row_limit') );			
+		var row_count = repeater.find('> table > tbody > tr.row').length;
 		
-		var div = $(this).closest('.repeater');
-		var row_limit = parseInt(div.attr('data-row_limit'));			
-		var row_count = div.children('table').children('tbody').children('tr.row').length;
 		
-		// row limit
-		if(row_count >= row_limit)
+		// empty?
+		if( row_count == 0 )
 		{
-			// reached row limit!
-			div.find('#r_add_row').attr('disabled','true');
+			repeater.addClass('empty');
+		}
+		else
+		{
+			repeater.removeClass('empty');
+		}
+		
+		
+		// row limit reached
+		if( row_count >= row_limit )
+		{
+			repeater.addClass('disabled');
+		}
+		else
+		{
+			repeater.removeClass('disabled');
+		}
+	}
+	
+	
+	// add field
+	function repeater_add_field( repeater, before )
+	{
+		
+		// validate
+		if( repeater.hasClass('disabled') )
+		{
 			return false;
 		}
 		
-		// deactivate any wysiwygs
-		div.children('table').children('tbody').children('tr.row_clone').acf_deactivate_wysiwyg();
-	
 		// create and add the new field
-		var new_field = div.children('table').children('tbody').children('tr.row_clone').clone(false);
+		var new_field = repeater.find('> table > tbody > tr.row-clone').clone(false);
 		new_field.attr('class', 'row');
+		
 		
 		// update names
 		var new_id = uniqid();
@@ -654,48 +740,107 @@ var acf = {
 			
 		});
 		
+		
 		// add row
-		div.children('table').children('tbody').append(new_field); 
-		
-		// activate wysiwyg
-		$(document).trigger('acf/setup_fields',new_field);
-		//new_field.acf_activate_wysiwyg();
-	
-		update_r_order_numbers(div);
-		
-		// there is now 1 more row
-		row_count ++;
-		
-		// disable the add field button if row limit is reached
-		if(row_count >= row_limit)
+		if( before )
 		{
-			div.find('#r_add_row').attr('disabled','true');
+			before.before( new_field );
+		}
+		else
+		{
+			repeater.find('> table > tbody').append(new_field); 
 		}
 		
+		
+		// trigger mouseenter on parent repeater to work out css margin on add-row button
+		repeater.closest('tr').trigger('mouseenter');
+		
+		
+		// update order
+		repeater_update_order( repeater );
+		
+		
+		// update classes based on row count
+		repeater_check_rows( repeater );
+		
+		
+		// setup fields
+		$(document).trigger('acf/setup_fields', new_field);
+
+		
 		// validation
-		div.closest('.field').removeClass('error');
-		
+		repeater.closest('.field').removeClass('error');
+	}
+	
+	
+	// add row - end
+	$('.repeater .add-row-end').live('click', function(){
+		var repeater = $(this).closest('.repeater');
+		repeater_add_field( repeater, false );
 		return false;
-		
 	});
+	
+	
+	// add row - before
+	$('.repeater .add-row-before').live('click', function(){
+		var repeater = $(this).closest('.repeater');
+		var before = $(this).closest('tr');
+		repeater_add_field( repeater, before );
+		return false;
+	});
+	
+	
+	function repeater_remove_row( tr )
+	{	
+		// vars
+		var repeater =  tr.closest('.repeater');
+		var column_count = tr.children('tr.row').length;
+		var row_height = tr.height();
+
+		
+		// animate out tr
+		tr.addClass('acf-remove-item');
+		setTimeout(function(){
+			
+			tr.remove();
+			
+			
+			// trigger mouseenter on parent repeater to work out css margin on add-row button
+			repeater.closest('tr').trigger('mouseenter');
+		
+		
+			// update order
+			repeater_update_order( repeater );
+			
+			
+			// update classes based on row count
+			repeater_check_rows( repeater );
+			
+		}, 400);
+		
+	}
 	
 	
 	// remove field
-	$('.repeater a#r_remove_row').live('click', function(){
-		
-		var div = $(this).closest('.repeater');
+	$('.repeater .remove-row').live('click', function(){
 		var tr = $(this).closest('tr');
-		
-		tr.animate({'left' : '50px', 'opacity' : 0}, 250,function(){
-			tr.remove();
-			update_r_order_numbers(div);
-		});
-		
-		div.find('#r_add_row').removeAttr('disabled');
-		
+		repeater_remove_row( tr );
 		return false;
+	});
+	
+	
+	// hover over tr, align add-row button to top
+	$('.repeater tr').live('mouseenter', function(){
+		
+		var button = $(this).find('> td.remove > a.add-row');
+		var margin = ( button.parent().height() / 2 ) + 9; // 9 = padding + border
+		
+		button.css('margin-top', '-' + margin + 'px' );
 		
 	});
+	
+	
+	
 	
 	
 	/*
@@ -705,63 +850,69 @@ var acf = {
 	*  @created: 3/03/2011
 	*/
 	
-	// update order numbers
-	function update_fc_order_numbers(div)
-	{
-		div.children('.values').children('table').each(function(i){
-			$(this).children('tbody').children('tr').children('td.order').html(i+1);
-		});
-	
-	}
-	
 	
 	// make sortable
 	function make_fc_sortable(div){
 		
-		div.children('.values').unbind('sortable').sortable({
-			update: function(event, ui){
-				update_fc_order_numbers(div);
-			},
-			items : '> table',
-			handle: '> tbody > tr > td.order',
-			axis: "y" // limit the dragging to up/down only
+		// only apply once
+		if( div.children('.values').hasClass('ui-sortable') )
+		{
+			return false;
+		}
+		
+		
+		// add sortable
+		div.children('.values').sortable({
+			items : '> .layout',
+			handle: '> .actions .order',
+			//axis: "y" // limit the dragging to up/down only
 		});
 	}
 	
 	
 	// add row
 	$('.acf_flexible_content #fc_add_row').live('click', function(){
-		
-		if($(this).hasClass('active'))
-		{
-			$(this).removeClass('active');
-			$(this).closest('.table_footer').find('.acf_popup').animate({ opacity : 0, bottom : '35px' }, 250);
-		}
-		else
-		{
-			$(this).addClass('active');
-			$(this).closest('.table_footer').find('.acf_popup').css({display : 'block', opacity : 0, bottom : '15px'}).animate({ opacity : 1, bottom : '25px' }, 250);
-		}
+		$(this).trigger('focus');
+	});
+	
+	$('.acf_flexible_content #fc_add_row').live('focus', function(){
+
+		$(this).addClass('active');
+		$(this).closest('.table_footer').find('.acf_popup').css({display : 'block', opacity : 0, bottom : '15px'}).animate({ opacity : 1, bottom : '25px' }, 250);
+	
+	});
+	
+	
+	// add row
+	$('.acf_flexible_content #fc_add_row').live('blur', function(){
+
+		$(this).removeClass('active');
+		$(this).closest('.table_footer').find('.acf_popup').animate({ opacity : 0, bottom : '35px' }, 250, function(){
+			$(this).css({ display : 'none' });
+		});
+
 	});
 	
 	
 	// remove row
-	$('.acf_flexible_content #fc_remove_row').live('click', function(){
+	$('.acf_flexible_content .actions .delete').live('click', function(){
 		
-		var div = $(this).closest('.acf_flexible_content');
-		var table = $(this).closest('table');
-		var temp = $('<div style="height:' + table.height() + 'px"></div>');
 		
-		table.animate({'left' : '50px', 'opacity' : 0}, 250, function(){
-			table.before(temp).remove();
+		// elements
+		var layout = $(this).closest('.layout');
+		var div = layout.closest('.acf_flexible_content');
+		var temp = $('<div style="height:' + layout.height() + 'px"></div>');
+		
+		
+		// animate away layout
+		layout.animate({'left' : '50px', 'opacity' : 0}, 250, function(){
+			layout.before(temp).remove();
 			
 			temp.animate({'height' : 0 }, 250, function(){
 				temp.remove();
 			});
-			
-			update_fc_order_numbers(div);
 		
-			if(!div.children('.values').children('table').exists())
+			if(!div.children('.values').children('.layout').exists())
 			{
 				div.children('.no_value_message').show();
 			}
@@ -784,7 +935,7 @@ var acf = {
 		div.children('.clones').acf_deactivate_wysiwyg();
 		
 		// create new field
-		var new_field = div.children('.clones').children('table[data-layout="' + layout + '"]').clone(false);
+		var new_field = div.children('.clones').children('.layout[data-layout="' + layout + '"]').clone(false);
 		
 		// update names
 		var new_id = uniqid();
@@ -804,13 +955,6 @@ var acf = {
 		
 		// activate wysiwyg
 		$(document).trigger('acf/setup_fields',new_field);
-		//new_field.acf_activate_wysiwyg();
-		
-		update_fc_order_numbers(div);
-		
-		// hide acf popup
-		$(this).closest('.table_footer').find('#fc_add_row').removeClass('active');
-		$(this).closest('.acf_popup').hide();
 		
 		// validation
 		div.closest('.field').removeClass('error');
