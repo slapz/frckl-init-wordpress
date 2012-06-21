@@ -20,12 +20,12 @@
 // add_action('admin_init', 'delete_menu_items');
 //
 // function delete_submenu_items() {
-//   if ( current_user_can( 'editor' )) {
-//     remove_submenu_page( 'themes.php', 'widgets.php' );
-//     remove_submenu_page( 'themes.php', 'theme-editor.php');
+//   if (current_user_can('editor')) {
+//     remove_submenu_page('themes.php', 'widgets.php');
+//     remove_submenu_page('themes.php', 'theme-editor.php');
 //   }
 // }
-// add_action( 'admin_init', 'delete_submenu_items' );
+// add_action('admin_init', 'delete_submenu_items');
 
 //function unregister_default_wp_widgets() {
   //unregister_widget('WP_Widget_Pages');
@@ -57,7 +57,7 @@ add_filter('admin_footer_text', 'custom_admin_footer_text');
 
 // remove default jquery - remember to include jquery in your footer or load via modernizr
 function custom_jquery() {
-  if (!is_admin()) { wp_deregister_script('jquery'); }
+  if (!is_admin()) wp_deregister_script('jquery');
 }
 add_action('init', 'custom_jquery');
 
@@ -65,7 +65,7 @@ add_action('init', 'custom_jquery');
 if (function_exists('register_nav_menu')) {
   register_nav_menus(array(
     'custom_nav' => 'Hauptnavigation'
-  ));
+ ));
 }
 
 // remove not often used stuff from <head>
@@ -73,7 +73,7 @@ add_filter('the_generator', create_function('', 'return "";'));
 remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
-add_action( 'widgets_init', function() {
+add_action('widgets_init', function() {
   global $wp_widget_factory;
   remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
 });
@@ -100,7 +100,7 @@ add_action('widgets_init', function() {
     'after_widget' => '</li>',
     'before_title' => '<h2 class="widgettitle">',
     'after_title' => '</h2>',
-  ));
+ ));
 });
 
 // some default options for the nav_menus -- no container, no fallback
@@ -112,8 +112,8 @@ function custom_wp_nav_menu_args($args = '') {
 add_filter('wp_nav_menu_args', 'custom_wp_nav_menu_args');
 
 // remove ul form the wp_nav_menu
-function custom_remove_ul ( $menu ){
-  return preg_replace( array('#^<ul[^>]*>#', '#</ul>$#' ), '', $menu);
+function custom_remove_ul ($menu){
+  return preg_replace(array('#^<ul[^>]*>#', '#</ul>$#'), '', $menu);
 }
 add_filter('wp_nav_menu', 'custom_remove_ul');
 
@@ -122,12 +122,25 @@ add_filter('gallery_style', create_function('$a', 'return preg_replace("%<style 
 
 /* Custom comments function */
 if (!function_exists('custom_comments')) :
+
 function custom_comments($comment, $args, $depth) {
   $GLOBALS['comment'] = $comment;
-  switch ( $comment->comment_type ) :
-    case '' :
+  switch ($comment->comment_type) :
+    case 'pingback':
+    case 'trackback':
   ?>
-    <li>
+
+  <li>
+    <article <?php comment_class('comment'); ?>>
+      <h3>Pingback: <?php comment_author_link(); ?><?php edit_comment_link('Bearbeiten', ' | ', ''); ?></h3>
+    </article>
+
+  <?php
+      break;
+    default:
+  ?>
+
+  <li>
     <article <?php comment_class(); ?> class="comment comment-<?php comment_ID(); ?>">
       <h3>
         <?php echo get_avatar($comment, 60); ?>
@@ -138,7 +151,7 @@ function custom_comments($comment, $args, $depth) {
         <?php edit_comment_link('Bearbeiten', ' | ', ''); ?>
       </h3>
       <section class="comment-content">
-        <?php if ( $comment->comment_approved == '0' ) : ?>
+        <?php if ($comment->comment_approved == '0') : ?>
           <em>Dein Kommentar muss noch freigeschaltet werden.</em>
         <?php endif; ?>
         <?php comment_text(); ?>
@@ -146,18 +159,9 @@ function custom_comments($comment, $args, $depth) {
     </article>
   <?php
       break;
-    case 'pingback'  :
-    case 'trackback' :
-  ?>
-    <li>
-    <article <?php comment_class('comment'); ?>>
-      <h3>Pingback: <?php comment_author_link(); ?><?php edit_comment_link('Bearbeiten', ' | ', ''); ?></h3>
-    </article>
-
-  <?php
-      break;
   endswitch;
-} // end function custom_comments
+}
+
 endif; // end if exists
 
 ?>
