@@ -1,6 +1,4 @@
-/*
- * Wordpress -- your project comments here
- */
+/* PROJECTNAME -- your comments here */
               /*
 $icons-spacing: 40px;
 $icons-sprite-dimensions: true;
@@ -377,7 +375,7 @@ h1 {
 
 /* line 10, ../scss/_style.scss */
 a {
-  color: #badbad;
+  color: red;
 }
 /* line 12, ../scss/_style.scss */
 a:hover {
