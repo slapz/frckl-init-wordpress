@@ -69,13 +69,22 @@ module.exports = function(grunt) {
         trailing: true,
         undef: true
       }
+    },
+
+    macreload: {
+      fuckyeah: {
+        browser: 'chrome',
+        editor: 'macvim'
+      }
     }
+
   });
 
   // registering default and deploy tasks -- default is used in watch too
-  grunt.registerTask('default', 'compass:dev lint concat');
+  grunt.registerTask('default', 'compass:dev lint concat macreload');
   grunt.registerTask('deploy', 'compass:deploy lint concat min');
 
   // plugin tasks (grunt compass, yeah!)
   grunt.loadNpmTasks('/usr/local/lib/node_modules/grunt-compass');
+  grunt.loadNpmTasks('/usr/local/lib/node_modules/grunt-macreload');
 };
