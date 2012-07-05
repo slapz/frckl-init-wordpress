@@ -1,6 +1,6 @@
 <aside class="sidebar">
   <ul>
-  <?php if (!dynamic_sidebar('sidebar')) : ?>
+    <?php if (!dynamic_sidebar('sidebar')) : ?>
 
     <li class="widget">
       <h2 class="widget-title">Meta</h2>

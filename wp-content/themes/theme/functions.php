@@ -120,48 +120,5 @@ add_filter('wp_nav_menu', 'custom_remove_ul');
 // remove gallery default styles
 add_filter('gallery_style', create_function('$a', 'return preg_replace("%<style type=\'text/css\'>(.*?)</style>%s", "", $a);'));
 
-/* Custom comments function */
-if (!function_exists('custom_comments')) :
-
-function custom_comments($comment, $args, $depth) {
-  $GLOBALS['comment'] = $comment;
-  switch ($comment->comment_type) :
-    case 'pingback':
-    case 'trackback':
-  ?>
-
-  <li>
-    <article <?php comment_class('comment'); ?>>
-      <h3>Pingback: <?php comment_author_link(); ?><?php edit_comment_link('Bearbeiten', ' | ', ''); ?></h3>
-    </article>
-
-  <?php
-      break;
-    default:
-  ?>
-
-  <li>
-    <article <?php comment_class(); ?> class="comment comment-<?php comment_ID(); ?>">
-      <h3>
-        <?php echo get_avatar($comment, 60); ?>
-        <?php comment_author_link(); ?> am <?php comment_date(); ?> um <?php comment_time(); ?> Uhr |
-        <a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>" title="Permalink zu diesem Kommentar">
-          Link
-        </a>
-        <?php edit_comment_link('Bearbeiten', ' | ', ''); ?>
-      </h3>
-      <section class="comment-content">
-        <?php if ($comment->comment_approved == '0') : ?>
-          <em>Dein Kommentar muss noch freigeschaltet werden.</em>
-        <?php endif; ?>
-        <?php comment_text(); ?>
-      </section>
-    </article>
-  <?php
-      break;
-  endswitch;
-}
-
-endif; // end if exists
 
 ?>

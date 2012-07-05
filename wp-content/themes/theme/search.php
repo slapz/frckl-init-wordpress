@@ -4,21 +4,19 @@
 
   <?php if (have_posts()) : ?>
 
-  <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
+  <article class="search-results">
     <h1>Suchergebnisse f&uuml;r &raquo;<?php the_search_query(); ?>&laquo;</h1>
-    <section class="articleContent">
-      <ol class="searchResults">
-        <?php while (have_posts()) : the_post(); ?>
-        <li>
-          <h3><a href="<?php the_permalink() ?>" rel="bookmark" title="Permalink f&uuml;r <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-          <?php the_excerpt(); ?>
-        </li>
-        <?php endwhile; ?>
-      </ol>
-    </section>
+    <ol class="searchResults">
+      <?php while (have_posts()) : the_post(); ?>
+      <li>
+        <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+        <?php the_excerpt(); ?>
+      </li>
+      <?php endwhile; ?>
+    </ol>
   </article>
 
-  <nav class="postsNavigation">
+  <nav class="nav-posts">
     <p><?php posts_nav_link('&nbsp;|&nbsp;'); ?></p>
   </nav>
 
