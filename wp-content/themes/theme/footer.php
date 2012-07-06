@@ -1,6 +1,6 @@
     <footer class="footer">
       <p>
-        &copy; <a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a> |
+        &copy; <a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
       </p>
     </footer>
   </div>

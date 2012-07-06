@@ -4,7 +4,7 @@ This is a complete collection of how I start developing on a wordpress-powered w
 It includes a default database dump, local/remote configuration for dandelion and 
 all the fun and best practices from html5boilerplate etc. I heavily use compass and grunt,
 have a look at the folder wp-content/themes/theme. Most pages I do are in german, 
-thus the whole german stuff is included/hardcoded and activated.
+thus the whole german stuff is included (hardcoded) and activated.
 
 The database dump is in wp-content - be sure to delete it after importing. Default
 base/home-URL is http://wordpress.dev, search and replace before importing if you
@@ -40,7 +40,8 @@ your JavaScript files and CSS. After your have done that
 you can use dandelion (a nice ruby-gem) for deployment,
 a basic config is in the root dir of this project. Edit
 that file, and run `dandelion deploy`. This does not deploy
-your database - you will have to do that manually.
+your database - you will have to do that manually. Change
+the file wp-config-remote.php for the remote-db-config.
 
 
 ## Basic recommended plugins (included) 
