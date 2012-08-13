@@ -14,32 +14,27 @@ a {
   }
 }
 
-:focus { }
-::-moz-selection { }
-::selection { }
+:focus {
+  // basic focus styles -- outline: 0; ;-)
+}
 
-
-/*=============== forms  ===============*/
 input[type="text"],
 input[type="tel"],
 input[type="email"],
 input[type="search"],
+input[type="password"],
 textarea {
-  /* style me */
+  // default page form styles
 }
 
-input:valid,
-textarea:valid {
-  /* colors for form validity */
-}
-
+// colors for form invalidity
 input:invalid,
 textarea:invalid {
   background-color: #f0dddd;
 }
 
 
-/*=============== Layout Styles ===============*/
+/*=============== layout styles ===============*/
 .container {
   width: $page-width;
   margin: 0 auto;
@@ -47,7 +42,9 @@ textarea:invalid {
 
 
 /*=============== Module Styles ===============*/
-.module { }
+.module {
+  // your module styles here
+}
 
 
 /*=============== Wordpress classes ===============*/
@@ -68,6 +65,7 @@ textarea:invalid {
   clear: both;
 }
 
+// some basic wordpress-classes
 .bypostauthor { }
 .sticky { }
 .wp-caption { }

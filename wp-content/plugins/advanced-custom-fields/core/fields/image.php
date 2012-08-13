@@ -46,7 +46,7 @@ class acf_Image extends acf_Field
 	
 	
 	// add message
-	self.parent.acf.add_message('Image Updated.', div);
+	self.parent.acf.add_message("<?php _e("Image Updated.",'acf'); ?>", div);
 	
 
 })(jQuery);
@@ -183,8 +183,8 @@ class acf_Image extends acf_Field
 	<div class="has-image">
 		<div class="hover">
 			<ul class="bl">
-				<li><a class="remove-image ir" href="#">Remove</a></li>
-				<li><a class="edit-image ir" href="#">Edit</a></li>
+				<li><a class="remove-image ir" href="#"><?php _e("Remove",'acf'); ?></a></li>
+				<li><a class="edit-image ir" href="#"><?php _e("Edit",'acf'); ?></a></li>
 			</ul>
 		</div>
 		<img src="<?php echo $file_src; ?>" alt=""/>
@@ -210,8 +210,12 @@ class acf_Image extends acf_Field
 	function create_options($key, $field)
 	{	
 		// vars
-		$field['save_format'] = isset($field['save_format']) ? $field['save_format'] : 'url';
-		$field['preview_size'] = isset($field['preview_size']) ? $field['preview_size'] : 'thumbnail';
+		$defaults = array(
+			'save_format'	=>	'object',
+			'preview_size'	=>	'thumbnail',
+		);
+		
+		$field = array_merge($defaults, $field);
 		
 		?>
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -226,8 +230,9 @@ class acf_Image extends acf_Field
 					'value'	=>	$field['save_format'],
 					'layout'	=>	'horizontal',
 					'choices' => array(
-						'url'	=>	__("Image URL",'acf'),
-						'id'	=>	__("Attachment ID",'acf')
+						'object'	=>	__("Image Object",'acf'),
+						'url'		=>	__("Image URL",'acf'),
+						'id'		=>	__("Image ID",'acf')
 					)
 				));
 				?>
@@ -240,20 +245,7 @@ class acf_Image extends acf_Field
 			<td>
 				<?php
 				
-				$image_sizes = array(
-					'thumbnail'	=>	__("Thumbnail",'acf'),
-					'medium'	=>	__("Medium",'acf'),
-					'large'		=>	__("Large",'acf'),
-					'full'		=>	__("Full",'acf')
-				);
-				
-				foreach(get_intermediate_image_sizes() as $size)
-				{
-					if (!isset($image_sizes[$size]))
-					{
-						$image_sizes[$size] = $size;
-					}
-				}
+				$image_sizes = $this->parent->get_all_image_sizes();
 				
 				$this->parent->create_field(array(
 					'type'	=>	'radio',
@@ -365,15 +357,7 @@ class acf_Image extends acf_Field
 
 </style>
 <script type="text/javascript">
-(function($){
-	
-	/*
-	*  Vars
-	*/
-	
-	// generate the preview size (150x150)
-	var preview_size = "<?php echo get_option($preview_size . '_size_w'); ?>x<?php echo get_option($preview_size . '_size_h'); ?>";
-		
+(function($){	
 		
 	/*
 	*  Select Image
@@ -631,9 +615,44 @@ class acf_Image extends acf_Field
 		
 		$value = parent::get_value($post_id, $field);
 		
+		
+		// format
 		if($format == 'url')
 		{
 			$value = wp_get_attachment_url($value);
+		}
+		elseif($format == 'object')
+		{
+			$attachment = get_post( $value );
+			
+			// create array to hold value data
+			$value = array(
+				'id' => $attachment->ID,
+				'alt' => get_post_meta($attachment->ID, '_wp_attachment_image_alt', true),
+				'title' => $attachment->post_title,
+				'caption' => $attachment->post_excerpt,
+				'description' => $attachment->post_content,
+				'url' => wp_get_attachment_url( $attachment->ID ),
+				'sizes' => array(),
+			);
+			
+			// find all image sizes
+			$image_sizes = get_intermediate_image_sizes();
+			
+			if( $image_sizes )
+			{
+				foreach( $image_sizes as $image_size )
+				{
+					// find src
+					$src = wp_get_attachment_image_src( $attachment->ID, $image_size );
+					
+					// add src
+					$value['sizes'][$image_size] = $src[0];
+				}
+				// foreach( $image_sizes as $image_size )
+			}
+			// if( $image_sizes )
+			
 		}
 		
 		return $value;

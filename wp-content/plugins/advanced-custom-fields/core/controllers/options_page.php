@@ -157,11 +157,7 @@ class acf_options_page
 
 		// Javascript
 		echo '<script type="text/javascript" src="'.$this->parent->dir.'/js/input-actions.js?ver=' . $this->parent->version . '" ></script>';
-		echo '<script type="text/javascript">
-			acf.validation_message = "' . __("Validation Failed. One or more fields below are required.",'acf') . '";
-			acf.post_id = 0;
-			acf.admin_url = "' . admin_url() . '";
-		</script>';
+		echo '<script type="text/javascript">acf.post_id = 0;</script>';
 		
 		
 		// add user js + css
@@ -264,7 +260,7 @@ class acf_options_page
 						<h3 class="hndle"><span><?php _e("Publish",'acf'); ?></span></h3>
 						<div class="inside">
 							<input type="hidden" name="HTTP_REFERER" value="<?php echo $_SERVER['HTTP_REFERER'] ?>" />
-							<input type="submit" class="acf-button" value="Save Options" name="update_options" />
+							<input type="submit" class="acf-button" value="<?php _e("Save Options",'acf'); ?>" name="update_options" />
 						</div>
 					</div>
 					

@@ -88,6 +88,13 @@ class acf_input
 		}
 		
 		
+		// validate page (Shopp)
+		if( $pagenow == "admin.php" && isset( $_GET['page'] ) && $_GET['page'] == "shopp-products" && isset( $_GET['id'] ) )
+		{
+			$return = true;
+		}
+		
+		
 		// return
 		return $return;
 	}
@@ -164,15 +171,12 @@ class acf_input
 		// Javascript
 		echo '<script type="text/javascript" src="' . $this->parent->dir . '/js/input-actions.js?ver=' . $this->parent->version . '" ></script>';
 		echo '<script type="text/javascript" src="' . $this->parent->dir . '/js/input-ajax.js?ver=' . $this->parent->version . '" ></script>';
-		echo '<script type="text/javascript">
-			acf.validation_message = "' . __("Validation Failed. One or more fields below are required.",'acf') . '";
-			acf.post_id = ' . $post->ID . ';
-			acf.admin_url = "' . admin_url() . '";
-		</script>';
+		echo '<script type="text/javascript">acf.post_id = ' . $post->ID . ';</script>';
 		
 		
 		// add user js + css
 		do_action('acf_head-input');
+		
 		
 		// get acf's
 		$acfs = $this->parent->get_field_groups();
@@ -190,7 +194,7 @@ class acf_input
 					array($this, 'meta_box_input'), 
 					$post_type, 
 					$acf['options']['position'], 
-					'high', 
+					'core', 
 					array( 'fields' => $acf['fields'], 'options' => $acf['options'], 'show' => $show, 'post_id' => $post->ID )
 				);
 			}
@@ -396,20 +400,12 @@ class acf_input
 		}
 		
 		
-		// only save once! WordPress save's twice for some strange reason.
-		global $acf_flag;
-		if ($acf_flag != 0)
+		// only save once! WordPress save's a revision as well.
+		if( wp_is_post_revision($post_id) )
 		{
-			return $post_id;
-		}
-		$acf_flag = 1;
-		
-		
-		// set post ID if is a revision		
-		if(wp_is_post_revision($post_id)) 
-		{
-			$post_id = wp_is_post_revision($post_id);
-		}
+	    	return $post_id;
+        }
+        
 		
 		// save fields
 		$fields = $_POST['fields'];
@@ -442,6 +438,26 @@ class acf_input
 	
 	function acf_head_input()
 	{
+		
+		?>
+<script type="text/javascript">
+
+// admin url
+acf.admin_url = "<?php echo admin_url(); ?>";
+	
+// messages
+acf.text.validation_error = "<?php _e("Validation Failed. One or more fields below are required.",'acf'); ?>";
+acf.text.file_tb_title_add = "<?php _e("Add File to Field",'acf'); ?>";
+acf.text.file_tb_title_edit = "<?php _e("Edit File",'acf'); ?>";
+acf.text.image_tb_title_add = "<?php _e("Add Image to Field",'acf'); ?>";
+acf.text.image_tb_title_edit = "<?php _e("Edit Image",'acf'); ?>";
+acf.text.relationship_max_alert = "<?php _e("Maximum values reached ( {max} values )",'acf'); ?>";
+acf.text.gallery_tb_title_add = "<?php _e("Add Image to Gallery",'acf'); ?>";
+acf.text.gallery_tb_title_edit = "<?php _e("Edit Image",'acf'); ?>";
+
+</script>
+		<?php
+		
 		foreach($this->parent->fields as $field)
 		{
 			$field->admin_head();
@@ -527,7 +543,7 @@ class acf_input
 </head>
 <body>
 	
-	<div class="updated" id="message"><p>Attachment updated.</div>
+	<div class="updated" id="message"><p><?php _e("Attachment updated",'acf'); ?>.</div>
 	
 </body>
 </html
