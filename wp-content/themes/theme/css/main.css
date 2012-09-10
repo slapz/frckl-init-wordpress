@@ -1,16 +1,24 @@
-/* PROJECTNAME -- your comments here */
-              /*
-$icons-spacing: 40px;
-$icons-sprite-dimensions: true;
-@import 'icons/*.png';
-*/
+/* PROJECTNAME -- your comments here
+====================================================================== */
+/* imports and sprites
+====================================================================== */
 /*
- * normalize.css - http://github.com/necolas/normalize.css
- * Stripped and modifed by Steffen Becker - http://webgefrickel.de
- * last modified 2012-07-07
+ * normalize.css v2.0.1 | MIT License | git.io/normalize
+ * Lot's of good stuff from h5pb.com | MIT License
+ * Modifed and scss-ified by Steffen Becker - http://webgefrickel.de
  */
-/*=============== normalizing base styles ===============*/
-/* line 18, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* sane box handling for everything!
+====================================================================== */
+/* line 10, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* html 5 styles
+====================================================================== */
+/* line 28, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 article,
 aside,
 details,
@@ -25,164 +33,111 @@ summary {
   display: block;
 }
 
-/* line 24, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 34, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 audio,
 canvas,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
 }
 
-/* line 30, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 38, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
 }
 
-/* line 34, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 42, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 [hidden] {
   display: none;
 }
 
-/* line 38, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* base styles
+====================================================================== */
+/* line 50, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 html {
-  font-size: 100%;
+  font-family: Georgia, serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 
-/* line 48, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-html,
-button,
-input,
-select,
-textarea {
-  font-family: Georgia, serif;
-}
-
-/* line 52, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 56, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 body {
   margin: 0;
-  background-color: white;
 }
 
-/*=============== text styling ===============*/
-/* line 59, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* text styling
+====================================================================== */
+/* line 64, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 a:focus {
   outline: thin dotted;
 }
 
-/* line 64, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 69, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 a:active,
 a:hover {
   outline: 0;
 }
 
-/* line 68, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 73, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 h1 {
-  margin: 0.67em 0;
   font-size: 2em;
 }
 
-/* line 73, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-h2 {
-  margin: 0.83em 0;
-  font-size: 1.5em;
-}
-
-/* line 78, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-h3 {
-  margin: 1em 0;
-  font-size: 1.17em;
-}
-
-/* line 83, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-h4 {
-  margin: 1.33em 0;
-  font-size: 1em;
-}
-
-/* line 88, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-h5 {
-  margin: 1.67em 0;
-  font-size: 0.83em;
-}
-
-/* line 93, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-h6 {
-  margin: 2.33em 0;
-  font-size: 0.75em;
-}
-
-/* line 98, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 77, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/* line 103, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 82, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 107, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-blockquote {
-  margin: 1.4em;
-}
-
-/* line 111, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 86, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 dfn {
   font-style: italic;
 }
 
-/* line 115, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 90, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 mark {
   background: #ff0;
   color: #000;
 }
 
-/* line 121, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 96, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 p,
 pre {
   margin: 1em 0;
 }
 
-/* line 128, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 103, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 pre,
 code,
 kbd,
 samp {
   font-family: monospace, serif;
   font-size: 1em;
-  _font-family: 'courier new', monospace;
 }
 
-/* line 133, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 107, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* line 139, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 113, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 q {
-  quotes: none;
+  quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-/* line 144, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-
-/* line 148, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 117, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 small {
-  font-size: 75%;
+  font-size: 80%;
 }
 
-/* line 153, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 122, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 sub,
 sup {
   position: relative;
@@ -191,220 +146,242 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 158, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 128, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 sup {
   top: -0.5em;
 }
 
-/* line 162, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 132, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 sub {
   bottom: -0.25em;
 }
 
-/* line 169, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-dl,
-menu,
-ol,
-ul {
-  margin: 1em 0;
-}
-
-/* line 173, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-dd {
-  margin: 0 0 0 1.4em;
-}
-
-/* line 179, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-menu,
-ol,
-ul {
-  padding: 0 0 0 1.4em;
-}
-
-/* line 185, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-nav ul,
-nav ol,
-fieldset ol {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  list-style-image: none;
-}
-
-/*=============== images styles ===============*/
-/* line 192, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* image styles
+====================================================================== */
+/* line 140, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 img {
   border: 0;
-  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
 }
 
-/* line 197, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 145, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* line 201, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 149, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 figure {
   margin: 0;
 }
 
-/*=============== form styles ===============*/
-/* line 207, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-form {
-  margin: 0;
-}
-
-/* line 211, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* form styling
+====================================================================== */
+/* line 157, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 fieldset {
   margin: 0 2px;
   padding: 1.4em;
   border: 1px solid #c0c0c0;
 }
 
-/* line 216, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 162, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 legend {
   padding: 0;
   border: 0;
-  white-space: normal;
-  *margin-left: -7px;
 }
 
-/* line 226, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 170, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 button,
 input,
 select,
 textarea {
   margin: 0;
   font-size: 100%;
-  vertical-align: baseline;
-  *vertical-align: middle;
+  font-family: inherit;
 }
 
-/* line 233, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 176, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 button,
 input {
   line-height: normal;
 }
 
-/* line 240, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 183, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer;
-  *overflow: visible;
 }
 
-/* line 247, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 189, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 button[disabled],
 input[disabled] {
   cursor: default;
 }
 
-/* line 252, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 194, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box;
   padding: 0;
-  *height: 13px;
-  *width: 13px;
 }
 
-/* line 259, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 198, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
-/* line 267, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 204, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
-/* line 272, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 209, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
 
-/* line 277, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 214, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 textarea {
   overflow: auto;
   vertical-align: top;
+  resize: vertical;
 }
 
-/* line 282, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
-label {
-  display: block;
-  cursor: pointer;
-}
-
-/*=============== the rest ===============*/
-/* line 289, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* tables
+====================================================================== */
+/* line 223, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 294, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* custom extensions and default useful styles
+====================================================================== */
+/* line 232, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+label {
+  display: block;
+  cursor: pointer;
+}
+
+/* line 237, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 td {
   vertical-align: top;
 }
 
-/* line 298, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+/* line 241, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
 th {
   text-align: left;
 }
 
-/*=============== base styles ===============*/
-/* line 2, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+/* line 249, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+nav ul,
+nav ol,
+fieldset ul,
+fieldset ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* line 255, /Users/nebelschwade/Repositories/webgefrickel/scss/_normalize.scss */
+hr {
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+/* mixins and other helpers
+====================================================================== */
+/* line 82, icons/*.png */
+.icons-sprite, #cboxPrevious, #cboxPrevious:hover, #cboxNext, #cboxNext:hover, #cboxClose, #cboxClose:hover {
+  background: url('../img/icons-s997edac616.png') no-repeat;
+}
+
+/* Base Styles here - style all used default elements here
+======================================================================*/
+/* line 4, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_base.scss */
 body {
   font: normal 16px/1.4 Georgia, serif;
   color: #333333;
 }
 
-/* line 6, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+/* line 8, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_base.scss */
 h1 {
   text-rendering: optimizeLegibility;
 }
 
-/* line 10, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+/* line 24, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_base.scss */
 a {
   color: red;
-}
-/* line 12, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
-a:hover {
   text-decoration: none;
 }
-
-/* line 32, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
-input:invalid,
-textarea:invalid {
-  background-color: #f0dddd;
+/* line 27, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_base.scss */
+a:hover {
+  text-decoration: underline;
 }
 
-/*=============== layout styles ===============*/
-/* line 38, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+/* line 38, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_base.scss */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* line 43, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_base.scss */
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* Basic layout styles - grid, containers etc.
+====================================================================== */
+/* line 4, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
 .container {
   width: 960px;
   margin: 0 auto;
 }
 
-/*=============== Module Styles ===============*/
-/*=============== Wordpress classes ===============*/
-/* line 51, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+/* modules used globally
+====================================================================== */
+/* line 18, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+.cols-two > .col,
+.cols-three > .col {
+  float: left;
+  width: 47%;
+  min-height: 22.4px;
+  margin-right: 5%;
+}
+/* line 23, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+.cols-two > .col-last,
+.cols-three > .col-last {
+  float: right;
+  margin-right: 0;
+}
+
+/* line 30, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+.cols-three .col {
+  width: 30%;
+}
+
+/* wordpress classes
+====================================================================== */
+/* line 39, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
 .alignleft {
   float: left;
   display: inline;
   margin-right: 1.4em;
 }
 
-/* line 56, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+/* line 44, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
 .alignright {
   float: right;
   display: inline;
@@ -412,15 +389,16 @@ textarea:invalid {
   text-align: right;
 }
 
-/* line 62, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
+/* line 50, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_style.scss */
 .aligncenter {
   display: block;
   margin: 0 auto;
   clear: both;
 }
 
-/*=============== global colorbox styles ===============*/
-/* line 4, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* default colorbox styles - don't change these
+====================================================================== */
+/* line 6, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #colorbox,
 #cboxOverlay,
 #cboxWrapper {
@@ -431,35 +409,35 @@ textarea:invalid {
   z-index: 9999;
 }
 
-/* line 10, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 12, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxOverlay {
   position: fixed;
   width: 100%;
   height: 100%;
 }
 
-/* line 15, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 18, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxMiddleLeft,
 #cboxBottomLeft {
   clear: left;
 }
 
-/* line 19, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 22, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxContent {
   position: relative;
 }
 
-/* line 23, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 26, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxLoadedContent {
   overflow: auto;
 }
 
-/* line 27, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 30, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxTitle {
   margin: 0;
 }
 
-/* line 32, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 35, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxLoadingOverlay,
 #cboxLoadingGraphic {
   position: absolute;
@@ -469,7 +447,7 @@ textarea:invalid {
   height: 100%;
 }
 
-/* line 39, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 43, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxPrevious,
 #cboxNext,
 #cboxClose,
@@ -477,7 +455,7 @@ textarea:invalid {
   cursor: pointer;
 }
 
-/* line 43, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 47, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 .cboxPhoto {
   display: block;
   float: left;
@@ -485,7 +463,7 @@ textarea:invalid {
   border: 0;
 }
 
-/* line 48, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 53, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 .cboxIframe {
   display: block;
   width: 100%;
@@ -493,140 +471,152 @@ textarea:invalid {
   border: 0;
 }
 
-/*=============== your colorbox styles ===============*/
-/* line 55, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 60, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+#colorbox,
+#cboxContent,
+#cboxLoadedContent {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* your colorbox styles -- default is black -- change if you want
+====================================================================== */
+/* line 67, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxOverlay {
   background: #000;
 }
 
-/* line 59, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 71, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 .cboxIframe {
   background: #fff;
 }
 
-/* line 63, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 75, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxContent {
-  margin-top: 20px;
+  margin-top: 22.4px;
 }
 
-/* line 67, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 79, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxError {
   padding: 50px;
   border: 1px solid #ccc;
 }
 
-/* line 71, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 84, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxLoadedContent {
   border: 5px solid #000;
   background: #fff;
 }
 
-/* line 76, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 89, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxTitle {
   position: absolute;
-  top: -20px;
+  top: -22.4px;
   left: 0;
   color: #ccc;
 }
 
-/* line 81, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 94, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxCurrent {
   position: absolute;
-  top: -20px;
+  top: -22.4px;
   right: 0px;
   color: #ccc;
 }
 
-/* line 86, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 99, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxSlideshow {
   position: absolute;
-  top: -20px;
+  top: -22.4px;
   right: 90px;
   color: #fff;
 }
 
-/* line 91, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 104, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxLoadingGraphic {
   background: url(../img/loading.gif) no-repeat center center;
 }
 
-/* line 97, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
-#cboxPrevious,
-#cboxNext,
-#cboxClose {
-  background: url(../img/controls.png) no-repeat;
-}
-
-/* line 101, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
-#cboxPrevious {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  width: 28px;
-  height: 65px;
-  margin-top: -32px;
-  background-position: top left;
-  text-indent: -9999px;
-}
-/* line 106, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
-#cboxPrevious:hover {
-  background-position: bottom left;
-}
-
-/* line 111, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
-#cboxNext {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  width: 28px;
-  height: 65px;
-  margin-top: -32px;
-  background-position: top right;
-  text-indent: -9999px;
-}
-/* line 116, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
-#cboxNext:hover {
-  background-position: bottom right;
-}
-
-/* line 121, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 108, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxLoadingOverlay {
   background: #000;
 }
 
-/* line 125, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 112, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+#cboxPrevious {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  margin-top: -32px;
+  background-position: 0 -170px;
+  height: 65px;
+  width: 29px;
+}
+/* line 117, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+#cboxPrevious:hover {
+  background-position: 0 0;
+  height: 65px;
+  width: 29px;
+}
+
+/* line 122, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+#cboxNext {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -32px;
+  background-position: 0 -255px;
+  height: 65px;
+  width: 29px;
+}
+/* line 127, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+#cboxNext:hover {
+  background-position: 0 -85px;
+  height: 65px;
+  width: 29px;
+}
+
+/* line 133, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxClose {
-  display: block;
   position: absolute;
   top: 5px;
   right: 5px;
-  width: 38px;
-  height: 19px;
-  background-position: top center;
-  text-indent: -9999px;
+  display: block;
+  background-position: 0 -380px;
+  height: 20px;
+  width: 40px;
 }
-/* line 129, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
+/* line 138, /Users/nebelschwade/Repositories/webgefrickel/scss/_colorbox.scss */
 #cboxClose:hover {
-  background-position: bottom center;
+  background-position: 0 -340px;
+  height: 20px;
+  width: 40px;
 }
 
-/*=============== helper and general classes  ===============*/
-/* line 2, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
-.ir {
+/* default helpers and classes
+====================================================================== */
+/* line 4, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+.ir, #cboxPrevious, #cboxNext, #cboxClose {
+  overflow: hidden;
   border: 0;
   background-color: transparent;
-  color: transparent;
-  font: 0/0 a;
-  text-shadow: none;
+}
+/* line 8, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+.ir:before, #cboxPrevious:before, #cboxNext:before, #cboxClose:before {
+  display: block;
+  width: 0;
+  height: 100%;
+  content: "";
 }
 
-/* line 9, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+/* line 15, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
-/* line 14, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+/* line 20, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
 .visuallyhidden {
   position: absolute;
   width: 1px;
@@ -637,7 +627,7 @@ textarea:invalid {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-/* line 20, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+/* line 28, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
   position: static;
   width: auto;
@@ -647,45 +637,32 @@ textarea:invalid {
   clip: auto;
 }
 
-/* line 28, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+/* line 37, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
 .invisible {
   visibility: hidden;
 }
 
-/* line 33, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+/* line 42, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
 .clearfix:before,
 .clearfix:after {
   display: table;
-  content: "";
+  content: " ";
 }
 
-/* line 38, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
+/* line 47, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 42, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
-.clearfix {
-  *zoom: 1;
-}
-
-/* line 46, /Users/nebelschwade/Repositories/webgefrickel/scss/_helpers.scss */
-.sanebox {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
+/* print styles
+====================================================================== */
 @media print {
-  /*=============== Print Styles ===============*/
-  /* line 4, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_print.scss */
+  /* line 6, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_print.scss */
   * {
     background: transparent !important;
     color: black !important;
-    text-shadow: none !important;
     box-shadow: none !important;
-    filter: none !important;
-    -ms-filter: none !important;
+    text-shadow: none !important;
   }
 
   /* line 14, /Users/nebelschwade/Sites/__dev/_wordpress/wp-content/themes/theme/scss/_print.scss */
@@ -736,4 +713,3 @@ textarea:invalid {
     page-break-after: avoid;
   }
 }
-/* end @media print */

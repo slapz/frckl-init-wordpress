@@ -1,25 +1,35 @@
-/*! PROJECTNAME -- your comments here */
+/*! PROJECTNAME -- your comments here
+====================================================================== */
 
-$background: #fff;
-$color: #333;
-$link-color: #f00;
+// your project variables should all be defined here
+$background-default: #fff;
 
-$font: Georgia, serif;
+$color-default: #333;
+$color-main: #f00;
+
+$font-family: Georgia, serif;
 $font-size: 16px;
-$line-height: 1.4;
+$font-line-height: 1.4;
+$font-default: normal #{$font-size}/#{$font-line-height} $font-family;
 
-$base-font: normal #{$font-size}/#{$line-height} $font;
+$margin-default: $font-size * $font-line-height;
 
-$page-width: 960px;
+$width-page: 960px;
 
-/*
-$icons-spacing: 40px;
+
+/* imports and sprites
+====================================================================== */
+
+@import 'compass/css3';
+@import 'normalize';
+@import 'mixins';
+
+// sprites ftw!
+$icons-spacing: 20px;
 $icons-sprite-dimensions: true;
 @import 'icons/*.png';
-*/
 
-@import 'normalize';
-@import 'compass/css3';
+@import 'base';
 @import 'style';
 @import 'colorbox';
 @import 'helpers';

@@ -1,3 +1,7 @@
+// when using jshint - define your global vars from other files/modules here
+/*global console: true*/
+/*global Modernizr: true*/
+
 // ================================================================================
 // init documentready-function
 // ================================================================================

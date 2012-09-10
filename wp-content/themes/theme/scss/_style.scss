@@ -1,61 +1,49 @@
-/*=============== base styles ===============*/
-body {
-  font: $base-font; color: $color;
-}
+/* Basic layout styles - grid, containers etc.
+====================================================================== */
 
-h1 {
-  text-rendering: optimizeLegibility;
-}
-
-a {
-  color: $link-color;
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-:focus {
-  // basic focus styles -- outline: 0; ;-)
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="search"],
-input[type="password"],
-textarea {
-  // default page form styles
-}
-
-// colors for form invalidity
-input:invalid,
-textarea:invalid {
-  background-color: #f0dddd;
-}
-
-
-/*=============== layout styles ===============*/
 .container {
-  width: $page-width;
+  width: $width-page;
   margin: 0 auto;
 }
 
 
-/*=============== Module Styles ===============*/
-.module {
-  // your module styles here
+/* modules used globally
+====================================================================== */
+
+// don't hesitate to split this file up in logical parts
+// if it get's to large. that's what sass is for :-)
+
+.cols-two,
+.cols-three {
+  & > .col {
+    float: left; width: 47%;
+    min-height: $margin-default;
+    margin-right: 5%;
+  }
+  & > .col-last {
+    float: right;
+    margin-right: 0;
+  }
+}
+
+// for three columns, just change the width
+.cols-three .col {
+  width: 30%;
 }
 
 
-/*=============== Wordpress classes ===============*/
+
+/* wordpress classes
+====================================================================== */
+
 .alignleft {
   float: left; display: inline;
-  margin-right: #{$line-height}em;
+  margin-right: #{$font-line-height}em;
 }
 
 .alignright {
   float: right; display: inline;
-  margin-left: #{$line-height}em;
+  margin-left: #{$font-line-height}em;
   text-align: right;
 }
 
@@ -71,3 +59,4 @@ textarea:invalid {
 .wp-caption { }
 .wp-caption-text { }
 .gallery-caption { }
+

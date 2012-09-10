@@ -24,7 +24,5 @@
     </header>
 
     <nav class="nav">
-      <ul>
-        <?php wp_nav_menu(array('theme_location' => 'custom_nav', 'depth' => 1)); ?>
-      </ul>
+      <?php wp_nav_menu(array('theme_location' => 'custom_nav', 'depth' => 1)); ?>
     </nav>
