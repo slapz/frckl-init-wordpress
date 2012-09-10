@@ -10,7 +10,7 @@
     if ($site_description && (is_home() || is_front_page())) echo " &mdash; " . $site_description;
   ?></title>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css" />
-  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.6.1.min.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.6.2.min.js"></script>
   <meta name="viewport" content="width=device-width" />
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <?php wp_head(); ?>
