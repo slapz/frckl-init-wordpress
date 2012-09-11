@@ -4,11 +4,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
   <meta charset="<?php bloginfo('charset'); ?>" />
-  <title><?php
-    wp_title('&mdash;', true, 'right'); bloginfo('name');
-    $site_description = get_bloginfo('description', 'display');
-    if ($site_description && (is_home() || is_front_page())) echo " &mdash; " . $site_description;
-  ?></title>
+  <title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css" />
   <script src="<?php echo get_template_directory_uri(); ?>/js/modernizr-2.6.2.min.js"></script>
   <meta name="viewport" content="width=device-width" />
