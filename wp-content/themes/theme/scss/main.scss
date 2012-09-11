@@ -16,6 +16,11 @@ $margin-default: $font-size * $font-line-height;
 
 $width-page: 960px;
 
+// if you use the responsive-mixin define your breakpoints here
+$breakpoint-mobile: 755px;
+$breakpoint-small: 1024px;
+$breakpoint-normal: 1240px;
+$breakpoint-large: 1420px;
 
 /* imports and sprites
 ====================================================================== */
