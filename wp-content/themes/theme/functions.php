@@ -54,6 +54,44 @@ add_action('admin_notices', function() {
 add_editor_style('');
 
 
+/* theme paths wrappers for cleaner code
+====================================================================== */
+
+/* usage like this: http://scribu.net/wordpress/theme-wrappers.html
+ * wrapper-{template}.php > wrapper.php
+ *  {template}.php
+ *      header-{template}.php > header.php
+ *      sidebar-{template}.php > sidebar.php
+ *      footer-{template}.php > footer.php
+ */
+
+function custom_template_path() {
+  return CustomWrapper::$main_template;
+}
+
+function custom_template_base() {
+  return CustomWrapper::$base;
+}
+
+class CustomWrapper {
+
+  static $main_template;
+  static $base;
+
+  static function wrap($template) {
+    self::$main_template = $template;
+    self::$base = substr(basename(self::$main_template), 0, -4);
+
+    if ('index' == self::$base) self::$base = false;
+    $templates = array('wrapper.php');
+    if (self::$base) array_unshift($templates, sprintf('wrapper-%s.php', self::$base));
+    return locate_template($templates);
+  }
+}
+
+add_filter('template_include', array('CustomWrapper', 'wrap'), 99);
+
+
 /* removing stuff from the frontend
 ====================================================================== */
 
@@ -93,6 +131,31 @@ add_filter('wp_nav_menu_args', function($args = '') {
   return $args;
 });
 
+// remove ids from menu items
+add_filter('nav_menu_item_id', function($var) {
+  return is_array($var) ? array() : '';
+}, 100, 1);
+
+/* adding stuff to the frontend
+====================================================================== */
+
+// adding the slug to the body class
+add_filter('body_class', function($classes) {
+  global $post;
+  if (is_home()) {
+    $key = array_search('blog', $classes);
+    if ($key > -1) {
+      unset($classes[$key]);
+    };
+  } elseif (is_page()) {
+    $classes[] = sanitize_html_class($post->post_name);
+  } elseif (is_singular()) {
+    $classes[] = sanitize_html_class($post->post_name);
+  };
+
+  return $classes;
+});
+
 
 /* theme and frontend options
 ====================================================================== */
@@ -104,7 +167,7 @@ if (!isset($content_width)) {
 
 // activate support for automatic feed links, custom css and post thumbnails
 add_theme_support('automatic-feed-links');
-add_theme_support('nav-menus');
+add_theme_support('menus');
 add_theme_support('post-thumbnails');
 
 

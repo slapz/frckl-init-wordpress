@@ -1,30 +1,22 @@
-<?php get_header(); ?>
+<?php if (have_posts()) : ?>
 
-<section class="content">
+<article class="search-results">
+  <h1>Suchergebnisse f&uuml;r &raquo;<?php the_search_query(); ?>&laquo;</h1>
+  <ol class="searchResults">
+    <?php while (have_posts()) : the_post(); ?>
+    <li>
+      <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+      <?php the_excerpt(); ?>
+    </li>
+    <?php endwhile; ?>
+  </ol>
+</article>
 
-  <?php if (have_posts()) : ?>
+<nav class="nav-posts">
+  <p><?php posts_nav_link('&nbsp;|&nbsp;'); ?></p>
+</nav>
 
-  <article class="search-results">
-    <h1>Suchergebnisse f&uuml;r &raquo;<?php the_search_query(); ?>&laquo;</h1>
-    <ol class="searchResults">
-      <?php while (have_posts()) : the_post(); ?>
-      <li>
-        <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-        <?php the_excerpt(); ?>
-      </li>
-      <?php endwhile; ?>
-    </ol>
-  </article>
+<?php else : ?>
+<?php get_template_part('notfound'); ?>
+<?php endif; ?>
 
-  <nav class="nav-posts">
-    <p><?php posts_nav_link('&nbsp;|&nbsp;'); ?></p>
-  </nav>
-
-  <?php else : ?>
-  <?php get_template_part('notfound'); ?>
-  <?php endif; ?>
-
-</section>
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
