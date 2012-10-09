@@ -14,24 +14,20 @@ I assume you have knowledge of setting up a local development environment
 with Apache / MySQL and a virtual host for your project, and that you
 have installed compass and node.js (for grunt).
 
+## Requirements
+
+To make this work I assume that you have basic knowledge of the
+shell and that you have installed the following dependancies:
+wget, node, compass, sass and the node-plugins grunt and jake.
+Use npm, brew, apt-get or whatever to install these first.
+
 ## Installation
 
-Fork this repository [https://github.com/nebelschwade/webgefrickel](https://github.com/nebelschwade/webgefrickel),
-this is a collection of files I use globally in my projects, such as a custom normalize.css, some Javascript-libs etc.
+Edit wp-config-local.php, add your DB-Connection and other stuff.
+Import the sql-dump provided in /wp-content/.
+Log the backend, have a look around (admin // password).
 
-Install grunt, grunt-compass, grunt-imagine and grunt-macreload if you
-want to use the build-script included in the theme-folder. I highly recommend this!
-You can install those packages globally, if you install them locally, remember
-to change the last lines in the grunt.js file.
-
-Change the `importPath`-variable at the top of the file wp-content/themes/theme/grunt.js 
-file to where you forked the webgefrickel-repo to and add /js/.
-
-Change the `add_import_path`-variable in wp-content/themes/theme/config.rb to 
-where you forked the webgefrickel-repo to.
-
-Run `grunt watch` in the theme folder. Uncomment or remove what you
-don't need or don't like. Happy Coding!
+Open a shell and go to the /wp-content/themes/theme folder and run `jake`.
 
 ## Deployment
 
@@ -47,9 +43,10 @@ the file wp-config-remote.php for the remote-db-config.
 ## Basic recommended plugins (included) 
 
 - [Add Lightbox & Title](http://wordpress.org/extend/plugins/add-lightbox-title/download/) -- does exacly what it says, for use with the herein included colorbox
+- [Advanced Custom Fields](http://www.advancedcustomfields.com/) -- a nice plugin for extending your posts
 - [All in One SEO Pack](http://wordpress.org/extend/plugins/all-in-one-seo-pack/) -- SEO, nice page titles etc.
 - [Antispam Bee](http://wordpress.org/extend/plugins/antispam-bee/) -- If you have problems with spam. Free Akismet, kinda.
-- [Google XML Sitemaps](http://wordpress.org/extend/plugins/google-sitemap-generator/) -- a nice sitemap generator for SEO
+- [Google XML Sitemaps](http://wordpress.org/extend/plugins/google-sitemap-generator/) -- a nice sitemap generator for SEO (deactivated)
 - [WP-Beautifier](http://wordpress.org/extend/plugins/wp-beautifier/) -- For better code output
 
 ## Credits
