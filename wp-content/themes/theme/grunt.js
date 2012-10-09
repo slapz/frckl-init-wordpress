@@ -1,16 +1,11 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-  // first - git clone git://github.com/nebelschwade/webgefrickel.git
-  // and then change the path to the repo here and add js/
-  var importPath = '/Users/nebelschwade/Repositories/webgefrickel/js/';
-
-  // Project configuration.
   grunt.initConfig({
     meta: {
-      banner: '/*! PROJECTNAME - your comments here | Last modified: ' +
+      banner: '/*! PROJECTNAME | Last modified: ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-        'Steffen Becker | http://webgefrickel.de | Twitter: @nebelschwade */'
+        'Steffen Becker | http://webgefrickel.de */'
     },
 
     lint: {
@@ -20,8 +15,7 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['<banner:meta.banner>',
-          importPath + 'jquery.colorbox.js',
-          importPath + 'pagepaths.js',
+          'jquery.colorbox.js',
           'js/script.js'
         ],
         dest: 'js/script.min.js'
@@ -37,10 +31,20 @@ module.exports = function(grunt) {
 
     compass: {
       dev: {
+        src: 'scss',
+        dest: 'css',
+        images: 'img',
+        fonts: 'fonts',
+        relativeassets: true,
         outputstyle: 'expanded',
         linecomments: true
       },
       deploy: {
+        src: 'scss',
+        dest: 'css',
+        images: 'img',
+        fonts: 'fonts',
+        relativeassets: true,
         outputstyle: 'compressed',
         linecomments: false,
         forcecompile: true
@@ -87,7 +91,7 @@ module.exports = function(grunt) {
     macreload: {
       fuckyeah: {
         browser: 'chrome',
-        editor: 'macvim'
+        editor: 'iterm'
       }
     }
 
@@ -99,7 +103,7 @@ module.exports = function(grunt) {
 
   // plugin tasks (grunt compass imagine etc., yeah!)
   // install these with npm -g or install locally and change path
-  grunt.loadNpmTasks('/usr/local/lib/node_modules/grunt-compass');
-  grunt.loadNpmTasks('/usr/local/lib/node_modules/grunt-imagine');
-  grunt.loadNpmTasks('/usr/local/lib/node_modules/grunt-macreload');
+  grunt.loadNpmTasks('grunt-compass');
+  grunt.loadNpmTasks('grunt-imagine');
+  grunt.loadNpmTasks('grunt-macreload');
 };

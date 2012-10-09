@@ -10,7 +10,7 @@
     Modernizr.load({
       test : window.jQuery,
       yep  : ['<?php echo get_template_directory_uri(); ?>/js/script.min.js'],
-      nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery-1.8.2.min.js',
+      nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery.min.js',
               '<?php echo get_template_directory_uri(); ?>/js/script.min.js']
     });
     <?php /* if you use google analytics use this snippet - you really dont need a plugin for sth like that
