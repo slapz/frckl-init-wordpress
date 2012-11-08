@@ -54,6 +54,22 @@ add_action('admin_notices', function() {
 add_editor_style('');
 
 
+/* tinymce RTE config using tinyMCE advanced plugin
+====================================================================== */
+
+if (!function_exists('base_custom_mce_format')) {
+  add_filter('tiny_mce_before_init', function($init) {
+    // Add block format elements you want to show in dropdown
+    $init['theme_advanced_blockformats'] = 'Absatz=p,Überschrift 1=h1,Überschrift 2=h2,Überschrift 3=h3,Überschrift 4=h4,Zitat=blockquote,Code=pre';
+
+    // Add block style elements you want to show in dropdown
+    $init['theme_advanced_styles'] = 'Spezial=special-class';
+
+    return $init;
+  });
+}
+
+
 /* theme paths wrappers for cleaner code
 ====================================================================== */
 
@@ -135,6 +151,7 @@ add_filter('wp_nav_menu_args', function($args = '') {
 add_filter('nav_menu_item_id', function($var) {
   return is_array($var) ? array() : '';
 }, 100, 1);
+
 
 /* adding stuff to the frontend
 ====================================================================== */
@@ -222,5 +239,34 @@ add_action('init', function() {
     // 'taxonomies' => array('custom_taxonomy'),
     // for more options see http://codex.wordpress.org/Function_Reference/register_post_type
   ));
+
+  /* and a custom taxonomy, if you want it
+  register_taxonomy('kategorien', array('custom_thing'), array(
+    'labels' => array(
+      'name' => 'Kategorien',
+      'singular' => 'Kategorie',
+      'search' => 'Kategorien durchsuchen',
+      'popular' => 'Beliebte Kategorien',
+      'all' => 'Alle Kategorien',
+      'parent' => 'Übergeordnete Kategorie',
+      'parent' => 'Übergeordnete Kategorie:',
+      'edit' => 'Kategorie bearbeiten',
+      'update' => 'Kategorie ändern',
+      'add' => 'Neue Kategorie',
+      'new' => 'Neue Kategorie',
+      'separate' => 'Kommasepariert:',
+      'add' => 'Kategorien bearbeiten',
+      'choose' => 'BeliebteKkategorien',
+      'menu' => 'Kategorien',
+    ),
+    'public' => true,
+    'show_in_nav_menus' => true,
+    'show_ui' => true,
+    'show_tagcloud' => false,
+    'hierarchical' => true,
+    'rewrite' => true,
+    'query_var' => true
+  ));
+  */
 });
 

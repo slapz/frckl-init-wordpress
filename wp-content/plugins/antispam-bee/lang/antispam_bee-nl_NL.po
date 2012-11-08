@@ -3,44 +3,44 @@ msgstr ""
 "Project-Id-Version: Antispam Bee\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: Sergej Müller\n"
+"Last-Translator: Presis <contact@presis.nl>\n"
 "Language-Team: Sergej Müller\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"Language: de_DE\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "No data available."
-msgstr "Noch keine Daten vorhanden."
+msgstr "Geen gegevens beschikbaar."
 
 msgid "New spam comment on your post"
-msgstr "Neuer Spam zum Artikel"
+msgstr "Nieuwe spamreactie op jouw bericht"
 
 msgid "Advanced"
-msgstr "Erweitert"
+msgstr "Geavanceerd"
 
 msgid "Filter"
 msgstr "Filter"
 
 msgid "General"
-msgstr "Allgemein"
+msgstr "Algemeen"
 
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "Reactie"
 
 msgid "Type"
-msgstr "Typ"
+msgstr "Soort"
 
 msgid "Spam Reason"
-msgstr "Spamgrund"
+msgstr "Spam reden"
 
 msgid "Empty Data"
-msgstr "Leere Daten"
+msgstr "Lege data"
 
 msgid "CSS Hack"
 msgstr "CSS Hack"
@@ -52,10 +52,10 @@ msgid "Spam IP"
 msgstr "Spam IP"
 
 msgid "Comment Language"
-msgstr "Kommentarsprache"
+msgstr "Reactie taal"
 
 msgid "Country Check"
-msgstr "Ländercode"
+msgstr "Land Controle"
 
 msgid "Honey Pot"
 msgstr "Honey Pot"
@@ -67,125 +67,124 @@ msgid "iso codes"
 msgstr "ISO Codes"
 
 msgid "Approve it"
-msgstr "Freigeben"
+msgstr "Toestaan"
 
 msgid "Delete it"
-msgstr "Löschen"
+msgstr "Verwijderen"
 
 msgid "Trash it"
-msgstr "In Papierkorb"
+msgstr "Naar prullenbak"
 
 msgid "Spam list"
-msgstr "Spamliste"
+msgstr "Spamlijst"
 
 msgid "Notify message by Antispam Bee"
-msgstr "Benachrichtigung von Antispam Bee"
+msgstr "Notificatie van Antispam Bee"
 
 msgid "Content removed by Antispam Bee"
-msgstr "Inhalt entfernt von Antispam Bee"
+msgstr "Inhoud verwijderd door Antispam Bee"
 
 msgid "Last check"
-msgstr "Zuletzt"
+msgstr "Laatste controle"
 
 msgid "Blocked"
-msgstr "Blockiert"
+msgstr "Geblokkeerd"
 
 msgid "Today"
-msgstr "Heute"
+msgstr "Vandaag"
 
-msgid "Easy and extremely productive spam-fighting plugin with many sophisticated solutions. Includes protection again trackback spam."
-msgstr "Simples, äußerst effektives Plugin zur Bekämpfung von Spam-Kommentaren. Datenschutzkonform, funktionsreich und unkompliziert."
+msgid ""
+"Easy and extremely productive spam-fighting plugin with many sophisticated "
+"solutions. Includes protection again trackback spam."
+msgstr ""
+"Eenvoudig en extreme effectieve anti-spam plugin met vele geavanceerde "
+"oplossingen. Inclusief bescherming tegen trackback spam."
 
 msgid "http://antispambee.com"
 msgstr "http://antispambee.de"
 
 # Spam detection
 msgid "Mark as Spam, do not delete"
-msgstr "Spam markieren, nicht löschen"
+msgstr "Markeer als spam, verwijder niet"
 
 msgid "Limit on"
-msgstr "Beschränken auf"
+msgstr "Limiet op"
 
 msgid "Spam will be automatically deleted after %s days"
-msgstr "Löschung nach %s Tagen"
+msgstr "Spam wordt automatisch verwijderd na %s dagen"
 
 msgid "Notification by email"
-msgstr "Benachrichtigung via E-Mail"
+msgstr "Bericht via e-mail"
 
 msgid "Delete comments by spam reasons"
-msgstr "Bei gewählten Spamgründen sofort löschen"
+msgstr "Verwijder reactie aan de hand van spam reden"
 
 msgid "Multiple choice or deselection by pressing Ctrl/CMD"
-msgstr "Mehrfachauswahl bzw. Abwahl mit Strg/CMD"
+msgstr "Selecteer / deselecteer meerdere opties door Ctrl/CMD in te drukken"
 
 msgid "Hide the &quot;MARKED AS SPAM&quot; note"
-msgstr "&quot;MARKED AS SPAM&quot; unterdrücken"
+msgstr "Verberg de &quot;GEMARKEERD ALS SPAM&quot; opmerking"
 
 msgid "Comment marked as spam"
-msgstr "Spam-Benachrichtigung"
+msgstr "Reactie aangemerkt als spam"
 
 # Block countries
 msgid "Block comments and pings from specific countries"
-msgstr "Länder blockieren bzw. erlauben"
+msgstr "Blokkeer reacties en pings vanuit specifieke landen"
 
 msgid "Blacklist"
-msgstr "Blacklist"
+msgstr "Zwartelijst"
 
 msgid "Whitelist"
-msgstr "Whitelist"
+msgstr "Wittelijst"
 
-# Project Honey Pot
 msgid "Search comment spammers in the Project Honey Pot"
-msgstr "Project Honey Pot als Quelle für Spam"
+msgstr "Zoek reactie spammers in Project Honey Pot"
 
 msgid "English"
-msgstr "Englisch"
+msgstr "Engels"
 
 msgid "German"
-msgstr "Deutsch"
+msgstr "Duits"
 
 msgid "French"
-msgstr "Französisch"
+msgstr "Frans"
 
 msgid "Italian"
-msgstr "Italienisch"
+msgstr "Italiaans"
 
 msgid "Spanish"
-msgstr "Spanisch"
+msgstr "Spaans"
 
 # Translate API
 msgid "Allow comments only in certain language"
-msgstr "Inhalte nur in einer Sprache zulassen"
+msgstr "Sta alleen reacties toe in een bepaalde taal"
 
 msgid "Language"
-msgstr "Sprache"
+msgstr "Taal"
 
 # Extended
 msgid "Stricter inspection for comments and pings"
-msgstr "Zusatzchecks für Kommentare und Pings"
+msgstr "Strikte inspectie voor reacties en pings"
 
 msgid "Consider comments which are already marked as spam"
-msgstr "Lernfähigkeit für aktuellen Datenbestand"
+msgstr "Overweeg opmerkingen die reeds zijn gemarkeerd als spam"
 
 msgid "Do not check if the comment author has already approved"
-msgstr "Genehmigten Kommentatoren vertrauen"
+msgstr "Niet controleren als de auteur van de reactie reeds is toegestaan"
 
 # Misc
 msgid "Spam counter on the dashboard"
-msgstr "Spam-Anzahl auf dem Dashboard"
+msgstr "Spam teller op het dashboard"
 
 msgid "Statistics on the dashboard"
-msgstr "Verlauf-Statistik auf dem Dashboard"
+msgstr "Statistieken op het dashboard"
 
 msgid "Do not check trackbacks / pingbacks"
-msgstr "Keine Prüfung der Ping- und Trackbacks"
+msgstr "Trackbacks / pingbacks niet controleren"
 
 msgid "Comment form used outside of posts"
-msgstr "Kommentarformular auf Archivseiten"
+msgstr "Reactieformulier wordt gebruikt buiten berichten"
 
 msgid "Antispam Bee requires WordPress 3.3 and PHP 5.1.2"
-msgstr "Antispam Bee setzt WordPress 3.3 und PHP 5.1.2 voraus"
-
-msgid "Comments"
-msgstr "Kommentare"
-
+msgstr "Antispam Bee vereist WordPress 3.3 en PHP 5.1.2"
