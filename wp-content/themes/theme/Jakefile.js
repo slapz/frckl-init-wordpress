@@ -4,10 +4,9 @@
 /*global console: true*/
 /*global exec: true*/
 
-
 desc('Default task');
 task('default', [], function(params) {
-  console.log('Installing everything you need from github.com/nebelschwade/webgefrickel...');
+  console.log('Installing NPM-packages and everything you need from github.com/nebelschwade/webgefrickel...');
 
   var cmds = [
     'npm install',
