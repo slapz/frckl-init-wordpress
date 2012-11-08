@@ -1,6 +1,6 @@
 <?php
 // your database on the remote server goes here
-define('DB_NAME', 'wordpress');
+define('DB_NAME', '_wordpress');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'root');
 define('DB_HOST', 'localhost');
