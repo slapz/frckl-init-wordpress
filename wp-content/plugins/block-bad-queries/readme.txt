@@ -6,12 +6,12 @@ Description: Automatically protects WordPress against malicious URL requests.
 Tags: security, protect, firewall, php, eval, malicious, url, request, blacklist
 Author URI: http://monzilla.biz/
 Author: Jeff Starr
-Contributors: Jeff Starr, Aldo Latino, John Hoff, James Wilkes
+Contributors: specialk, aldolat, WpBlogHost, James Wilkes, juliobox
 Donate link: http://digwp.com/book/
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: 20121027
-Version: 20121027
+Stable tag: 20121108
+Version: 20121108
 License: GPLv2 or later
 
 Block Bad Queries (BBQ) helps protect WordPress against malicious URL requests. 
@@ -43,6 +43,12 @@ To upgrade BBQ, remove old version and replace with new version. Nothing else ne
 No screenshots available - code only.
 
 == Changelog ==
+
+** 2012/11/08 **
+
+* Removed ":" match from query string (Google disregards encoding)
+* Removed "scanner" from query string from query string match
+* Streamlined source code for better performance (thanks to juliobox)
 
 * 2012/10/27 - Disabled check for long strings, disabled check for scanner
 * 2012/10/26 - Rebuilt plugin using 5G/6G technology
