@@ -6,8 +6,13 @@ define('DB_PASSWORD', 'root');
 define('DB_HOST', 'localhost');
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
-define('WPLANG', 'de_DE');
 $table_prefix  = 'wrdprss_';
+
+define('WPLANG', 'de_DE');
+
+// define your home and siteul here rather than in the DB
+define('WP_HOME', 'http://wordpress.dev');
+define('WP_SITEURL', 'http://wordpress.dev');
 
 // overwrite some of these values for increased security
 define('AUTH_KEY',         '=DE}d+-Ki{Wmx)1;lBLlBj0293ujr0f2ij<,g;O=Q<VP_?4+5?D<xLp.gT|dBKy^');
@@ -20,10 +25,13 @@ define('LOGGED_IN_SALT',   'p?lpPiN.11y)3_$+052H)@(#JF#+Hn{U.wbOI2j!6;qSIeZUw8~h
 define('NONCE_SALT',       '-H0F+uJkZ6)@/^W{F2+LDA fV9)@(#FJWSE)(RS[)M+IA4KTAkT-lgGdv7lIo!^8');
 
 // custom stuff and debuggung
-define('WP_POST_REVISIONS', false);
-define('AUTOSAVE_INTERVAL', 300); // in seconds
+define ('WPCF7_LOAD_JS', false ); // no contact form styles
+define ('WPCF7_LOAD_CSS', false );
+// define('NGG_SKIP_LOAD_SCRIPTS', 'true'); // no NGG styles
+
+define('WP_POST_REVISIONS', false); // no post-revisions
+define('AUTOSAVE_INTERVAL', 300); // autosave in seconds
 define('WP_DEBUG', false);
-// define('NGG_SKIP_LOAD_SCRIPTS', 'true');
 
 // ============== DON'T EDIT BELOW ============== //
 // ============================================== //
