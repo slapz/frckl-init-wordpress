@@ -9,9 +9,9 @@ Author: Jeff Starr
 Contributors: specialk, aldolat, WpBlogHost, James Wilkes, juliobox
 Donate link: http://digwp.com/book/
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 20121108
-Version: 20121108
+Tested up to: 3.5
+Stable tag: 20130103
+Version: 20130103
 License: GPLv2 or later
 
 Block Bad Queries (BBQ) helps protect WordPress against malicious URL requests. 
@@ -20,7 +20,7 @@ Block Bad Queries (BBQ) helps protect WordPress against malicious URL requests.
 
 [Block Bad Queries (BBQ)](http://perishablepress.com/block-bad-queries/) is a simple script that protects your website against malicious URL requests. BBQ checks all incoming traffic and quietly blocks bad requests containing nasty stuff like eval(, base64_, and excessively long request-strings. This is a simple yet solid solution that works great for sites where .htaccess is not available. The BBQ script is available as a plugin for WordPress or standalone script for any PHP-powered website.
 
-Features include:
+**Features include**
 
 * Plug-n-play functionality
 * No configuration required
@@ -44,11 +44,24 @@ No screenshots available - code only.
 
 == Changelog ==
 
-** 2012/11/08 **
+**2013/01/03**
+
+* removed block for CONCAT in request-URI
+* removed block for "environ" in query-string
+* removed block for "%3C" and "%3E" in query-string
+* removed block for "%22" and "%27" in query-string
+* removed block for "[" and "]" in query-string (to allow unsafe characters used in WordPress)
+* removed block for "?" in query-string (to allow unsafe character used in WordPress)
+* removed block for ":" in query-string (to allow unsafe character used by Google)
+* removed block for "libwww" in user-agents (to allow access to Lynx browser)
+
+**2012/11/08**
 
 * Removed ":" match from query string (Google disregards encoding)
 * Removed "scanner" from query string from query string match
 * Streamlined source code for better performance (thanks to juliobox)
+
+**Older versions**
 
 * 2012/10/27 - Disabled check for long strings, disabled check for scanner
 * 2012/10/26 - Rebuilt plugin using 5G/6G technology
