@@ -81,7 +81,7 @@ if (file_exists('dtoken.php')) {
 		Example: array(array('search'=> '/html/oldpath/images',  'replace'=> '/html/newpath/images'));		
 ================================================================================================= */
 
-$GLOBALS['FW_TABLEPREFIX'] 	= 'wpplug_';
+$GLOBALS['FW_TABLEPREFIX'] 	= '';
 $GLOBALS['FW_URL_OLD'] 		= '';
 $GLOBALS['FW_URL_NEW'] 		= '';
 $GLOBALS['FW_PACKAGE_NAME'] = '';
@@ -89,7 +89,7 @@ $GLOBALS['FW_SECURE_NAME'] 	= '';
 $GLOBALS['FW_DBHOST'] 		= 'localhost';
 $GLOBALS['FW_DBNAME'] 		= '';
 $GLOBALS['FW_DBUSER'] 		= '';
-$GLOBALS['FW_BLOGNAME'] 	= 'Duplicator Plugin';
+$GLOBALS['FW_BLOGNAME'] 	= '';
 $GLOBALS['FW_RESCUE_FLAG'] 	= '(rescue file)';
 $GLOBALS['FW_WPROOT'] 		= '';
 
@@ -121,7 +121,7 @@ END ADVANCED FEATURES: Do not edit below here.
 define("DUPLICATOR_SSDIR_NAME", 	'wp-snapshots');  //This should match DUPLICATOR_SSDIR_NAME in duplicator.php
 
 //GLOBALS
-$GLOBALS['DUPLICATOR_INSTALLER_VERSION'] =  '0.4.0';
+$GLOBALS['DUPLICATOR_INSTALLER_VERSION'] =  '0.4.1';
 $GLOBALS["SQL_FILE_NAME"] 	= "installer-data.sql";
 $GLOBALS["LOG_FILE_NAME"] 	= "installer-log.txt";
 $GLOBALS['SEPERATOR1']		= str_repeat("********", 10);
@@ -1061,10 +1061,10 @@ class DupDBTextSwap {
 				$serial_string = preg_match( '/^s:[0-9]+:"(.*$)/s', trim($data), $matches);
 				//Nested serial string
 				if ($serial_string) {
-					$inner = preg_replace_callback($regex, 'self::fix_string_callback', rtrim($matches[1], '";')); 
+					$inner = preg_replace_callback($regex, 'DupDBTextSwap::fix_string_callback', rtrim($matches[1], '";')); 
 					$serialized_fixed =  's:' . strlen($inner) . ':"' . $inner . '";' ;
 				} else {
-					$serialized_fixed = preg_replace_callback($regex, 'self::fix_string_callback', $data); 
+					$serialized_fixed = preg_replace_callback($regex, 'DupDBTextSwap::fix_string_callback', $data); 
 				}
 				
 				if (self::is_serialized($serialized_fixed) ) {

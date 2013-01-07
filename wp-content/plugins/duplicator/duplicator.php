@@ -3,7 +3,7 @@
 Plugin Name: Duplicator
 Plugin URI: http://www.lifeinthegrid.com/duplicator/
 Description: Create a full WordPress backup of your files and database with one click. Duplicate and move an entire site from one location to another in 3 easy steps. Create full snapshot of your site at any point in time.
-Version: 0.4.0
+Version: 0.4.1
 Author: LifeInTheGrid
 Author URI: http://www.lifeinthegrid.com
 License: GPLv2 or later
@@ -225,7 +225,7 @@ if (is_admin() == true) {
 	 *  Init routines  */
 	function duplicator_init() {
 	   /* Register our stylesheet. */
-	   wp_register_style('jquery-ui', 		  DUPLICATOR_PLUGIN_URL . 'css/jquery-ui.css', null , "1.8.21" );
+	   wp_register_style('jquery-ui', 		  DUPLICATOR_PLUGIN_URL . 'css/jquery-ui.css', null , "1.9.2" );
 	   wp_register_style('duplicator_style',  DUPLICATOR_PLUGIN_URL . 'css/style.css' );
 	}
 
@@ -262,10 +262,14 @@ if (is_admin() == true) {
 	}
 
 	/**
-	 *  DUPLICATOR_SCRIPTS
-	 *  Loads the required javascript libs only for this plugin  */
+	*  DUPLICATOR_SCRIPTS
+	*  Loads the required javascript libs only for this plugin  */
 	function duplicator_scripts() {
-		wp_enqueue_script("jquery-ui", DUPLICATOR_PLUGIN_URL . "js/jquery-ui.min.js", array( 'jquery' ), "1.8.21");
+		wp_enqueue_script('jquery');
+		wp_enqueue_script('jquery-ui-core');
+		wp_enqueue_script('jquery-ui-dialog');
+		wp_enqueue_script('jquery-ui-button');
+		wp_enqueue_script('jquery-ui-tabs');
 	}
 
 	/**
