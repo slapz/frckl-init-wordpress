@@ -2,61 +2,47 @@
 ====================================================================== */
 
 .container {
-  width: $width-page;
-  margin: 0 auto;
+  @extend %x-centered;
 }
-
-
-/* modules used globally
-====================================================================== */
-
-// don't hesitate to split this file up in logical parts
-// if it get's to large. that's what sass is for :-)
-
-.cols-two,
-.cols-three {
-  & > .col {
-    float: left; width: 47%;
-    min-height: $margin-default;
-    margin-right: 5%;
-  }
-  & > .col-last {
-    float: right;
-    margin-right: 0;
-  }
-}
-
-// for three columns, just change the width
-.cols-three .col {
-  width: 30%;
-}
-
 
 
 /* wordpress classes
 ====================================================================== */
 
 .alignleft {
-  float: left; display: inline;
-  margin-right: #{$font-line-height}em;
+  @include x-rem(margin-right, $font-line-height);
+  float: left;
 }
 
 .alignright {
-  float: right; display: inline;
-  margin-left: #{$font-line-height}em;
+  @include x-rem(margin-left, $font-line-height);
+  float: right;
   text-align: right;
 }
 
 .aligncenter {
-  display: block;
-  margin: 0 auto;
+  @extend %x-centered;
   clear: both;
 }
 
 // some basic wordpress-classes
-.bypostauthor { }
-.sticky { }
-.wp-caption { }
-.wp-caption-text { }
-.gallery-caption { }
+.bypostauthor {
+
+}
+
+.sticky {
+
+}
+
+.wp-caption {
+
+}
+
+.wp-caption-text {
+
+}
+
+.gallery-caption {
+
+}
 
