@@ -12,7 +12,7 @@
   </ol>
 </article>
 
-<nav class="nav-posts">
+<nav class="nav-posts" role="navigation">
   <p><?php posts_nav_link('&nbsp;|&nbsp;'); ?></p>
 </nav>
 

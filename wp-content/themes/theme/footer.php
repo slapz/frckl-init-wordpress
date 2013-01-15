@@ -1,4 +1,4 @@
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <p>
         &copy; <a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
       </p>

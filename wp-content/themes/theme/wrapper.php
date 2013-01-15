@@ -1,6 +1,6 @@
 <?php get_header(custom_template_base()); ?>
 
-<section class="content">
+<section class="content" role="main">
 
 <?php include custom_template_path(); ?>
 

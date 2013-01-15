@@ -14,11 +14,11 @@
 <body <?php body_class(); ?>>
   <div class="container">
 
-    <header class="header">
+    <header class="header" role="banner">
       <h1><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
       <h2><?php bloginfo('description'); ?></h2>
     </header>
 
-    <nav class="nav">
+    <nav class="nav" role="navigation">
       <?php wp_nav_menu(array('theme_location' => 'custom_nav', 'depth' => 1)); ?>
     </nav>
