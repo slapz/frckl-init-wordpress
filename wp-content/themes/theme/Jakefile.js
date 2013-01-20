@@ -52,3 +52,52 @@ task('default', [], function(params) {
     console.log('==========================================');
   }, { printStdout: true } );
 });
+
+
+desc('Update default JS Libs');
+task('updatejs', [], function(params) {
+  console.log('Updating default JS libs...');
+
+  // update jquery, modernizr + colorbox by default
+  var cmds = [
+    'wget -N -P js https://raw.github.com/nebelschwade/webgefrickel/master/js/modernizr.min.js',
+    'wget -N -P js https://raw.github.com/nebelschwade/webgefrickel/master/js/jquery.min.js',
+    'wget -N -P js https://raw.github.com/nebelschwade/webgefrickel/master/js/jquery.colorbox.js'
+  ];
+
+  jake.exec(cmds, function() {
+    console.log('\n================================================');
+    console.log('===== JS Libs were updated. Back to work!  =====');
+    console.log('================================================');
+  }, { printStdout: true } );
+
+});
+
+
+desc('Installing/updating JS Libs');
+task('libs', [], function(a, b, c, d, e, f, g, h, i, j, k) {
+  console.log('Installing/updating default JS libs...');
+
+  var cmds = [];
+  var options = [a, b, c, d, e, f, g, h, i, j, k];
+
+  options.forEach(function(el) {
+    if (el !== undefined) {
+      cmds.push('wget -N -P js https://raw.github.com/nebelschwade/webgefrickel/master/js/jquery.' + el + '.js');
+    }
+  });
+
+  if (cmds.length) {
+    jake.exec(cmds, function() {
+      console.log('\n================================================');
+      console.log('===== JS Libs were updated. Back to work!  =====');
+      console.log('================================================');
+    }, { printStdout: true } );
+  } else {
+    console.log('\n===============================================');
+    console.log('===== Usage: jake libs[cycle,backstretch] =====');
+    console.log('===============================================');
+  }
+
+});
+
