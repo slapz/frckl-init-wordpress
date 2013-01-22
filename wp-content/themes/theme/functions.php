@@ -8,7 +8,6 @@ add_action('admin_init', function() {
   if (current_user_can('editor')) {
     // remove_menu_page('edit.php'); // Posts
     // remove_menu_page('upload.php'); // Media
-    // remove_menu_page('link-manager.php'); // Links
     // remove_menu_page('edit-comments.php'); // Comments
     // remove_menu_page('edit.php?post_type=page'); // Pages
     // remove_menu_page('plugins.php'); // Plugins
@@ -211,34 +210,34 @@ add_action('widgets_init', function() {
 /* custom post types
 ====================================================================== */
 
-add_action('init', function() {
-  register_post_type('custom_thing', array(
-    'labels' => array(
-      'name' => 'Dinge',
-      'singular_name' => 'Ding',
-      'add_new' => 'Hinzufügen',
-      'all_items' => 'Alle Dinge',
-      'add_new_item' => 'Neues Ding hinzufügen',
-      'edit_item' => 'Ding bearbeiten',
-      'new_item' => 'Neues Ding',
-      'view_item' => 'Ding anzeigen',
-      'search_items' => 'Dinge durchsuchen',
-      'not_found' => 'Keine Dinge gefunden',
-      'not_found_in_trash' => 'Keine Dinge im Papierkorb',
-      'parent_item_colon' => 'Übergeordnete Dinge',
-      'menu_name' => 'Dinge',
-    ),
-    'description' => 'Alle Dinge der Welt',
-    'public' => true,
-    'has_archive' => true,
-    'exclude_from_search' => false,
-    'menu_icon' => null,
-    'hierarchical' => false,
-    // 'menu_position' => 5,
-    // 'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'comments') // etc.
-    // 'taxonomies' => array('custom_taxonomy'),
-    // for more options see http://codex.wordpress.org/Function_Reference/register_post_type
-  ));
+// add_action('init', function() {
+//   register_post_type('custom_thing', array(
+//     'labels' => array(
+//       'name' => 'Dinge',
+//       'singular_name' => 'Ding',
+//       'add_new' => 'Hinzufügen',
+//       'all_items' => 'Alle Dinge',
+//       'add_new_item' => 'Neues Ding hinzufügen',
+//       'edit_item' => 'Ding bearbeiten',
+//       'new_item' => 'Neues Ding',
+//       'view_item' => 'Ding anzeigen',
+//       'search_items' => 'Dinge durchsuchen',
+//       'not_found' => 'Keine Dinge gefunden',
+//       'not_found_in_trash' => 'Keine Dinge im Papierkorb',
+//       'parent_item_colon' => 'Übergeordnete Dinge',
+//       'menu_name' => 'Dinge',
+//     ),
+//     'description' => 'Alle Dinge der Welt',
+//     'public' => true,
+//     'has_archive' => true,
+//     'exclude_from_search' => false,
+//     'menu_icon' => null,
+//     'hierarchical' => false,
+//     // 'menu_position' => 5,
+//     // 'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'comments') // etc.
+//     // 'taxonomies' => array('custom_taxonomy'),
+//     // for more options see http://codex.wordpress.org/Function_Reference/register_post_type
+//   ));
 
   /* and a custom taxonomy, if you want it
   register_taxonomy('kategorien', array('custom_thing'), array(
@@ -268,5 +267,5 @@ add_action('init', function() {
     'query_var' => true
   ));
   */
-});
+// });
 
