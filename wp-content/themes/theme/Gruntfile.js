@@ -83,7 +83,11 @@ module.exports = function(grunt) {
     */
 
     watch: {
-      files: ['<%= jshint.all %>', 'scss/*.scss'],
+      files: [
+        '<%= jshint.all %>',
+        'scss/**/*.scss',
+        'scss/*.scss'
+      ],
       tasks: 'default'
     },
 

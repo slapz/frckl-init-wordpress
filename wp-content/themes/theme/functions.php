@@ -186,6 +186,9 @@ add_theme_support('automatic-feed-links');
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
 
+// define custom images sizes
+// add_image_size('custom-thumb', 220, 180, true); // cropped
+// add_image_size('custom-thumb', 220, 180, false); // non-cropped
 
 // initialize the custom navigation menu for wordpress found in header.php
 if (function_exists('register_nav_menu')) {
