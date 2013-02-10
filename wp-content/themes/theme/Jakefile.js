@@ -20,10 +20,11 @@ task('default', [], function(params) {
     'wget -P scss/extends https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/extends/_global.scss',
     'wget -P scss/mixins https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/mixins/_icons.scss',
     'wget -P scss/mixins https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/mixins/_mediaqueries.scss',
+    'wget -P scss/mixins https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/mixins/_sprites.scss',
     'wget -P scss/mixins https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/mixins/_typography.scss',
+    'wget -P scss/modules https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/modules/_colorbox.scss',
     'wget -P scss/modules https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/modules/_columns.scss',
     'wget -P scss/modules https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/modules/_media.scss',
-    'wget -P scss/modules https://raw.github.com/webgefrickel/frckl-init-srcs/master/scss/modules/_colorbox.scss',
 
     'mkdir js',
     'wget -P js https://raw.github.com/webgefrickel/frckl-init-srcs/master/js/modernizr.min.js',
@@ -32,14 +33,7 @@ task('default', [], function(params) {
     'wget -P js https://raw.github.com/webgefrickel/frckl-init-srcs/master/js/script.js',
 
     'mkdir img',
-    'mkdir img/icons',
     'wget -P img https://raw.github.com/webgefrickel/frckl-init-srcs/master/img/loading.gif',
-    'wget -P img/icons https://raw.github.com/webgefrickel/frckl-init-srcs/master/img/icons/colorbox-close-hover.png',
-    'wget -P img/icons https://raw.github.com/webgefrickel/frckl-init-srcs/master/img/icons/colorbox-close.png',
-    'wget -P img/icons https://raw.github.com/webgefrickel/frckl-init-srcs/master/img/icons/colorbox-next-hover.png',
-    'wget -P img/icons https://raw.github.com/webgefrickel/frckl-init-srcs/master/img/icons/colorbox-next.png',
-    'wget -P img/icons https://raw.github.com/webgefrickel/frckl-init-srcs/master/img/icons/colorbox-prev-hover.png',
-    'wget -P img/icons https://raw.github.com/webgefrickel/frckl-init-srcs/master/img/icons/colorbox-prev.png',
 
     'npm install',
 
