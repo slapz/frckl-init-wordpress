@@ -5,12 +5,12 @@
     </footer>
   </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
     Modernizr.load({
       test : window.jQuery,
       yep  : ['<?php echo get_template_directory_uri(); ?>/js/script.min.js'],
-      nope : ['<?php echo get_template_directory_uri(); ?>/js/jquery.min.js',
+      nope : ['<?php echo get_template_directory_uri(); ?>/js/libs/jquery.min.js',
               '<?php echo get_template_directory_uri(); ?>/js/script.min.js']
     });
     <?php /* if you use google analytics use this snippet - you really dont need a plugin for sth like that
