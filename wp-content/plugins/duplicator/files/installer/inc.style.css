@@ -6,7 +6,7 @@ fieldset {border:1px solid silver; border-radius:5px; padding:10px}
 h3 {margin:1px; padding:1px; font-size:14px;}
 a {color:#222}
 a:hover{color:gray}
-input[type=text] { width:520px; border-radius:3px; height:17px; font-size:12px; border:1px solid silver;}
+input[type=text] { width:500px; border-radius:3px; height:17px; font-size:12px; border:1px solid silver;}
 
 div#content {border:1px solid #CDCDCD;  width:750px; min-height:550px; margin:auto; margin-top:18px; border-radius:5px; box-shadow: 3px 3px 5px 6px #ccc;}
 div#content-inner {padding:10px 30px; min-height:550px}
@@ -59,7 +59,8 @@ div.circle-pass, div.circle-fail {display:block;width:13px;height:13px;border-ra
 div.circle-fail {background:#9A0D1D !important;}
 div.warning-info {padding:5px;font-size:11px; color:gray; line-height:12px;font-style:italic; overflow-y:scroll; height:75px; border:1px solid #dfdfdf; background-color:#fff; border-radius:3px}
 select#logging {font-size:11px}
-table.table-inputs td{white-space:nowrap;}
+table.table-inputs{width: 100%; border: 0px;}
+table.table-inputs td{white-space:nowrap; padding:2px;}
 table.dbtable-opts td{font-size:12px;}
 div#dup-step1-cpanel {}
 input#dup-step1-dbconn-btn {font-size:11px; height:20px; border:1px solid gray; border-radius:3px; cursor:pointer}
@@ -127,8 +128,7 @@ div.dup-footer-buttons  input, button, div#dup-step1-sys-req-btn:hover {cursor:p
 
 /*!
  * jQuery UI CSS Framework 1.8.23
- * http://jquery.org/license
- * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana,Arial,sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=cccccc&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=75&borderColorHeader=aaaaaa&fcHeader=222222&iconColorHeader=222222&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=aaaaaa&fcContent=222222&iconColorContent=222222&bgColorDefault=e6e6e6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=75&borderColorDefault=d3d3d3&fcDefault=555555&iconColorDefault=888888&bgColorHover=dadada&bgTextureHover=02_glass.png&bgImgOpacityHover=75&borderColorHover=999999&fcHover=212121&iconColorHover=454545&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=aaaaaa&fcActive=212121&iconColorActive=454545&bgColorHighlight=fbf9ee&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=fcefa1&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=02_glass.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+ * jquery.org/license
  */
 
 /* Layout helpers
@@ -238,12 +238,21 @@ div.dup-footer-buttons  input, button, div#dup-step1-sys-req-btn:hover {cursor:p
 .ui-progressbar { height:2em; text-align: left; overflow: hidden; }
 .ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
 
+/*!
+ * password indicator
+ */
+.top_testresult{font-weight: bold;	font-size:11px; color:#222;	padding:1px 1px 1px 4px; margin:4px 0px 0px 0px; width:495px; dislay:inline-block}
+.top_testresult span{margin:0;}
+.top_shortPass{background:#edabab; border:1px solid #bc0000;display:block;}
+.top_badPass{background:#edabab;border:1px solid #bc0000;display:block;}
+.top_goodPass{background:#ffffe0; border:1px solid #e6db55;	display:block;}
+.top_strongPass{background:#d3edab;	border:1px solid #73bc00; display:block;}
+
 
 
 /* ============================
 CUSTOME OVERIDE */
 .ui-textclose {display:inline-block; padding:0px 0px 0px 3px; line-height:15px;}
 a.ui-dialog-titlebar-close {text-decoration:none}
-
 
 </style>

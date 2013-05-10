@@ -7,7 +7,7 @@ Description: Easy and extremely productive spam-fighting plugin with many sophis
 Author: Sergej M&uuml;ller
 Author URI: http://wpcoder.de
 Plugin URI: http://antispambee.com
-Version: 2.5.4
+Version: 2.5.5
 */
 
 
@@ -450,7 +450,7 @@ class Antispam_Bee {
 		return array_merge(
 			$input,
 			array(
-				'<a href="https://flattr.com/donation/give/to/sergej.mueller" target="_blank">Flattr</a>',
+				'<a href="https://flattr.com/t/1323822" target="_blank">Flattr</a>',
 				'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=5RDDW9FEHGLG6" target="_blank">PayPal</a>'
 			)
 		);
@@ -661,13 +661,13 @@ class Antispam_Bee {
 	* Initialisierung des Dashboard-Chart
 	*
 	* @since   1.9
-	* @change  2.4
+	* @change  2.5.6
 	*/
 
 	public static function add_dashboard_chart()
 	{
 		/* Filter */
-		if ( !current_user_can('level_2') or !self::get_option('dashboard_chart') ) {
+		if ( !current_user_can('publish_posts') or !self::get_option('dashboard_chart') ) {
 			return;
 		}
 
@@ -999,7 +999,7 @@ class Antispam_Bee {
 
 	public static function init_scheduled_hook()
 	{
-		if ( !wp_next_scheduled('antispam_bee_daily_cronjob') ) {
+		if ( ! wp_next_scheduled('antispam_bee_daily_cronjob') ) {
 			wp_schedule_event(
 				time(),
 				'daily',
@@ -1373,7 +1373,7 @@ class Antispam_Bee {
 	* Anwendung von Regexp, auch benutzerdefiniert
 	*
 	* @since   2.5.2
-	* @change  2.5.3
+	* @change  2.5.5
 	*
 	* @param   array	$comment  Array mit Kommentardaten
 	* @return  boolean       	  TRUE bei verdächtigem Kommentar
@@ -1395,6 +1395,9 @@ class Antispam_Bee {
 				'host'	=> '^(www\.)?\d+\w+\.com$',
 				'body'	=> '^\w+\s\d+$',
 				'email'	=> '@gmail.com$'
+			),
+			1 => array(
+				'body'	=> '\<\!.+?mfunc.+?\>'
 			)
 		);
 
