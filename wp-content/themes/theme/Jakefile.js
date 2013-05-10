@@ -11,11 +11,16 @@ task('default', [], function(params) {
   var github = 'https://raw.github.com/webgefrickel/frckl-init-srcs/master/';
   var cmds = [
     // first get packages and jshint/grunt stuff
-    'wget ' + github + '.jshintrc',
-    'wget ' + github + 'Gruntfile.js',
-    'wget ' + github + 'package.json',
+    'curl -O ' + github + '.jshintrc',
+    'curl -O ' + github + 'Gruntfile.js',
+    'curl -O ' + github + 'package.json',
 
-    // make some dirs for scss and get the files
+    // make some dirs to put the files into
+    'mkdir img',
+    'mkdir img/sprites',
+    'mkdir img/sprites-retina',
+    'mkdir js',
+    'mkdir js/libs',
     'mkdir scss',
     'mkdir scss/base',
     'mkdir scss/config',
@@ -23,37 +28,37 @@ task('default', [], function(params) {
     'mkdir scss/layouts',
     'mkdir scss/mixins',
     'mkdir scss/modules',
-    'wget -P scss ' + github + 'scss/main.scss',
-    'wget -P scss/config ' + github + 'scss/config/_variables.scss',
-    'wget -P scss/config ' + github + 'scss/config/_includes.scss',
-    'wget -P scss/base ' + github + 'scss/base/_base.scss',
-    'wget -P scss/base ' + github + 'scss/base/_normalize.scss',
-    'wget -P scss/base ' + github + 'scss/base/_print.scss',
-    'wget -P scss/mixins ' + github + 'scss/mixins/_icons.scss',
-    'wget -P scss/mixins ' + github + 'scss/mixins/_images.scss',
-    'wget -P scss/mixins ' + github + 'scss/mixins/_mediaqueries.scss',
-    'wget -P scss/mixins ' + github + 'scss/mixins/_sprites.scss',
-    'wget -P scss/mixins ' + github + 'scss/mixins/_typography.scss',
-    'wget -P scss/extends ' + github + 'scss/extends/_helpers.scss',
-    'wget -P scss/layouts ' + github + 'scss/layouts/_wrapper.scss',
-    'wget -P scss/layouts ' + github + 'scss/layouts/_header.scss',
-    'wget -P scss/layouts ' + github + 'scss/layouts/_content.scss',
-    'wget -P scss/layouts ' + github + 'scss/layouts/_sidebar.scss',
-    'wget -P scss/layouts ' + github + 'scss/layouts/_footer.scss',
-    'wget -P scss/modules ' + github + 'scss/modules/_colorbox.scss',
-    'wget -P scss/modules ' + github + 'scss/modules/_columns.scss',
-    'wget -P scss/modules ' + github + 'scss/modules/_media.scss',
 
-    // make the js-dir and get some defaults
-    'mkdir js',
-    'wget -P js/libs ' + github + 'js/libs/modernizr.min.js',
-    'wget -P js/libs ' + github + 'js/libs/jquery.min.js',
-    'wget -P js/libs ' + github + 'js/libs/jquery.colorbox.js',
-    'wget -P js ' + github + 'js/script.js',
+    // pull the scss files
+    'curl -o scss/main.scss '                 + github + 'scss/main.scss',
+    'curl -o scss/config/_variables.scss '    + github + 'scss/config/_variables.scss',
+    'curl -o scss/config/_includes.scss '     + github + 'scss/config/_includes.scss',
+    'curl -o scss/base/_base.scss '           + github + 'scss/base/_base.scss',
+    'curl -o scss/base/_normalize.scss '      + github + 'scss/base/_normalize.scss',
+    'curl -o scss/base/_print.scss '          + github + 'scss/base/_print.scss',
+    'curl -o scss/mixins/_icons.scss '        + github + 'scss/mixins/_icons.scss',
+    'curl -o scss/mixins/_images.scss '       + github + 'scss/mixins/_images.scss',
+    'curl -o scss/mixins/_mediaqueries.scss ' + github + 'scss/mixins/_mediaqueries.scss',
+    'curl -o scss/mixins/_sprites.scss '      + github + 'scss/mixins/_sprites.scss',
+    'curl -o scss/mixins/_typography.scss '   + github + 'scss/mixins/_typography.scss',
+    'curl -o scss/extends/_helpers.scss '     + github + 'scss/extends/_helpers.scss',
+    'curl -o scss/layouts/_wrapper.scss '     + github + 'scss/layouts/_wrapper.scss',
+    'curl -o scss/layouts/_header.scss '      + github + 'scss/layouts/_header.scss',
+    'curl -o scss/layouts/_content.scss '     + github + 'scss/layouts/_content.scss',
+    'curl -o scss/layouts/_sidebar.scss '     + github + 'scss/layouts/_sidebar.scss',
+    'curl -o scss/layouts/_footer.scss '      + github + 'scss/layouts/_footer.scss',
+    'curl -o scss/modules/_colorbox.scss '    + github + 'scss/modules/_colorbox.scss',
+    'curl -o scss/modules/_columns.scss '     + github + 'scss/modules/_columns.scss',
+    'curl -o scss/modules/_media.scss '       + github + 'scss/modules/_media.scss',
+
+    // get some default js-files
+    'curl -o js/libs/modernizr.min.js ' + github + 'js/libs/modernizr.min.js',
+    'curl -o js/libs/jquery.min.js ' + github + 'js/libs/jquery.min.js',
+    'curl -o js/libs/jquery.colorbox.js ' + github + 'js/libs/jquery.colorbox.js',
+    'curl -o js/script.js ' + github + 'js/script.js',
 
     // get a default spinner image
-    'mkdir img',
-    'wget -P img ' + github + 'img/loading.gif',
+    'curl -o img/loading.gif ' + github + 'img/loading.gif',
 
     // install all npm-packages for grunt
     'npm install',
@@ -72,6 +77,9 @@ task('default', [], function(params) {
 });
 
 
+
+
+
 desc('Install/update JS Libs');
 task('install', [], function(a, b, c, d, e, f, g, h, i, j, k) {
   console.log('Installing/updating default JS libs...');
@@ -82,7 +90,7 @@ task('install', [], function(a, b, c, d, e, f, g, h, i, j, k) {
 
   options.forEach(function(el) {
     if (el !== undefined) {
-      cmds.push('wget -N -P js/libs ' + github + 'js/libs/jquery.' + el + '.js');
+      cmds.push('curl -o js/libs/jquery.' + el + '.js ' + github + 'js/libs/jquery.' + el + '.js');
     }
   });
 

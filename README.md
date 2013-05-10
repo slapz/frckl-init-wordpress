@@ -1,9 +1,9 @@
 # Wordpress Kickstart
 
 This is a complete collection of how I start developing on a wordpress-powered website.
-It includes a default database dump, local/remote configuration for dandelion and 
+It includes a default database dump, local/remote configuration for dandelion and
 all the fun and best practices from html5boilerplate etc. I heavily use compass and grunt,
-have a look at the folder wp-content/themes/theme. Most pages I do are in german, 
+have a look at the folder wp-content/themes/theme. Most pages I do are in german,
 thus the whole german stuff is included (hardcoded) and activated.
 
 The database dump is in wp-content - be sure to delete it after importing. Default
@@ -18,7 +18,7 @@ have installed compass and node.js (for grunt).
 
 To make this work I assume that you have basic knowledge of the
 shell and that you have installed the following dependancies:
-wget, node, compass, sass and the node-plugins grunt and jake.
+curl, node, compass, sass and the node-plugins grunt and jake.
 Use npm, brew, apt-get or whatever to install these first.
 
 ## Installation
@@ -40,7 +40,7 @@ your database - you will have to do that manually. Change
 the file wp-config-remote.php for the remote-db-config.
 
 
-## Basic recommended plugins (included) 
+## Basic recommended plugins (included)
 
 - [Add Lightbox & Title](http://wordpress.org/extend/plugins/add-lightbox-title/download/) -- does exacly what it says, for use with the herein included colorbox
 - [Advanced Custom Fields](http://www.advancedcustomfields.com/) -- a nice plugin for extending your posts
