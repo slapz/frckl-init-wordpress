@@ -7,12 +7,12 @@ Description: Easy and extremely productive spam-fighting plugin with many sophis
 Author: Sergej M&uuml;ller
 Author URI: http://wpcoder.de
 Plugin URI: http://antispambee.com
-Version: 2.5.5
+Version: 2.5.7
 */
 
 
 /* Sicherheitsabfrage */
-if ( !class_exists('WP') ) {
+if ( ! class_exists('WP') ) {
 	die();
 }
 
@@ -1259,7 +1259,7 @@ class Antispam_Bee {
 	* Prüfung den Kommentar
 	*
 	* @since   2.4
-	* @change  2.5.4
+	* @change  2.5.6
 	*
 	* @param   array  $comment  Daten des Kommentars
 	* @return  array            Array mit dem Verdachtsgrund [optional]
@@ -1274,6 +1274,7 @@ class Antispam_Bee {
 		$url = self::get_key($comment, 'comment_author_url');
 		$body = self::get_key($comment, 'comment_content');
 		$email = self::get_key($comment, 'comment_author_email');
+		$author = self::get_key($comment, 'comment_author');
 
 		/* Leere Werte ? */
 		if ( empty($body) ) {
@@ -1290,7 +1291,7 @@ class Antispam_Bee {
 		}
 
 		/* Leere Werte ? */
-		if ( get_option('require_name_email') && empty($email) ) {
+		if ( get_option('require_name_email') && ( empty($email) OR empty($author) ) ) {
 			return array(
 				'reason' => 'empty'
 			);
@@ -1328,10 +1329,11 @@ class Antispam_Bee {
 		/* Regexp für Spam */
 		if ( $options['regexp_check'] && self::_is_regexp_spam(
 			array(
-				'ip'	=> $ip,
-				'host'	=> parse_url($url, PHP_URL_HOST),
-				'body'	=> $body,
-				'email'	=> $email
+				'ip'	 => $ip,
+				'host'	 => parse_url($url, PHP_URL_HOST),
+				'body'	 => $body,
+				'email'	 => $email,
+				'author' => $author
 			)
 		) ) {
 			return array(
@@ -1373,7 +1375,7 @@ class Antispam_Bee {
 	* Anwendung von Regexp, auch benutzerdefiniert
 	*
 	* @since   2.5.2
-	* @change  2.5.5
+	* @change  2.5.6
 	*
 	* @param   array	$comment  Array mit Kommentardaten
 	* @return  boolean       	  TRUE bei verdächtigem Kommentar
@@ -1386,7 +1388,8 @@ class Antispam_Bee {
 			'ip',
 			'host',
 			'body',
-			'email'
+			'email',
+			'author'
 		);
 
 		/* Regexp */
@@ -1400,6 +1403,30 @@ class Antispam_Bee {
 				'body'	=> '\<\!.+?mfunc.+?\>'
 			)
 		);
+
+		/* Spammy author */
+		if ( $quoted_author = preg_quote($comment['author'], '|') ) {
+			$patterns[] = array(
+				'body' => sprintf(
+					'<a.+?>%s<\/a>$',
+					$quoted_author
+				)
+			);
+			$patterns[] = array(
+				'body' => sprintf(
+					'%s https?:.+?$',
+					$quoted_author
+				)
+			);
+			$patterns[] = array(
+				'email'	 => '@gmail.com$',
+				'author' => '^[a-z0-9-\.]+\.[a-z]{2,6}$',
+				'host'	 => sprintf(
+					'^%s$',
+					$quoted_author
+				)
+			);
+		}
 
 		/* Hook */
 		$patterns = apply_filters(
@@ -1845,7 +1872,7 @@ class Antispam_Bee {
 	* Ausführung des Lösch-/Markier-Vorgangs
 	*
 	* @since   0.1
-	* @change  2.5.2
+	* @change  2.5.7
 	*
 	* @param   array    $comment  Unbehandelte Kommentardaten
 	* @param   string   $reason   Verdachtsgrund
@@ -1867,23 +1894,24 @@ class Antispam_Bee {
 		$ignore_type = $options['ignore_type'];
 		$ignore_reason = in_array($reason, (array)$options['ignore_reasons']);
 
-		/* Spam hochzählen */
+		/* Spam merken */
+		self::_update_spam_log($comment);
 		self::_update_spam_count();
 		self::_update_daily_stats();
 
 		/* Spam löschen */
 		if ( $spam_remove ) {
-			die('Spam deleted.');
+			self::_go_in_peace();
 		}
 
 		/* Typen behandeln */
 		if ( $ignore_filter && (( $ignore_type == 1 && $is_ping ) or ( $ignore_type == 2 && !$is_ping )) ) {
-			die('Spam deleted.');
+			self::_go_in_peace();
 		}
 
 		/* Spamgrund */
 		if ( $ignore_reason ) {
-			die('Spam deleted.');
+			self::_go_in_peace();
 		}
 
 		/* Spam-Grund */
@@ -1935,10 +1963,61 @@ class Antispam_Bee {
 
 
 	/**
+	* Logfile mit erkanntem Spam
+	*
+	* @since   2.5.7
+	* @change  2.5.7
+	*
+	* @param   array   $comment  Array mit Kommentardaten
+	* @return  mixed   			 FALSE im Fehlerfall
+	*/
+
+	private static function _update_spam_log($comment)
+	{
+		/* Skip logfile? */
+		if ( ! defined('ANTISPAM_BEE_LOG_FILE') OR ! ANTISPAM_BEE_LOG_FILE OR ! is_writable(ANTISPAM_BEE_LOG_FILE) ) {
+			return false;
+		}
+
+		/* Compose entry */
+		$entry = sprintf(
+			'%s comment for post=%d from host=%s marked as spam%s',
+			current_time('mysql'),
+			$comment['comment_post_ID'],
+			self::get_key($_SERVER, 'REMOTE_ADDR'),
+			PHP_EOL
+		);
+
+		/* Write */
+		file_put_contents(
+			ANTISPAM_BEE_LOG_FILE,
+			$entry,
+			FILE_APPEND | LOCK_EX
+		);
+	}
+
+
+	/**
+	* Sendet den 403-Header und beendet die Verbindung
+	*
+	* @since   2.5.6
+	* @change  2.5.6
+	*/
+
+	private static function _go_in_peace()
+	{
+		status_header(403);
+		die('Spam deleted.');
+	}
+
+
+	/**
 	* Versand einer Benachrichtigung via E-Mail
 	*
 	* @since   0.1
-	* @change  2.4.3
+	* @change  2.5.7
+	*
+	* @hook    string  antispam_bee_notification_subject  Custom subject for notification mails
 	*
 	* @param   intval  $id  ID des Kommentars
 	* @return  intval  $id  ID des Kommentars
@@ -1963,7 +2042,7 @@ class Antispam_Bee {
 		}
 
 		/* Parent-Post */
-		if ( !$post = get_post($comment['comment_post_ID']) ) {
+		if ( ! $post = get_post($comment['comment_post_ID']) ) {
 			return $id;
 		}
 
@@ -2042,7 +2121,10 @@ class Antispam_Bee {
 		/* Send */
 		wp_mail(
 			get_bloginfo('admin_email'),
-			$subject,
+			apply_filters(
+				'antispam_bee_notification_subject',
+				$subject
+			),
 			$body
 		);
 
