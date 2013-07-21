@@ -8,8 +8,7 @@ desc('Default task');
 task('default', [], function(params) {
   console.log('Installing NPM-packages and fetching default SCSS/JS-files from github.com/webgefrickel/...');
 
-  // var github = 'https://raw.github.com/webgefrickel/frckl-init-srcs/master/';
-  var github = 'http://localhost/_reps/frckl-init-srcs/';
+  var github = 'https://raw.github.com/webgefrickel/frckl-init-srcs/master/';
   var cmds = [
     // first get packages and jshint/grunt stuff
     'curl -O ' + github + '.jshintrc',
