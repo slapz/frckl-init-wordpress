@@ -55,7 +55,13 @@ function duplicator_create_dbscript($destination) {
                         $num_values = count($row);
                         $num_counter = 1;
                         foreach ($row as $value) {
-                            ($num_values == $num_counter) ? $sql .= '"' . @mysql_real_escape_string($value) . '"' : $sql .= '"' . @mysql_real_escape_string($value) . '", ';
+							if ( is_null( $value ) || ! isset( $value ) ) {
+								($num_values == $num_counter) 	? $sql .= 'NULL' 	: $sql .= 'NULL, ';
+							} else {
+								($num_values == $num_counter) 
+									? $sql .= '"' . @mysql_real_escape_string($value) . '"' 
+									: $sql .= '"' . @mysql_real_escape_string($value) . '", ';
+							}
                             $num_counter++;
                         }
                         $sql .= ");\n";
@@ -65,7 +71,8 @@ function duplicator_create_dbscript($destination) {
                 }
             }
         }
-
+		
+		unset($sql);
         $sql_footer = "\nSET FOREIGN_KEY_CHECKS = 1;";
         @fwrite($handle, $sql_footer);
 
@@ -75,10 +82,16 @@ function duplicator_create_dbscript($destination) {
         
         $time_end = DuplicatorUtils::GetMicrotime();
         $time_sum = DuplicatorUtils::ElapsedTime($time_end, $time_start);
-        duplicator_log("SQL TOTAL RUNTIME: {$time_sum}");
+		
+		$sql_file_size = filesize($destination);
+		if ($sql_file_size <= 0) {
+			duplicator_error("ERROR: SQL file generated zero bytes.  \nERROR INFO: No data was written to the sql file.  Check permission on file and parent directory at [$destination]");
+		}
+		duplicator_log("SQL FILE SIZE: " . duplicator_bytesize($sql_file_size));
+        duplicator_log("SQL RUNTIME: {$time_sum}");
         
     } catch (Exception $e) {
-        duplicator_log("log:fun__create_dbscript=>runtime error: " . $e);
+		duplicator_error("ERROR: Runtime error in duplicator_create_dbscript  \nERROR INFO: '{$e}'");
     }
 }
 
@@ -88,17 +101,18 @@ function duplicator_create_dbscript($destination) {
  */
 function duplicator_build_installerFile() {
 
-    duplicator_log("BUILDING INSTALLER FILE");
+    duplicator_log("INSTALLER FILE: Build Start");
 
     $template_path = duplicator_safe_path(DUPLICATOR_PLUGIN_PATH . 'files/installer.template.php');
-    $main_path = duplicator_safe_path(DUPLICATOR_PLUGIN_PATH . 'files/installer/main.installer.php');
+    $main_path     = duplicator_safe_path(DUPLICATOR_PLUGIN_PATH . 'files/installer/main.installer.php');
     @chmod($template_path, 0777);
     @chmod($main_path, 0777);
 
     $main_data = file_get_contents("{$main_path}");
     $template_result = file_put_contents($template_path, $main_data);
     if ($main_data === false || $template_result == false) {
-        duplicator_log("WARNING: INSTALL GENERATION FAILED TO COPY {$main_path}");
+		$err_info ="These files may have permission issues. Please validate that PHP has read/write access.\nMain Installer=<{$main_path}> \nTemplate Installer=<$template_path>";
+		duplicator_error("ERROR: Install builder failed to generate files.  \nERROR INFO: {$err_info}");
     }
 
     $embeded_files = array(
@@ -119,7 +133,7 @@ function duplicator_build_installerFile() {
         $insert_data = @file_get_contents($file_path);
         file_put_contents($template_path, str_replace("${token}", "{$insert_data}", $search_data));
         if ($search_data === false || $insert_data == false) {
-            duplicator_log("WARNING: INSTALL GENERATION FAILED AT {$token}");
+			duplicator_error("ERROR: Installer generation failed at {$token}.");
         }
         @chmod($file_path, 0644);
     }
@@ -127,7 +141,7 @@ function duplicator_build_installerFile() {
     @chmod($template_path, 0644);
     @chmod($main_path, 0644);
 
-    duplicator_log("INSTALLER FILE BUILT");
+    duplicator_log("INSTALLER FILE: Build Finished");
 }
 
 /**
@@ -135,21 +149,27 @@ function duplicator_build_installerFile() {
  *  Prep the Installer file for use. use %string% token for replacing 
  *  @param string $uniquename	The unique name this installer file will be associated with
  */
-function duplicator_create_installerFile($uniquename) {
+function duplicator_create_installerFile($uniquename, $table_id) {
 
-    duplicator_log("MAKING INSTALLER FILE");
+    duplicator_log("INSTALLER FILE: Preping for use");
 
     global $wpdb;
+	
+	$result		  = $wpdb->get_results("SELECT * FROM `{$wpdb->prefix}duplicator` WHERE ID = {$table_id}", ARRAY_A);
+	$result_row	  = $result[0];
+	$settings	  = unserialize($result_row['settings']);
+	$notes		  = empty($settings['notes']) ? 'No notes found for package.' : $settings['notes'] ;
+	
     $template = duplicator_safe_path(DUPLICATOR_PLUGIN_PATH . 'files/installer.template.php');
-    $installerRescue = duplicator_safe_path(DUPLICATOR_PLUGIN_PATH . 'files/installer.rescue.php');
     $installerCore = duplicator_safe_path(DUPLICATOR_SSDIR_PATH) . "/{$uniquename}_installer.php";
 
-    $err_msg = "\n!!!WARNING!!! unable to read/write installer\nSee file:{$installerCore} \nPlease check permission and owner on file and parent folder.";
+    $err_msg = "ERROR: Unable to read/write installer.  \nERROR INFO: Please check permission and owner on file and parent folder. \nInstaller File=<{$installerCore}>";
 
     get_option('duplicator_options') == "" ? "" : $duplicator_opts = unserialize(get_option('duplicator_options'));
 	$replace_items = Array(
         "fwrite_url_old" => get_option('siteurl'),
         "fwrite_package_name" => "{$uniquename}_package.zip",
+		"fwrite_package_notes" => $notes,
         "fwrite_secure_name" => "{$uniquename}",
         "fwrite_url_new" => $duplicator_opts['url_new'],
         "fwrite_dbhost" => $duplicator_opts['dbhost'],
@@ -163,43 +183,32 @@ function duplicator_create_installerFile($uniquename) {
         "fwrite_wp_tableprefix" => $wpdb->prefix,
         "fwrite_blogname" => @addslashes(get_option('blogname')),
         "fwrite_wproot" => DUPLICATOR_WPROOTPATH,
-		"fwrite_duplicator_version" => DUPLICATOR_VERSION,				
-        "fwrite_rescue_flag" => "");
-	unset($dbpass);
+		"fwrite_duplicator_version" => DUPLICATOR_VERSION);
+	
     if (file_exists($template) && is_readable($template)) {
 
         $install_str = duplicator_parse_template($template, $replace_items);
         if (empty($install_str)) {
-            die(duplicator_log("WARNING: fun__create_installerFile=>file-empty-read" . $err_msg));
+            duplicator_error("{$err_msg} \n duplicator_create_installerFile=>file-empty-read");
         }
-
-        //RESCUE FILE
-        $replace_items["fwrite_rescue_flag"] = '(rescue file)';
-        $rescue_str = duplicator_parse_template($template, $replace_items);
-        $fp = fopen($installerRescue, (!file_exists($installerRescue)) ? 'x+' : 'w');
-        @fwrite($fp, $rescue_str, strlen($rescue_str));
-        @fclose($fp);
-        $rescue_str = null;
 
         //INSTALLER FILE
         if (!file_exists($installerCore)) {
-            $fp2 = fopen($installerCore, 'x+') or die(duplicator_log("WARNING: fun__create_installerFile=>file-open-error-x" . $err_msg));
+            $fp2 = fopen($installerCore, 'x+') or duplicator_error("{$err_msg} \n duplicator_create_installerFile=>file-open-error-x");;
         } else {
-            $fp2 = fopen($installerCore, 'w') or die(duplicator_log("WARNING: fun__create_installerFile=>file-open-error-w" . $err_msg));
+            $fp2 = fopen($installerCore, 'w')  or duplicator_error("{$err_msg} \n duplicator_create_installerFile=>file-open-error-w");;
         }
 
-        if (fwrite($fp2, $install_str, strlen($install_str))) {
-            duplicator_log("INSTALLER MADE: {$installerCore}");
-        } else {
-            duplicator_log("WARNING: fun__create_installerFile=>file-create-error" . $err_msg);
+        if (! fwrite($fp2, $install_str, strlen($install_str))) {
+            duplicator_error("{$err_msg} \n duplicator_create_installerFile=>file-write-error");
         }
 
         @fclose($fp2);
     } else {
-        die(duplicator_log("WARNING: fun__create_installerFile=>Template missing or unreadable: '$template'"));
+        duplicator_error("ERROR: Installer Template missing or unreadable. \nERROR INFO: Template [{$template}]");
     }
 
-    duplicator_log("INSTALLER FILE COMPLETED");
+    duplicator_log("INSTALLER FILE: Complete [{$installerCore}]");
 }
 
 /**
@@ -326,7 +335,6 @@ function duplicator_init_snapshotpath() {
 
     //plugins dir/files
     @chmod($path_plugin . 'files', 0755);
-    @chmod(duplicator_safe_path($path_plugin . 'files/installer.rescue.php'), 0644);
 
     //--------------------------------
     //FILE CREATION	
@@ -374,7 +382,7 @@ function duplicator_safe_path($path) {
  *  bytes every 40 seconds or else it forces a script hault
  */
 function duplicator_fcgi_flush() {
-    echo(str_repeat(' ', 264));
+    echo(str_repeat(' ', 265));
     @flush();
 }
 
@@ -387,12 +395,39 @@ function duplicator_snapshot_urlpath() {
 }
 
 /**
+ *  DUPLICATOR_RUN_APC
+ *  Runs the APC cache to pre-cache the php files
+ *  returns true if all files where cached
+ */
+function duplicator_run_apc() {
+	if(function_exists('apc_compile_file')){
+		$file01 = @apc_compile_file(DUPLICATOR_PLUGIN_PATH . "duplicator.php");
+		return ($file01);
+	} else {
+		return false;
+	}
+}
+
+/**
  *  DUPLICATOR_LOG
  *  Centralized logging method
  *  @param string $msg		The message to log
  */
-function duplicator_log($msg, $level = 0) {
-    @fwrite($GLOBALS['duplicator_package_log_handle'], "{$msg} \n");
+function duplicator_log($msg) {
+	@fwrite($GLOBALS['duplicator_package_log_handle'], "{$msg} \n"); 
 }
 
+/**
+ *  DUPLICATOR_ERROR
+ *  Centralized logging for errors
+ *  @param string $msg		The message to log
+ */
+function duplicator_error($msg) {
+	$err_msg  = "--------------------------------------------------------------------------------\n";
+	$err_msg .= "{$msg}\n";
+	$err_msg .= "Please try the process again. If the error persists please visit the Online FAQs\n";
+	$err_msg .= "--------------------------------------------------------------------------------";
+	@fwrite($GLOBALS['duplicator_package_log_handle'], "\n{$err_msg}"); 
+	die();
+}
 ?>

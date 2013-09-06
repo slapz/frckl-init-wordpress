@@ -172,10 +172,8 @@ if ($_POST['zip_manual']) {
 }
 
 //===============================
-//SCRIPTS: wp-config/database.sql
+//WP-CONFIG: wp-config
 //===============================
-//WP-CONFIG
-
 $wpconfig = @file_get_contents('wp-config.php', true);
 
 $patterns = array(
@@ -185,10 +183,10 @@ $patterns = array(
 	"/'DB_HOST',\s*'.*?'/");
 
 $replace = array(
-	"'DB_NAME', " . '\'' . $_POST['dbname'] . '\'',
-	"'DB_USER', " . '\'' . $_POST['dbuser'] . '\'',
-	"'DB_PASSWORD', " . '\'' . $_POST['dbpass'] . '\'',
-	"'DB_HOST', " . '\'' . $_POST['dbhost'] . '\'');
+	"'DB_NAME', "	  . '\'' . $_POST['dbname']				. '\'',
+	"'DB_USER', "	  . '\'' . $_POST['dbuser']				. '\'',
+	"'DB_PASSWORD', " . '\'' . DupUtil::preg_replacement_quote($_POST['dbpass']) . '\'',
+	"'DB_HOST', "	  . '\'' . $_POST['dbhost']				. '\'');
 
 //SSL CHECKS
 if ($_POST['ssl_admin']) {
@@ -228,7 +226,10 @@ file_put_contents('wp-config.php', $wpconfig);
 $wpconfig = null;
 
 
+
+//===============================
 //DATABASE SCRIPT
+//===============================
 @chmod("{$root_path}/database.sql", 0777);
 $sql_file = @file_get_contents('database.sql', true);
 if ($sql_file == false || strlen($sql_file) < 10) {

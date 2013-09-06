@@ -4,7 +4,7 @@ Donate link: www.lifeinthegrid.com/partner
 Tags: backup, restore, move, migrate, localhost, synchronize, duplicate, clone, automate, niche  
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 0.4.4 
+Stable tag: 0.4.6
 License: GPLv2
 
 Duplicate, clone, backup, move and transfer an entire site from one location to another.
@@ -27,15 +27,15 @@ For complete details see:
 [lifeinthegrid.com](http://lifeinthegrid.com/) 
 
 Contributors:
-<li>Aaron Crawford</li>
+<li>[Paal Joachim Romdahl](http://www.easywebdesigntutorials.com)</li>
+<li>Jonathan Foote</li>
 <li>Tomas Gurny</li>
-<li>Paal Joachim Romdahl</li>
-<li>Emilio De Fez www.canaryas.com/duplicator</li>
+<li>Aaron Crawford</li>
+
 
 Localization:
-<li>Hans-M. Herbrand (German) www.web266.de</li>
-<li>Emilio De Fez (Spanish) www.canaryas.com</li>
-<li>Rami (Hebrew) www.wp-tricks.co.il</li>
+<li>[Hans-M. Herbrand](http://www.web266.de) (German) </li>
+<li>[Emilio De Fez](http://www.canaryas.com) (Spanish) </li>
 
 
 == Installation ==

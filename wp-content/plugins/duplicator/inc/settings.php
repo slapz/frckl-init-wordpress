@@ -20,16 +20,18 @@
 	global $wpdb;
 	
 	$action_updated = null;
-	if ($_POST['action'] == 'save') {
+	if (isset($_POST['action']) && $_POST['action'] == 'save') {
 		//General Tab
-		$DuplicatorSettings->Set('uninstall_files',  isset($_POST['uninstall_files'])  ? "1" : "0");
-		$DuplicatorSettings->Set('uninstall_tables', isset($_POST['uninstall_tables']) ? "1" : "0");
+		$DuplicatorSettings->Set('uninstall_settings',	isset($_POST['uninstall_settings']) ? "1" : "0");
+		$DuplicatorSettings->Set('uninstall_files',		isset($_POST['uninstall_files'])  ? "1" : "0");
+		$DuplicatorSettings->Set('uninstall_tables',	isset($_POST['uninstall_tables']) ? "1" : "0");
 		
 		$action_updated  = $DuplicatorSettings->Save();
 	} 
 
-	$uninstall_files  = $DuplicatorSettings->Get('uninstall_files');
-	$uninstall_tables = $DuplicatorSettings->Get('uninstall_tables');
+	$uninstall_settings	= $DuplicatorSettings->Get('uninstall_settings');
+	$uninstall_files	= $DuplicatorSettings->Get('uninstall_files');
+	$uninstall_tables	= $DuplicatorSettings->Get('uninstall_tables');
 	
 	$space = @disk_total_space(DUPLICATOR_WPROOTPATH);
 	$space_free = @disk_free_space(DUPLICATOR_WPROOTPATH);
@@ -73,9 +75,13 @@
 					<tr valign="top">
 						<th scope="row"><label><?php _e("Uninstall Options", 'wpduplicator'); ?></label></th>
 						<td>
+							<input type="checkbox" name="uninstall_settings" id="uninstall_settings" <?php echo ($uninstall_settings) ? 'checked="checked"' : ''; ?> /> 
+							<label for="uninstall_settings"><?php _e("Delete Plugin Settings", 'wpduplicator') ?></label><br/>
+							
 							<input type="checkbox" name="uninstall_files" id="uninstall_files" <?php echo ($uninstall_files) ? 'checked="checked"' : ''; ?> /> 
-							<label for="uninstall_files"><?php _e("Delete entire snapshot directory when removing plugin", 'wpduplicator') ?></label><br/>
+							<label for="uninstall_files"><?php _e("Delete Entire Snapshot Directory", 'wpduplicator') ?></label><br/>
 							<p class="description"><?php _e("Snapshot Directory", 'wpduplicator'); ?>: <?php echo duplicator_safe_path(DUPLICATOR_SSDIR_PATH); ?></p>
+							
 						</td>
 					</tr>
 				</table>
@@ -119,9 +125,24 @@
 						   <td><?php echo $_SERVER['SERVER_SOFTWARE'] ?></td>
 					   </tr>
 					   <tr>
+						   <td><?php _e("APC Enabled", 'wpduplicator'); ?></td>
+						   <td><?php echo duplicator_run_apc() ? 'Yes' : 'No'  ?></td>
+					   </tr>					   
+					   <tr>
 						   <td><?php _e("Root Path", 'wpduplicator'); ?></td>
 						   <td><?php echo DUPLICATOR_WPROOTPATH ?></td>
-					   </tr>					   
+					   </tr>	
+					   <tr>
+						   <td><?php _e("Plugins Path", 'wpduplicator'); ?></td>
+						   <td><?php echo duplicator_safe_path(WP_PLUGIN_DIR) ?></td>
+					   </tr>	
+					   <tr>
+						   <td><?php _e("Packages Built", 'wpduplicator'); ?></td>
+						   <td>
+							   <?php echo get_option('duplicator_pack_passcount', 0) ?> &nbsp;
+							    <i style="font-size:11px"><?php _e("The number of successful packages created.", 'wpduplicator'); ?></i>
+						   </td>
+					   </tr>	
 					   <tr>
 						   <td class='dup-settings-diag-header' colspan="2">WordPress</td>
 					   </tr>
@@ -215,8 +236,7 @@
 						</tr>						   
 				   </tbody>
 			   </table><br/>
-			   
-			   
+
 			   <a href="javascript:void(0)" onclick="jQuery('#dup-phpinfo').toggle()" style="font-size:14px; font-weight: bold"><i><?php _e("Show/Hide All PHP Information", 'wpduplicator') ?></i></a>
 			   <div id="dup-phpinfo" style="display:none; width:95%">
 				   <?php 	echo "<div id='dup-server-info-area'>{$serverinfo}</div>"; ?>
