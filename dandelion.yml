@@ -6,6 +6,10 @@ password: password
 port: 
 path: 
 exclude:
+  - .editorconfig
   - .env-local
+  - .gitattributes
   - .gitignore
   - dandelion.yml
+  - license.txt
+  - README.md
