@@ -6,12 +6,11 @@
 
 desc('Default task');
 task('default', [], function(params) {
-  console.log('Installing NPM-packages and fetching default SCSS/JS-files from github.com/webgefrickel/...');
+  console.log('The fun begins!');
 
   var github = 'https://raw.github.com/webgefrickel/frckl-init-srcs/master/';
   var cmds = [
     // first get packages and jshint/grunt stuff
-    'curl -O ' + github + '.jshintrc',
     'curl -O ' + github + 'Gruntfile.js',
     'curl -O ' + github + 'package.json',
 
@@ -30,7 +29,7 @@ task('default', [], function(params) {
     'mkdir scss/layouts',
     'mkdir scss/libs',
     'mkdir scss/mixins',
-    'mkdir scss/modules',
+    'mkdir scss/components',
     'mkdir scss/partials',
     'mkdir scss/themes',
 
@@ -62,8 +61,8 @@ task('default', [], function(params) {
     'curl -o scss/layouts/_content.scss '     + github + 'scss/layouts/_content.scss',
     'curl -o scss/layouts/_sidebar.scss '     + github + 'scss/layouts/_sidebar.scss',
     'curl -o scss/layouts/_footer.scss '      + github + 'scss/layouts/_footer.scss',
-    'curl -o scss/modules/_columns.scss '     + github + 'scss/modules/_columns.scss',
-    'curl -o scss/modules/_media.scss '       + github + 'scss/modules/_media.scss',
+    'curl -o scss/components/_columns.scss '  + github + 'scss/components/_columns.scss',
+    'curl -o scss/components/_media.scss '    + github + 'scss/components/_media.scss',
 
     // get some default js-files
     'curl -o js/libs/modernizr.min.js '    + github + 'js/libs/modernizr.min.js',
