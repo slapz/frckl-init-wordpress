@@ -12,13 +12,25 @@ add_action('admin_init', function() {
     // remove_menu_page('edit.php?post_type=page'); // Pages
     // remove_menu_page('plugins.php'); // Plugins
     // remove_menu_page('themes.php'); // Appearance
+    // remove_submenu_page('themes.php', 'widgets.php');
+    // remove_submenu_page('themes.php', 'themes.php');
+    // remove_submenu_page('themes.php', 'theme-editor.php');
+    // remove_submenu_page('themes.php', 'customize.php');
     // remove_menu_page('users.php'); // Users
     // remove_menu_page('tools.php'); // Tools
     // remove_menu_page('options-general.php'); // Settings
-    // remove_submenu_page('themes.php', 'widgets.php');
-    // remove_submenu_page('themes.php', 'theme-editor.php');
   }
 });
+
+// hide stuff in the backend via custom css
+add_action('admin_head', function () {
+  echo '<style>
+    #something-in-the-backend {
+      display: none;
+    }
+  </style>';
+});
+
 
 // remove unused widgets
 add_action('widgets_init', function() {
@@ -193,7 +205,7 @@ add_theme_support('post-thumbnails');
 // initialize the custom navigation menu for wordpress found in header.php
 if (function_exists('register_nav_menu')) {
   register_nav_menus(array(
-    'custom_nav' => 'Hauptnavigation'
+    'nav' => 'Navigation'
  ));
 }
 

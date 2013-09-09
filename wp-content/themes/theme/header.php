@@ -19,10 +19,15 @@
   <div class="container">
 
     <header class="header" role="banner">
-      <h1><a href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a></h1>
-      <h2><?php bloginfo('description'); ?></h2>
+
+      <a href="<?php echo home_url(); ?>" class="site-logo">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt="<?php bloginfo('name'); ?>" class="site-logo__image">
+      </a>
+
+      <p class="site-description"><?php bloginfo('description'); ?></p>
+
     </header>
 
     <nav class="nav" role="navigation">
-      <?php wp_nav_menu(array('theme_location' => 'custom_nav', 'depth' => 1)); ?>
+      <?php wp_nav_menu(array('theme_location' => 'nav', 'depth' => 1)); ?>
     </nav>
