@@ -10,6 +10,11 @@ $table_prefix  = 'wrdprss_';
 
 define('WPLANG', 'de_DE');
 
+// for automatic background updates define ftp-user and pass here
+define('FTP_USER', '');
+define('FTP_PASS', '');
+define('FTP_HOST', '');
+
 // define your home and siteul here rather than in the DB
 define('WP_HOME', 'http://wordpress.live');
 define('WP_SITEURL', 'http://wordpress.live');

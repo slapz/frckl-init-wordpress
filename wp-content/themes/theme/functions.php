@@ -3,6 +3,9 @@
 /* backend config and backend-restrictionos for normal editor-users
 ====================================================================== */
 
+// add automatic updates even if we version-control this site
+add_filter('automatic_updates_is_vcs_checkout', '__return_false');
+
 // delete menu items for editors
 add_action('admin_init', function() {
   if (current_user_can('editor')) {
